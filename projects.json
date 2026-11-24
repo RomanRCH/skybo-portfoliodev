@@ -1,0 +1,92 @@
+[
+  {
+    "id": "01",
+    "title": "01 / PORTALDOT MOTION REEL",
+    "category": "MOTION",
+    "year": "2026",
+    "role": "MOTION & 3D",
+    "description": "High-contrast 3D promo visuals, kinetic typography loops and launch motion narratives engineered for Web3 feeds",
+    "tags": [
+      "3D MOTION",
+      "KINETIC TYPE",
+      "LAUNCH FILM"
+    ],
+    "externalUrl": "",
+    "videoUrl": "./videos/01-portaldot-motion-reel-1795540749674.mp4"
+  },
+  {
+    "id": "02",
+    "title": "02 / AI AGENT EXTENSION",
+    "category": "AI",
+    "year": "2026",
+    "role": "AI ENGINEERING",
+    "description": "Custom browser automation suite combining LLM summarization, thread extraction and instant workflow triggers",
+    "tags": [
+      "LLM",
+      "CHROME EXT",
+      "AUTOMATION"
+    ],
+    "externalUrl": "",
+    "videoUrl": ""
+  },
+  {
+    "id": "03",
+    "title": "03 / WEB3 ECOSYSTEM FILM",
+    "category": "WEB3",
+    "year": "2026",
+    "role": "CREATIVE DIRECTION",
+    "description": "End-to-end visual storytelling kit with isometric product explainers and protocol launch teasers",
+    "tags": [
+      "WEB3",
+      "STORYTELLING",
+      "ISOMETRIC"
+    ],
+    "externalUrl": "",
+    "videoUrl": ""
+  },
+  {
+    "id": "04",
+    "title": "04 / PIXEL RUMBLE ARENA",
+    "category": "GAMES",
+    "year": "2026",
+    "role": "GAME DEV",
+    "description": "Fast-paced retro arcade browser experience with tactile touch physics, custom pixel shaders and instant rounds",
+    "tags": [
+      "ARCADE",
+      "CANVAS",
+      "SHADERS"
+    ],
+    "externalUrl": "",
+    "videoUrl": ""
+  },
+  {
+    "id": "05",
+    "title": "05 / KINETIC BRAND SYSTEM",
+    "category": "MOTION",
+    "year": "2026",
+    "role": "BRAND DESIGN",
+    "description": "Modular motion identity language uniting blueprint geometry, glowing HUD micro-interactions and responsive loops",
+    "tags": [
+      "BRANDING",
+      "HUD UI",
+      "SYSTEM"
+    ],
+    "externalUrl": "",
+    "videoUrl": ""
+  },
+  {
+    "id": "06",
+    "title": "06 / 3D TANK ENGINE",
+    "category": "GAMES",
+    "year": "2026",
+    "role": "WEBGL ARCHITECTURE",
+    "description": "Real-time WebGL combat arena built with THREE.JS featuring dynamic turret tracking, projectile physics and stylized lighting",
+    "tags": [
+      "THREE.JS",
+      "WEBGL",
+      "PHYSICS"
+    ],
+    "externalUrl": "",
+    "videoUrl": ""
+  }
+]
