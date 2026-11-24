@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>&gt; skybo // BUILDING &amp; AI</title>
-  <meta name="description" content="> skybo — Building & AI — Web3, Tech, Travel — Interactive WebGL portfolio & digital business card" />
+  <meta name="description" content="> skybo — Building & AI — Web3, Tech, Travel — Interactive WebGL portfolio and digital business card" />
 
   <!-- Google Fonts: Space Grotesk (Display), JetBrains Mono (HUD/Code), Silkscreen (Pixel Brand Mark) -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -33,66 +33,97 @@
   <style>
     /* =========================================================================
        DESIGN TOKENS & DUAL LIVE THEME SYSTEM
-       - DARK // ACTIVE: Deep Obsidian #05080F + Ice-Blue #38BDF8 / #7DD3FC
-       - LIGHT // BLUEPRINT: Crisp Off-White #F4F7FB + Slate Ink #0F172A + #2563EB
+       - DARK // ACTIVE: Deep Navy/Obsidian #070B12 + Sky-Blue #7CB7E8 Accent
+       - LIGHT // BLUEPRINT: Crisp Blueprint #F4F7FC + Slate #1A2230 + #7CB7E8 / #5A9ED6
        ========================================================================= */
     :root,
     html[data-theme="dark"] {
-      --bg: #05080F;
-      --bg-alt: #0A101C;
-      --surface: rgba(10, 16, 28, 0.74);
-      --surface-strong: rgba(8, 12, 22, 0.95);
-      --slot-bg: #070C16;
-      --border: rgba(148, 184, 224, 0.16);
-      --border-strong: rgba(56, 189, 248, 0.48);
+      --bg: #070B12;
+      --bg-alt: #0C121E;
+      --surface: rgba(12, 18, 30, 0.76);
+      --surface-strong: rgba(9, 14, 24, 0.96);
+      --slot-bg: #090F1A;
+      --border: rgba(124, 183, 232, 0.17);
+      --border-strong: rgba(124, 183, 232, 0.5);
       --text-primary: #F1F5FA;
       --text-secondary: #A1B1C8;
-      --text-muted: #64748B;
-      --accent: #38BDF8;
-      --accent-bright: #7DD3FC;
-      --accent-glow: rgba(56, 189, 248, 0.32);
-      --badge-bg: rgba(56, 189, 248, 0.11);
-      --grid-fallback: rgba(56, 189, 248, 0.085);
-      --scanline: rgba(125, 211, 252, 0.38);
+      --text-muted: #677A94;
+      --accent: #7CB7E8;
+      --accent-bright: #93CEFF;
+      --accent-brand: #7CB7E8;
+      --accent-glow: rgba(124, 183, 232, 0.28);
+      --badge-bg: rgba(124, 183, 232, 0.12);
+      --grid-fallback: rgba(124, 183, 232, 0.09);
+      --scanline: rgba(147, 206, 255, 0.42);
       --shadow-card: 0 24px 70px -20px rgba(0, 0, 0, 0.85);
       --code-key: #8DA2BF;
-      --code-str: #7DD3FC;
-      --code-kw: #38BDF8;
+      --code-str: #93CEFF;
+      --code-kw: #7CB7E8;
       --code-bool: #4ADE80;
       --code-punct: #94A3B8;
       --code-comment: #5D708A;
-      --admin-bg: rgba(10, 18, 34, 0.95);
+      --admin-bg: rgba(10, 17, 30, 0.96);
     }
 
     html[data-theme="light"] {
-      --bg: #F4F7FB;
-      --bg-alt: #E8EFF8;
-      --surface: rgba(255, 255, 255, 0.84);
+      --bg: #F4F7FC;
+      --bg-alt: #E7EFFA;
+      --surface: rgba(255, 255, 255, 0.85);
       --surface-strong: rgba(255, 255, 255, 0.97);
-      --slot-bg: #ECF2FA;
-      --border: rgba(15, 23, 42, 0.12);
-      --border-strong: rgba(37, 99, 235, 0.5);
-      --text-primary: #0F172A;
-      --text-secondary: #3B4961;
-      --text-muted: #64748B;
-      --accent: #3B82F6;
-      --accent-bright: #2563EB;
-      --accent-glow: rgba(59, 130, 246, 0.22);
-      --badge-bg: rgba(59, 130, 246, 0.1);
-      --grid-fallback: rgba(59, 130, 246, 0.13);
-      --scanline: rgba(59, 130, 246, 0.35);
-      --shadow-card: 0 24px 60px -24px rgba(15, 23, 42, 0.16);
+      --slot-bg: #EAF1FA;
+      --border: rgba(26, 34, 48, 0.12);
+      --border-strong: rgba(90, 158, 214, 0.55);
+      --text-primary: #1A2230;
+      --text-secondary: #43526A;
+      --text-muted: #6C7C94;
+      --accent: #5A9ED6;
+      --accent-bright: #468BC6;
+      --accent-brand: #7CB7E8;
+      --accent-glow: rgba(124, 183, 232, 0.26);
+      --badge-bg: rgba(124, 183, 232, 0.16);
+      --grid-fallback: rgba(90, 158, 214, 0.14);
+      --scanline: rgba(90, 158, 214, 0.38);
+      --shadow-card: 0 24px 60px -24px rgba(26, 34, 48, 0.15);
       --code-key: #475569;
-      --code-str: #1D4ED8;
-      --code-kw: #2563EB;
+      --code-str: #2B6EA8;
+      --code-kw: #468BC6;
       --code-bool: #15803D;
       --code-punct: #64748B;
       --code-comment: #7A8BA3;
-      --admin-bg: rgba(241, 246, 255, 0.96);
+      --admin-bg: rgba(244, 247, 252, 0.97);
     }
 
     *, *::before, *::after {
       box-sizing: border-box;
+    }
+
+    /* =========================================================================
+       NATIVE STANDARD DESKTOP ARROW CURSOR IN SKYBO SKY-BLUE (#7CB7E8)
+       - Classic arrow geometry with #0B1220 outline for crisp Dark & Light visibility
+       - Slightly brighter #93CEFF arrow on interactive elements
+       - Standard I-beam text cursor inside form inputs and textareas
+       ========================================================================= */
+    html,
+    body {
+      cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'%3E%3Cpath d='M3 2L3 20L8.2 15.2L11.6 22L14.2 20.7L10.8 14L17.5 14L3 2Z' fill='%237CB7E8' stroke='%230B1220' stroke-width='1.55' stroke-linejoin='round'/%3E%3C/svg%3E") 3 2, auto;
+    }
+
+    a,
+    button,
+    select,
+    label,
+    [role="button"],
+    .project-card,
+    #skybo-terminal {
+      cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'%3E%3Cpath d='M3 2L3 20L8.2 15.2L11.6 22L14.2 20.7L10.8 14L17.5 14L3 2Z' fill='%2393CEFF' stroke='%230B1220' stroke-width='1.55' stroke-linejoin='round'/%3E%3C/svg%3E") 3 2, pointer;
+    }
+
+    input[type="text"],
+    input[type="password"],
+    input[type="url"],
+    input[type="search"],
+    textarea {
+      cursor: text;
     }
 
     html {
@@ -139,20 +170,20 @@
       z-index: 1;
       pointer-events: none;
       background:
-        radial-gradient(circle at 76% 18%, var(--accent-glow) 0%, transparent 44%),
-        radial-gradient(circle at 16% 80%, rgba(56, 189, 248, 0.12) 0%, transparent 46%),
-        radial-gradient(ellipse at center, transparent 48%, rgba(0, 0, 0, 0.46) 100%);
+        radial-gradient(circle at 76% 18%, var(--accent-glow) 0%, transparent 45%),
+        radial-gradient(circle at 16% 80%, rgba(124, 183, 232, 0.12) 0%, transparent 46%),
+        radial-gradient(ellipse at center, transparent 48%, rgba(0, 0, 0, 0.45) 100%);
       transition: opacity 0.38s ease;
     }
 
     html[data-theme="light"] .ambient-vignette {
       background:
-        radial-gradient(circle at 76% 18%, rgba(59, 130, 246, 0.14) 0%, transparent 44%),
-        radial-gradient(circle at 14% 82%, rgba(59, 130, 246, 0.1) 0%, transparent 46%),
-        radial-gradient(ellipse at center, transparent 58%, rgba(15, 23, 42, 0.05) 100%);
+        radial-gradient(circle at 76% 18%, rgba(124, 183, 232, 0.2) 0%, transparent 45%),
+        radial-gradient(circle at 14% 82%, rgba(90, 158, 214, 0.14) 0%, transparent 46%),
+        radial-gradient(ellipse at center, transparent 58%, rgba(26, 34, 48, 0.05) 100%);
     }
 
-    /* Lightweight Inline SVG Film Grain Overlay (No Base64 Images) */
+    /* Subtle Inline SVG Film Grain Overlay (No Base64 Images) */
     #film-grain-overlay {
       position: fixed;
       inset: 0;
@@ -226,7 +257,7 @@
       display: inline-block;
       width: 0.54em;
       height: 0.86em;
-      background-color: var(--accent-bright);
+      background-color: var(--accent-brand);
       vertical-align: -0.08em;
       margin-left: 3px;
       animation: blinkStep 1.05s steps(2, start) infinite;
@@ -303,7 +334,7 @@
       position: absolute;
       width: 14px;
       height: 14px;
-      border-color: var(--accent-bright);
+      border-color: var(--accent-brand);
       opacity: 0.65;
       transition: transform 0.25s ease, opacity 0.25s ease;
       pointer-events: none;
@@ -332,7 +363,7 @@
       transform: scale(1.035);
     }
 
-    /* Floating Index Mode Hover Preview (Desktop) */
+    /* Floating Index Mode Hover Preview (Desktop Fine Pointer Only) */
     #index-hover-preview {
       position: fixed;
       z-index: 45;
@@ -348,72 +379,7 @@
       transform: translate3d(0, 0, 0) scale(1);
     }
 
-    /* Custom Magnetic Reactive Cursor (Desktop Fine Pointer Only) */
-    #custom-cursor-ring,
-    #custom-cursor-dot {
-      position: fixed;
-      top: 0;
-      left: 0;
-      pointer-events: none;
-      z-index: 9999;
-      opacity: 0;
-      transform: translate3d(-100px, -100px, 0);
-      will-change: transform, width, height, opacity;
-    }
-
-    #custom-cursor-dot {
-      width: 6px;
-      height: 6px;
-      margin-left: -3px;
-      margin-top: -3px;
-      border-radius: 9999px;
-      background-color: var(--accent-bright);
-      box-shadow: 0 0 10px var(--accent-bright);
-      transition: opacity 0.2s ease;
-    }
-
-    #custom-cursor-ring {
-      width: 34px;
-      height: 34px;
-      margin-left: -17px;
-      margin-top: -17px;
-      border-radius: 9999px;
-      border: 1.5px solid var(--accent-bright);
-      background: transparent;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      transition: width 0.22s ease, height 0.22s ease, margin 0.22s ease, background-color 0.22s ease, border-color 0.22s ease, opacity 0.2s ease;
-    }
-
-    #custom-cursor-ring.is-hover {
-      width: 82px;
-      height: 82px;
-      margin-left: -41px;
-      margin-top: -41px;
-      background: var(--badge-bg);
-      border-color: var(--accent-bright);
-      backdrop-filter: blur(4px);
-    }
-
-    #custom-cursor-label {
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 9px;
-      font-weight: 600;
-      letter-spacing: 0.12em;
-      color: var(--text-primary);
-      opacity: 0;
-      transition: opacity 0.18s ease;
-      white-space: nowrap;
-    }
-
-    #custom-cursor-ring.is-hover #custom-cursor-label {
-      opacity: 1;
-    }
-
     @media (hover: none), (pointer: coarse) {
-      #custom-cursor-ring,
-      #custom-cursor-dot,
       #index-hover-preview {
         display: none !important;
       }
@@ -513,14 +479,14 @@
     }
   </style>
 </head>
-<body class="selection:bg-sky-400/30 selection:text-sky-200">
+<body class="selection:bg-sky-300/30 selection:text-sky-100">
   <!-- =========================================================================
        FAST MINIMAL BOOT PRELOADER (~0.75S)
        ========================================================================= -->
   <div id="preloader" aria-live="polite" aria-label="Loading skybo interface">
     <div class="w-full max-w-sm px-6 space-y-4">
       <div class="flex items-center justify-between font-mono text-xs tracking-[0.2em]" style="color: var(--text-muted);">
-        <span class="font-pixel text-sm" style="color: var(--accent-bright);">&gt; skybo</span>
+        <span class="font-pixel text-sm" style="color: var(--accent-brand);">&gt; SKYBO</span>
         <span id="preloader-percent" style="color: var(--text-primary);">000%</span>
       </div>
       <div class="w-full h-1 rounded-full overflow-hidden" style="background: var(--border);">
@@ -557,17 +523,11 @@
       <span class="vf-corner vf-br"></span>
       <video id="index-preview-video" class="hidden absolute inset-0 w-full h-full object-cover z-10" muted loop playsinline autoplay></video>
       <div id="index-preview-placeholder" class="absolute inset-0 z-10 flex flex-col items-center justify-center p-4 text-center space-y-1.5">
-        <span id="index-preview-slot" class="font-mono text-[10px] tracking-widest" style="color: var(--accent-bright);">SLOT_01 // 16:9</span>
-        <span class="font-mono text-[10px]" style="color: var(--text-primary);">VIDEO SLOT // READY FOR .MP4</span>
+        <span id="index-preview-slot" class="font-mono text-[10px] tracking-widest" style="color: var(--accent-brand);">SLOT_01 // 16:9</span>
+        <span class="font-mono text-[10px]" style="color: var(--text-primary);">VIDEO SLOT READY // 16:9</span>
       </div>
     </div>
   </div>
-
-  <!-- Custom Magnetic Reactive Cursor (Desktop Only) -->
-  <div id="custom-cursor-ring" aria-hidden="true">
-    <span id="custom-cursor-label"></span>
-  </div>
-  <div id="custom-cursor-dot" aria-hidden="true"></div>
 
   <!-- Hidden File Inputs: Local Offline Preview & Admin GitHub Upload -->
   <input id="local-preview-input" type="file" accept="video/mp4,video/webm,video/*" class="hidden" aria-hidden="true" />
@@ -577,42 +537,36 @@
        MAIN INTERFACE LAYER
        ========================================================================= -->
   <div id="app-shell" class="relative z-10 min-h-screen flex flex-col">
-    <!-- STICKY HUD HEADER -->
+    <!-- STICKY HUD HEADER (NO CLOCK WIDGET — ONLY SFX & THEME CONTROLS ON RIGHT) -->
     <header class="sticky top-0 z-40 nav-glass">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 sm:h-[72px] flex items-center justify-between gap-3">
-        <!-- Brand Mark (Secret 5-click trigger with zero visible hints) -->
+        <!-- Brand Mark (Secret 5-click trigger within 2.5s — zero visible hints) -->
         <a
           id="brand-trigger"
           href="#identity"
           class="flex items-center gap-2 shrink-0 select-none"
-          data-cursor="IDENTITY"
+          aria-label="skybo home"
         >
-          <span class="font-pixel text-base sm:text-lg tracking-tight flex items-center" style="color: var(--accent-bright);">
-            <span style="color: var(--text-muted); margin-right: 6px;">&gt;</span>skybo<span class="cursor-blink" aria-hidden="true"></span>
+          <span class="font-pixel text-base sm:text-lg tracking-tight flex items-center" style="color: var(--accent-brand);">
+            <span style="color: var(--text-muted); margin-right: 6px;">&gt;</span>SKYBO<span class="cursor-blink" aria-hidden="true"></span>
           </span>
         </a>
 
         <!-- Center Navigation Links -->
         <nav class="hidden md:flex items-center gap-7 font-mono text-xs tracking-[0.18em]" aria-label="Primary navigation">
-          <a href="#work" class="transition-colors hover:text-sky-400" style="color: var(--text-secondary);" data-cursor="EXPLORE">WORK</a>
-          <a href="#identity" class="transition-colors hover:text-sky-400" style="color: var(--text-secondary);" data-cursor="IDENTITY">IDENTITY</a>
-          <a href="#contact" class="transition-colors hover:text-sky-400" style="color: var(--text-secondary);" data-cursor="LINK">CONTACT</a>
+          <a href="#work" class="transition-colors hover:text-[#7CB7E8]" style="color: var(--text-secondary);">WORK</a>
+          <a href="#identity" class="transition-colors hover:text-[#7CB7E8]" style="color: var(--text-secondary);">IDENTITY</a>
+          <a href="#contact" class="transition-colors hover:text-[#7CB7E8]" style="color: var(--text-secondary);">CONTACT</a>
         </nav>
 
-        <!-- Right HUD Controls: Moscow Clock, Web Audio SFX Toggle, Theme Switcher -->
+        <!-- Right HUD Controls: ONLY Web Audio SFX Toggle & Live Theme Switcher -->
         <div class="flex items-center gap-2 sm:gap-2.5">
-          <div class="hidden xl:flex items-center gap-2 px-3 py-1.5 rounded-lg border font-mono text-[11px]" style="border-color: var(--border); background: var(--badge-bg); color: var(--text-secondary);">
-            <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
-            <span id="live-clock">MSK --:--:--</span>
-          </div>
-
           <button
             id="sfx-toggle"
             type="button"
             class="px-2.5 sm:px-3 py-1.5 sm:py-2 rounded-lg border font-mono text-[10px] sm:text-[11px] tracking-wider transition-all flex items-center gap-1.5"
             style="border-color: var(--border); background: var(--surface); color: var(--text-secondary);"
             aria-pressed="false"
-            data-cursor="LINK"
           >
             <span id="sfx-dot" class="w-1.5 h-1.5 rounded-full" style="background: var(--text-muted);"></span>
             <span id="sfx-label">SFX: OFF</span>
@@ -624,22 +578,18 @@
             class="px-2.5 sm:px-3.5 py-1.5 sm:py-2 rounded-lg border font-mono text-[10px] sm:text-[11px] tracking-wider transition-all flex items-center gap-2"
             style="border-color: var(--border-strong); background: var(--badge-bg); color: var(--text-primary);"
             aria-label="Switch color theme"
-            data-cursor="LINK"
           >
-            <span class="w-2 h-2 rounded-full" style="background: var(--accent-bright);"></span>
+            <span class="w-2 h-2 rounded-full" style="background: var(--accent-brand);"></span>
             <span id="theme-label">DARK // ACTIVE</span>
           </button>
         </div>
       </div>
 
-      <!-- Mobile Quick Navigation Bar -->
-      <div class="md:hidden border-t px-4 py-2 flex items-center justify-between font-mono text-[11px] tracking-[0.16em]" style="border-color: var(--border);">
-        <div class="flex items-center gap-5">
-          <a href="#work" style="color: var(--text-secondary);">WORK</a>
-          <a href="#identity" style="color: var(--text-secondary);">IDENTITY</a>
-          <a href="#contact" style="color: var(--text-secondary);">CONTACT</a>
-        </div>
-        <span id="live-clock-mobile" class="text-[10px]" style="color: var(--text-muted);">MSK --:--</span>
+      <!-- Mobile Quick Navigation Bar (No Clock) -->
+      <div class="md:hidden border-t px-4 py-2 flex items-center justify-center gap-7 font-mono text-[11px] tracking-[0.16em]" style="border-color: var(--border);">
+        <a href="#work" style="color: var(--text-secondary);">WORK</a>
+        <a href="#identity" style="color: var(--text-secondary);">IDENTITY</a>
+        <a href="#contact" style="color: var(--text-secondary);">CONTACT</a>
       </div>
     </header>
 
@@ -657,17 +607,17 @@
             </div>
 
             <div class="space-y-3">
-              <div class="font-pixel text-sm sm:text-base tracking-wide" style="color: var(--accent);">
-                &gt; skybo
+              <div class="font-pixel text-sm sm:text-base tracking-wide" style="color: var(--accent-brand);">
+                &gt; SKYBO
               </div>
               <h1
                 class="font-display font-bold tracking-tight leading-[0.95]"
                 style="font-size: clamp(2.85rem, 7vw, 5.4rem); color: var(--text-primary);"
               >
-                BUILDING <span style="color: var(--accent-bright);">&amp;</span> AI
+                BUILDING <span style="color: var(--accent-brand);">&amp;</span> AI
               </h1>
-              <div class="font-mono text-xs sm:text-sm tracking-[0.24em] uppercase pt-1" style="color: var(--accent-bright);">
-                Web3 &bull; Tech &bull; Travel
+              <div class="font-mono text-xs sm:text-sm tracking-[0.24em] uppercase pt-1" style="color: var(--accent);">
+                WEB3 &bull; TECH &bull; TRAVEL
               </div>
             </div>
 
@@ -675,16 +625,16 @@
               Interactive web experiments, Web3 motion narratives, AI automations and browser games crafted from scratch
             </p>
 
-            <!-- Social Action Row: ONLY X (@Skybornfx) & Telegram DM (@SkybornFX) -->
+            <!-- Social Action Row: EXACTLY TWO — X (@Skybornfx) & Telegram DM (@SkybornFX) -->
             <div class="flex flex-wrap items-center gap-3 pt-1">
               <a
                 href="https://x.com/Skybornfx"
                 target="_blank"
                 rel="noopener noreferrer"
+                aria-label="Follow @Skybornfx on X"
                 title="Follow @Skybornfx on X"
                 class="panel-glass px-5 py-3 rounded-xl font-mono text-xs sm:text-sm flex items-center gap-2.5"
                 style="color: var(--text-primary);"
-                data-cursor="LINK"
               >
                 <svg class="w-4 h-4 shrink-0" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
                   <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
@@ -696,10 +646,10 @@
                 href="https://t.me/SkybornFX"
                 target="_blank"
                 rel="noopener noreferrer"
+                aria-label="Message @SkybornFX on Telegram"
                 title="Message @SkybornFX on Telegram"
                 class="panel-glass px-5 py-3 rounded-xl font-mono text-xs sm:text-sm flex items-center gap-2.5"
                 style="color: var(--text-primary);"
-                data-cursor="LINK"
               >
                 <svg class="w-4 h-4 shrink-0" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
                   <path d="M21.944 4.212a1.1 1.1 0 0 0-1.16-.17L2.63 11.49a1.05 1.05 0 0 0 .06 1.96l4.46 1.54 1.72 5.45a1 1 0 0 0 1.66.41l2.58-2.55 4.44 3.26a1.1 1.1 0 0 0 1.72-.66l3.01-15.46a1.1 1.1 0 0 0-.336-1.228ZM9.65 14.31l7.97-6.48-6.37 7.64-.25 3.11-1.35-4.27Z" />
@@ -714,10 +664,9 @@
             <div
               id="identity-card"
               class="panel-glass rounded-2xl p-5 sm:p-6 relative overflow-hidden"
-              data-cursor="IDENTITY"
             >
               <!-- Decorative Wireframe Hexagon Watermark -->
-              <svg class="absolute -right-6 -top-6 w-36 h-36 opacity-[0.09] pointer-events-none" viewBox="0 0 120 120" fill="none" stroke="currentColor" stroke-width="1.2" style="color: var(--accent-bright);" aria-hidden="true">
+              <svg class="absolute -right-6 -top-6 w-36 h-36 opacity-[0.09] pointer-events-none" viewBox="0 0 120 120" fill="none" stroke="currentColor" stroke-width="1.2" style="color: var(--accent-brand);" aria-hidden="true">
                 <polygon points="60,8 104,34 104,86 60,112 16,86 16,34" />
                 <polygon points="60,24 90,42 90,78 60,96 30,78 30,42" />
                 <line x1="60" y1="8" x2="60" y2="112" />
@@ -728,7 +677,7 @@
               <!-- Top Module Bar -->
               <div class="flex items-center justify-between gap-2 mb-4 relative z-10">
                 <div class="flex items-center gap-2 font-mono text-[11px] sm:text-xs tracking-wider" style="color: var(--text-primary);">
-                  <span class="w-2 h-2 rounded-full bg-emerald-400 shadow-[0_0_8px_#4ADE80]"></span>
+                  <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse shadow-[0_0_8px_#4ADE80]"></span>
                   <span>IDENTITY_MODULE // V2.6</span>
                 </div>
                 <span class="px-2.5 py-1 rounded-md border font-mono text-[10px] font-semibold tracking-widest uppercase" style="border-color: var(--border-strong); background: var(--badge-bg); color: var(--accent-bright);">
@@ -739,17 +688,16 @@
               <!-- Inner Terminal Window: skybo.config.ts (Character-by-Character Typewriter) -->
               <div
                 id="skybo-terminal"
-                class="rounded-xl border p-4 mb-4 font-mono relative overflow-hidden cursor-pointer select-none z-10"
+                class="rounded-xl border p-4 mb-4 font-mono relative overflow-hidden select-none z-10"
                 style="background: var(--slot-bg); border-color: var(--border);"
                 role="button"
                 tabindex="0"
                 aria-label="skybo.config.ts live code terminal"
                 title="Click to replay typing animation"
-                data-cursor="IDENTITY"
               >
                 <div class="flex items-center justify-between mb-3 pb-2 border-b" style="border-color: var(--border);">
                   <div class="flex items-center gap-1.5">
-                    <span class="w-2.5 h-2.5 rounded-full opacity-85" style="background: var(--accent-bright);"></span>
+                    <span class="w-2.5 h-2.5 rounded-full opacity-90" style="background: var(--accent-brand);"></span>
                     <span class="w-2.5 h-2.5 rounded-full opacity-55" style="background: var(--accent);"></span>
                     <span class="w-2.5 h-2.5 rounded-full opacity-30" style="background: var(--text-muted);"></span>
                   </div>
@@ -772,7 +720,7 @@
                 </div>
                 <div class="rounded-xl border px-3 py-2.5" style="background: var(--slot-bg); border-color: var(--border);">
                   <div class="font-mono text-[9px] sm:text-[10px] tracking-widest uppercase" style="color: var(--text-muted);">ENGINE</div>
-                  <div class="font-mono text-xs sm:text-sm font-semibold mt-0.5" style="color: var(--accent-bright);">WEBGL 3D</div>
+                  <div class="font-mono text-xs sm:text-sm font-semibold mt-0.5" style="color: var(--accent-brand);">WEBGL 3D</div>
                 </div>
                 <div class="rounded-xl border px-3 py-2.5" style="background: var(--slot-bg); border-color: var(--border);">
                   <div class="font-mono text-[9px] sm:text-[10px] tracking-widest uppercase" style="color: var(--text-muted);">SIGNAL</div>
@@ -788,13 +736,13 @@
       </section>
 
       <!-- =====================================================================
-           SELECTED WORK SECTION (#work) WITH 16:9 VIDEO SLOTS
+           SELECTED WORK SECTION (#work) WITH 6 16:9 VIDEO PLACEHOLDER SLOTS
            ===================================================================== -->
       <section id="work" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14 sm:py-20 border-t" style="border-color: var(--border);">
         <div class="flex flex-col lg:flex-row lg:items-end justify-between gap-6 mb-10">
           <div class="space-y-2">
-            <div class="font-mono text-xs tracking-[0.25em] uppercase flex items-center gap-2.5" style="color: var(--accent-bright);">
-              <span class="w-6 h-[1px]" style="background: var(--accent-bright);"></span>
+            <div class="font-mono text-xs tracking-[0.25em] uppercase flex items-center gap-2.5" style="color: var(--accent-brand);">
+              <span class="w-6 h-[1px]" style="background: var(--accent-brand);"></span>
               <span>SELECTED ARCHIVE // 16:9 VIEWPORTS</span>
             </div>
             <h2 class="font-display text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight" style="color: var(--text-primary);">
@@ -805,17 +753,17 @@
           <div class="flex flex-wrap items-center justify-between lg:justify-end gap-3">
             <!-- Category Filter Pills -->
             <div id="filter-tabs" class="flex flex-wrap items-center gap-1.5 font-mono text-[11px]" role="tablist" aria-label="Filter projects by category">
-              <button type="button" data-filter="ALL" class="filter-btn px-3 py-2 rounded-lg border transition-all" data-cursor="EXPLORE">ALL</button>
-              <button type="button" data-filter="WEB3" class="filter-btn px-3 py-2 rounded-lg border transition-all" data-cursor="EXPLORE">WEB3</button>
-              <button type="button" data-filter="AI" class="filter-btn px-3 py-2 rounded-lg border transition-all" data-cursor="EXPLORE">AI</button>
-              <button type="button" data-filter="MOTION" class="filter-btn px-3 py-2 rounded-lg border transition-all" data-cursor="EXPLORE">MOTION</button>
-              <button type="button" data-filter="GAMES" class="filter-btn px-3 py-2 rounded-lg border transition-all" data-cursor="EXPLORE">GAMES</button>
+              <button type="button" data-filter="ALL" class="filter-btn px-3 py-2 rounded-lg border transition-all">ALL</button>
+              <button type="button" data-filter="WEB3" class="filter-btn px-3 py-2 rounded-lg border transition-all">WEB3</button>
+              <button type="button" data-filter="AI" class="filter-btn px-3 py-2 rounded-lg border transition-all">AI</button>
+              <button type="button" data-filter="MOTION" class="filter-btn px-3 py-2 rounded-lg border transition-all">MOTION</button>
+              <button type="button" data-filter="GAMES" class="filter-btn px-3 py-2 rounded-lg border transition-all">GAMES</button>
             </div>
 
             <!-- GRID / INDEX Switcher -->
             <div class="inline-flex rounded-lg border p-0.5 font-mono text-[11px]" style="border-color: var(--border); background: var(--surface);">
-              <button id="view-grid-btn" type="button" class="px-3 py-1.5 rounded-md transition-all" data-cursor="EXPLORE">GRID</button>
-              <button id="view-index-btn" type="button" class="px-3 py-1.5 rounded-md transition-all" data-cursor="EXPLORE">INDEX</button>
+              <button id="view-grid-btn" type="button" class="px-3 py-1.5 rounded-md transition-all">GRID</button>
+              <button id="view-index-btn" type="button" class="px-3 py-1.5 rounded-md transition-all">INDEX</button>
             </div>
           </div>
         </div>
@@ -832,7 +780,7 @@
       <div class="panel-glass rounded-3xl p-7 sm:p-11 relative overflow-hidden">
         <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-8">
           <div class="space-y-3">
-            <div class="font-mono text-xs tracking-[0.25em] uppercase" style="color: var(--accent-bright);">
+            <div class="font-mono text-xs tracking-[0.25em] uppercase" style="color: var(--accent-brand);">
               DIRECT SIGNAL // OPEN FOR NEW PROJECTS
             </div>
             <h2 class="font-display text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight" style="color: var(--text-primary);">
@@ -848,10 +796,10 @@
               href="https://x.com/Skybornfx"
               target="_blank"
               rel="noopener noreferrer"
+              aria-label="Follow @Skybornfx on X"
               title="Follow @Skybornfx on X"
               class="px-5 py-3 rounded-xl font-mono text-xs sm:text-sm font-semibold tracking-wider transition-all hover:brightness-110 inline-flex items-center gap-2.5"
-              style="background: linear-gradient(135deg, var(--accent), var(--accent-bright)); color: #05080F;"
-              data-cursor="LINK"
+              style="background: linear-gradient(135deg, var(--accent-brand), var(--accent-bright)); color: #070B12;"
             >
               <svg class="w-4 h-4 shrink-0" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
                 <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
@@ -863,10 +811,10 @@
               href="https://t.me/SkybornFX"
               target="_blank"
               rel="noopener noreferrer"
+              aria-label="Message @SkybornFX on Telegram"
               title="Message @SkybornFX on Telegram"
               class="panel-glass px-5 py-3 rounded-xl font-mono text-xs sm:text-sm inline-flex items-center gap-2.5"
               style="color: var(--text-primary);"
-              data-cursor="LINK"
             >
               <svg class="w-4 h-4 shrink-0" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
                 <path d="M21.944 4.212a1.1 1.1 0 0 0-1.16-.17L2.63 11.49a1.05 1.05 0 0 0 .06 1.96l4.46 1.54 1.72 5.45a1 1 0 0 0 1.66.41l2.58-2.55 4.44 3.26a1.1 1.1 0 0 0 1.72-.66l3.01-15.46a1.1 1.1 0 0 0-.336-1.228ZM9.65 14.31l7.97-6.48-6.37 7.64-.25 3.11-1.35-4.27Z" />
@@ -879,12 +827,12 @@
 
       <div class="mt-8 flex flex-col sm:flex-row items-center justify-between gap-4 font-mono text-[11px]" style="color: var(--text-muted);">
         <div class="flex items-center gap-2">
-          <span class="font-pixel text-xs" style="color: var(--accent-bright);">&gt; skybo</span>
+          <span class="font-pixel text-xs" style="color: var(--accent-brand);">&gt; SKYBO</span>
           <span>// BUILDING &amp; AI // WEB3 &bull; TECH &bull; TRAVEL</span>
         </div>
         <div class="flex items-center gap-5">
           <span>POWERED BY THREE.JS &amp; WEBGL</span>
-          <a href="#identity" class="transition-colors hover:text-sky-400" style="color: var(--text-secondary);" data-cursor="LINK">
+          <a href="#identity" class="transition-colors hover:text-[#7CB7E8]" style="color: var(--text-secondary);">
             BACK TO TOP &uarr;
           </a>
         </div>
@@ -905,7 +853,7 @@
     <div class="flex flex-wrap items-center justify-between gap-2.5">
       <div class="flex items-center gap-2.5 font-mono text-xs">
         <span class="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-pulse"></span>
-        <span id="admin-repo-badge" class="font-semibold tracking-wider" style="color: var(--accent-bright);">
+        <span id="admin-repo-badge" class="font-semibold tracking-wider" style="color: var(--accent-brand);">
           ADMIN // RomanRCH/skybo-portfoliodev
         </span>
         <span id="admin-queue-badge" class="hidden px-2 py-0.5 rounded text-[10px]" style="background: var(--badge-bg); color: var(--text-primary);">
@@ -918,26 +866,23 @@
           id="admin-add-slot-btn"
           type="button"
           class="px-3 py-1.5 rounded-lg font-semibold transition-all hover:brightness-110"
-          style="background: linear-gradient(135deg, var(--accent), var(--accent-bright)); color: #05080F;"
-          data-cursor="UPLOAD"
+          style="background: linear-gradient(135deg, var(--accent-brand), var(--accent-bright)); color: #070B12;"
         >
           + ADD SLOT
         </button>
         <button
           id="admin-sync-btn"
           type="button"
-          class="px-3 py-1.5 rounded-lg border transition-all hover:border-sky-400"
+          class="px-3 py-1.5 rounded-lg border transition-all hover:border-[#7CB7E8]"
           style="border-color: var(--border-strong); background: var(--badge-bg); color: var(--text-primary);"
-          data-cursor="LINK"
         >
           SYNC FROM GITHUB
         </button>
         <button
           id="admin-config-btn"
           type="button"
-          class="px-3 py-1.5 rounded-lg border transition-all hover:border-sky-400"
+          class="px-3 py-1.5 rounded-lg border transition-all hover:border-[#7CB7E8]"
           style="border-color: var(--border); color: var(--text-secondary);"
-          data-cursor="LINK"
         >
           CONFIG
         </button>
@@ -946,7 +891,6 @@
           type="button"
           class="px-3 py-1.5 rounded-lg border transition-all hover:border-rose-400/70"
           style="border-color: var(--border); color: var(--text-secondary);"
-          data-cursor="LINK"
         >
           EXIT ADMIN
         </button>
@@ -960,7 +904,7 @@
   <div
     id="case-modal"
     class="hud-modal fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-6 overflow-y-auto"
-    style="background: rgba(4, 6, 12, 0.84); backdrop-filter: blur(14px);"
+    style="background: rgba(5, 8, 16, 0.85); backdrop-filter: blur(14px);"
     role="dialog"
     aria-modal="true"
     aria-labelledby="modal-title"
@@ -982,27 +926,24 @@
           <button
             id="modal-prev-btn"
             type="button"
-            class="px-3 py-1.5 rounded-lg border font-mono text-xs transition-all hover:border-sky-400"
+            class="px-3 py-1.5 rounded-lg border font-mono text-xs transition-all hover:border-[#7CB7E8]"
             style="border-color: var(--border); color: var(--text-secondary);"
-            data-cursor="VIEW"
           >
             &larr; PREV
           </button>
           <button
             id="modal-next-btn"
             type="button"
-            class="px-3 py-1.5 rounded-lg border font-mono text-xs transition-all hover:border-sky-400"
+            class="px-3 py-1.5 rounded-lg border font-mono text-xs transition-all hover:border-[#7CB7E8]"
             style="border-color: var(--border); color: var(--text-secondary);"
-            data-cursor="VIEW"
           >
             NEXT &rarr;
           </button>
           <button
             id="modal-close-btn"
             type="button"
-            class="px-3.5 py-1.5 rounded-lg border font-mono text-xs font-semibold transition-all hover:border-sky-400"
+            class="px-3.5 py-1.5 rounded-lg border font-mono text-xs font-semibold transition-all hover:border-[#7CB7E8]"
             style="border-color: var(--border-strong); background: var(--badge-bg); color: var(--text-primary);"
-            data-cursor="LINK"
           >
             ESC &times;
           </button>
@@ -1022,43 +963,19 @@
 
           <!-- Live Video Stage -->
           <div id="modal-video-stage" class="hidden absolute inset-0 z-20 bg-black">
-            <video id="modal-video-player" class="w-full h-full object-cover" autoplay muted loop playsinline></video>
-            <!-- Custom Minimal Playback HUD -->
-            <div class="absolute bottom-3 left-3 right-3 z-30 flex items-center justify-between gap-2 pointer-events-auto">
-              <div class="flex items-center gap-2">
-                <button
-                  id="modal-play-toggle"
-                  type="button"
-                  class="px-3 py-1.5 rounded-lg font-mono text-[11px] font-semibold border backdrop-blur-md"
-                  style="background: rgba(5, 8, 15, 0.78); border-color: var(--border-strong); color: #F1F5FA;"
-                >
-                  PAUSE
-                </button>
-                <button
-                  id="modal-mute-toggle"
-                  type="button"
-                  class="px-3 py-1.5 rounded-lg font-mono text-[11px] font-semibold border backdrop-blur-md"
-                  style="background: rgba(5, 8, 15, 0.78); border-color: var(--border-strong); color: #7DD3FC;"
-                >
-                  UNMUTE SOUND
-                </button>
-              </div>
-              <span class="px-2.5 py-1 rounded-md font-mono text-[10px] tracking-widest border backdrop-blur-md" style="background: rgba(5, 8, 15, 0.78); border-color: var(--border); color: #4ADE80;">
-                LIVE REEL
-              </span>
-            </div>
+            <video id="modal-video-player" class="w-full h-full object-cover" autoplay loop muted playsinline controls></video>
           </div>
 
           <!-- Clean 16:9 Placeholder Stage -->
           <div id="modal-placeholder-stage" class="absolute inset-0 z-10 flex flex-col items-center justify-center text-center p-6 space-y-4">
-            <div class="w-14 h-14 rounded-2xl border flex items-center justify-center" style="border-color: var(--border-strong); background: var(--badge-bg); color: var(--accent-bright);">
+            <div class="w-14 h-14 rounded-2xl border flex items-center justify-center" style="border-color: var(--border-strong); background: var(--badge-bg); color: var(--accent-brand);">
               <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
                 <polygon points="6 4 20 12 6 20 6 4" />
               </svg>
             </div>
             <div class="space-y-1.5 max-w-md">
-              <div id="modal-placeholder-label" class="font-mono text-xs sm:text-sm font-semibold tracking-wider" style="color: var(--text-primary);">
-                VIDEO SLOT // READY FOR .MP4
+              <div class="font-mono text-xs sm:text-sm font-semibold tracking-wider" style="color: var(--text-primary);">
+                VIDEO SLOT READY // 16:9
               </div>
               <p class="font-mono text-[11px] leading-relaxed" style="color: var(--text-muted);">
                 Load a local .mp4 file for quick offline preview inside this 16:9 viewport
@@ -1078,9 +995,8 @@
               href="#"
               target="_blank"
               rel="noopener noreferrer"
-              class="hidden px-4 py-2 rounded-lg border font-mono text-xs font-semibold tracking-wider transition-all hover:border-sky-400"
+              class="hidden px-4 py-2 rounded-lg border font-mono text-xs font-semibold tracking-wider transition-all hover:border-[#7CB7E8]"
               style="border-color: var(--border-strong); background: var(--badge-bg); color: var(--accent-bright);"
-              data-cursor="LINK"
             >
               OPEN PROJECT &rarr;
             </a>
@@ -1088,8 +1004,7 @@
               id="modal-local-preview-btn"
               type="button"
               class="px-4 py-2 rounded-lg font-mono text-xs font-semibold tracking-wider transition-all hover:brightness-110"
-              style="background: linear-gradient(135deg, var(--accent), var(--accent-bright)); color: #05080F;"
-              data-cursor="VIEW"
+              style="background: linear-gradient(135deg, var(--accent-brand), var(--accent-bright)); color: #070B12;"
             >
               PREVIEW LOCAL .MP4
             </button>
@@ -1109,15 +1024,19 @@
           </div>
 
           <div class="lg:col-span-4 space-y-3 rounded-2xl border p-4 sm:p-5 font-mono text-xs" style="border-color: var(--border); background: var(--slot-bg);">
-            <div class="flex items-center justify-between">
+            <div class="flex items-center justify-between gap-2">
               <span style="color: var(--text-muted);">CATEGORY</span>
-              <span id="modal-category" class="font-semibold" style="color: var(--accent-bright);">MOTION</span>
+              <span id="modal-category" class="font-semibold" style="color: var(--accent-brand);">MOTION</span>
             </div>
-            <div class="flex items-center justify-between">
+            <div class="flex items-center justify-between gap-2">
+              <span style="color: var(--text-muted);">ROLE</span>
+              <span id="modal-role" class="font-semibold text-right" style="color: var(--text-primary);">DIRECTION &amp; 3D</span>
+            </div>
+            <div class="flex items-center justify-between gap-2">
               <span style="color: var(--text-muted);">YEAR</span>
               <span id="modal-year" class="font-semibold" style="color: var(--text-primary);">2026</span>
             </div>
-            <div class="flex items-center justify-between">
+            <div class="flex items-center justify-between gap-2">
               <span style="color: var(--text-muted);">FORMAT</span>
               <span style="color: var(--text-primary);">16:9 // HD LOOP</span>
             </div>
@@ -1133,7 +1052,7 @@
   <div
     id="admin-auth-modal"
     class="hud-modal fixed inset-0 z-[60] flex items-center justify-center p-4 overflow-y-auto"
-    style="background: rgba(4, 6, 12, 0.86); backdrop-filter: blur(16px);"
+    style="background: rgba(5, 8, 16, 0.86); backdrop-filter: blur(16px);"
     role="dialog"
     aria-modal="true"
     aria-labelledby="auth-modal-title"
@@ -1144,7 +1063,7 @@
     >
       <div class="flex items-center justify-between gap-3 pb-3 border-b" style="border-color: var(--border);">
         <div>
-          <div class="font-mono text-[10px] tracking-[0.2em] uppercase" style="color: var(--accent-bright);">
+          <div class="font-mono text-[10px] tracking-[0.2em] uppercase" style="color: var(--accent-brand);">
             GITHUB REST API // DIRECT PUBLISHER
           </div>
           <h3 id="auth-modal-title" class="font-display text-xl font-bold mt-0.5" style="color: var(--text-primary);">
@@ -1203,7 +1122,7 @@
             id="auth-verify-btn"
             type="submit"
             class="px-5 py-2.5 rounded-xl font-mono text-xs font-semibold tracking-wider transition-all hover:brightness-110"
-            style="background: linear-gradient(135deg, var(--accent), var(--accent-bright)); color: #05080F;"
+            style="background: linear-gradient(135deg, var(--accent-brand), var(--accent-bright)); color: #070B12;"
           >
             VERIFY &amp; ENABLE ADMIN
           </button>
@@ -1213,12 +1132,12 @@
   </div>
 
   <!-- =========================================================================
-       ADMIN EDIT CARD MODAL (EDIT METADATA / TAGS / URLS / DELETE SLOT)
+       ADMIN EDIT CARD MODAL (TITLE / CATEGORY / YEAR / ROLE / DESC / URL / DELETE)
        ========================================================================= -->
   <div
     id="admin-edit-modal"
     class="hud-modal fixed inset-0 z-[60] flex items-center justify-center p-4 overflow-y-auto"
-    style="background: rgba(4, 6, 12, 0.86); backdrop-filter: blur(16px);"
+    style="background: rgba(5, 8, 16, 0.86); backdrop-filter: blur(16px);"
     role="dialog"
     aria-modal="true"
     aria-labelledby="edit-modal-title"
@@ -1229,7 +1148,7 @@
     >
       <div class="flex items-center justify-between gap-3 pb-3 border-b" style="border-color: var(--border);">
         <div>
-          <div id="edit-modal-slot-id" class="font-mono text-[10px] tracking-[0.2em] uppercase" style="color: var(--accent-bright);">
+          <div id="edit-modal-slot-id" class="font-mono text-[10px] tracking-[0.2em] uppercase" style="color: var(--accent-brand);">
             EDIT SLOT // 01
           </div>
           <h3 id="edit-modal-title" class="font-display text-xl font-bold mt-0.5" style="color: var(--text-primary);">
@@ -1252,7 +1171,7 @@
           <input id="edit-title" type="text" class="hud-input" required />
         </label>
 
-        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
           <label class="block space-y-1.5">
             <span class="font-mono text-[10px] tracking-widest uppercase" style="color: var(--text-muted);">CATEGORY</span>
             <select id="edit-category" class="hud-input">
@@ -1265,6 +1184,10 @@
           <label class="block space-y-1.5">
             <span class="font-mono text-[10px] tracking-widest uppercase" style="color: var(--text-muted);">YEAR</span>
             <input id="edit-year" type="text" class="hud-input" required />
+          </label>
+          <label class="block space-y-1.5">
+            <span class="font-mono text-[10px] tracking-widest uppercase" style="color: var(--text-muted);">ROLE</span>
+            <input id="edit-role" type="text" class="hud-input" placeholder="CREATIVE DEV" />
           </label>
         </div>
 
@@ -1305,7 +1228,7 @@
             id="edit-save-btn"
             type="submit"
             class="px-5 py-2.5 rounded-xl font-mono text-xs font-semibold tracking-wider transition-all hover:brightness-110"
-            style="background: linear-gradient(135deg, var(--accent), var(--accent-bright)); color: #05080F;"
+            style="background: linear-gradient(135deg, var(--accent-brand), var(--accent-bright)); color: #070B12;"
           >
             SAVE &amp; COMMIT TO GITHUB
           </button>
@@ -1336,6 +1259,7 @@
         title: '01 / PORTALDOT MOTION REEL',
         category: 'MOTION',
         year: '2026',
+        role: 'MOTION & 3D',
         description: 'High-contrast 3D promo visuals, kinetic typography loops and launch motion narratives engineered for Web3 feeds',
         tags: ['3D MOTION', 'KINETIC TYPE', 'LAUNCH FILM'],
         externalUrl: '',
@@ -1346,6 +1270,7 @@
         title: '02 / AI AGENT EXTENSION',
         category: 'AI',
         year: '2026',
+        role: 'AI ENGINEERING',
         description: 'Custom browser automation suite combining LLM summarization, thread extraction and instant workflow triggers',
         tags: ['LLM', 'CHROME EXT', 'AUTOMATION'],
         externalUrl: '',
@@ -1356,6 +1281,7 @@
         title: '03 / WEB3 ECOSYSTEM FILM',
         category: 'WEB3',
         year: '2026',
+        role: 'CREATIVE DIRECTION',
         description: 'End-to-end visual storytelling kit with isometric product explainers and protocol launch teasers',
         tags: ['WEB3', 'STORYTELLING', 'ISOMETRIC'],
         externalUrl: '',
@@ -1366,6 +1292,7 @@
         title: '04 / PIXEL RUMBLE ARENA',
         category: 'GAMES',
         year: '2026',
+        role: 'GAME DEV',
         description: 'Fast-paced retro arcade browser experience with tactile touch physics, custom pixel shaders and instant rounds',
         tags: ['ARCADE', 'CANVAS', 'SHADERS'],
         externalUrl: '',
@@ -1376,6 +1303,7 @@
         title: '05 / KINETIC BRAND SYSTEM',
         category: 'MOTION',
         year: '2026',
+        role: 'BRAND DESIGN',
         description: 'Modular motion identity language uniting blueprint geometry, glowing HUD micro-interactions and responsive loops',
         tags: ['BRANDING', 'HUD UI', 'SYSTEM'],
         externalUrl: '',
@@ -1386,6 +1314,7 @@
         title: '06 / 3D TANK ENGINE',
         category: 'GAMES',
         year: '2026',
+        role: 'WEBGL ARCHITECTURE',
         description: 'Real-time WebGL combat arena built with THREE.JS featuring dynamic turret tracking, projectile physics and stylized lighting',
         tags: ['THREE.JS', 'WEBGL', 'PHYSICS'],
         externalUrl: '',
@@ -1483,12 +1412,16 @@
     /* =========================================================================
        4. HUD TOAST NOTIFICATION (ZERO TRAILING PERIODS)
        ========================================================================= */
+    function stripTrailingPeriod(text) {
+      return String(text || '').trim().replace(/\.+$/, '');
+    }
+
     function showToast(message, tone) {
       const toast = document.getElementById('hud-toast');
       const label = document.getElementById('hud-toast-text');
       const dot = document.getElementById('hud-toast-dot');
       if (!toast || !label) return;
-      label.textContent = String(message || '').replace(/\.+$/, '');
+      label.textContent = stripTrailingPeriod(message);
       if (dot) {
         dot.style.backgroundColor =
           tone === 'error' ? '#FB7185' : tone === 'warn' ? '#FBBF24' : '#4ADE80';
@@ -1672,11 +1605,12 @@
         : [];
       return {
         id: String(item.id || String(index + 1).padStart(2, '0')),
-        title: String(item.title || 'UNTITLED SLOT').trim(),
+        title: stripTrailingPeriod(item.title || 'UNTITLED SLOT'),
         category: String(item.category || 'MOTION').toUpperCase(),
         year: String(item.year || '2026').trim(),
-        description: String(item.description || '').trim(),
-        tags: rawTags.map((t) => String(t).trim()).filter(Boolean),
+        role: stripTrailingPeriod(item.role || 'CREATIVE DEV'),
+        description: stripTrailingPeriod(item.description || ''),
+        tags: rawTags.map((t) => stripTrailingPeriod(t)).filter(Boolean),
         externalUrl: String(item.externalUrl || '').trim(),
         videoUrl: String(item.videoUrl || '').trim()
       };
@@ -1825,14 +1759,14 @@
       return state.localPreviews[project.id] || project.videoUrl || '';
     }
 
-    function buildVideoSlug(project, file) {
+    function buildVideoFilename(project, file) {
       const ext = String(file.name || '').toLowerCase().endsWith('.webm') ? 'webm' : 'mp4';
       const baseSlug = String(project.title || `slot-${project.id}`)
         .toLowerCase()
         .replace(/[^a-z0-9]+/g, '-')
         .replace(/^-+|-+$/g, '')
-        .slice(0, 32) || `slot-${project.id}`;
-      return `${project.id}-${baseSlug}.${ext}`;
+        .slice(0, 28) || `slot-${project.id}`;
+      return `${baseSlug}-${Date.now()}.${ext}`;
     }
 
     async function handleAdminVideoUpload(index, file) {
@@ -1851,7 +1785,7 @@
         showToast('File is over 25 MB — compressing to 1080p is recommended for fast loading', 'warn');
       }
 
-      // Immediately mount local blob URL so owner sees the video playing instantly
+      // Immediately preview the chosen local video in the card viewport
       if (state.localPreviews[project.id]) {
         URL.revokeObjectURL(state.localPreviews[project.id]);
       }
@@ -1867,7 +1801,7 @@
           if (statusEl) statusEl.textContent = state.cardUploadStatus[project.id];
         });
 
-        const filename = buildVideoSlug(project, file);
+        const filename = buildVideoFilename(project, file);
         const repoPath = `videos/${filename}`;
         const previousVideoUrl = project.videoUrl;
 
@@ -1884,7 +1818,7 @@
 
         await commitProjectsJson(`Link ${repoPath} to slot ${project.id}`);
 
-        // Clean up old repo-hosted video file if replacing a differently named one
+        // Clean up replaced repo-hosted video file to save repository space
         if (previousVideoUrl && previousVideoUrl.startsWith('./videos/') && previousVideoUrl !== project.videoUrl) {
           const oldPath = previousVideoUrl.replace(/^\.\//, '');
           enqueueGitHubTask(() => deleteGitHubFileIfExists(oldPath, `Remove replaced video ${oldPath}`));
@@ -1895,7 +1829,7 @@
         renderProjects();
         showToast(`Uploaded ${filename} — GitHub Pages deploying (~1-2 min)`);
       } catch (err) {
-        state.cardUploadStatus[project.id] = `ERROR // ${String(err.message || 'UPLOAD FAILED').replace(/\.+$/, '')}`;
+        state.cardUploadStatus[project.id] = `ERROR // ${stripTrailingPeriod(err.message || 'UPLOAD FAILED')}`;
         renderProjects();
         showToast(err.message || 'Video upload failed', 'error');
       }
@@ -1932,7 +1866,7 @@
         renderProjects();
         showToast(`Slot ${project.id} video cleared and committed`);
       } catch (err) {
-        state.cardUploadStatus[project.id] = `ERROR // ${String(err.message || 'CLEAR FAILED').replace(/\.+$/, '')}`;
+        state.cardUploadStatus[project.id] = `ERROR // ${stripTrailingPeriod(err.message || 'CLEAR FAILED')}`;
         renderProjects();
         showToast(err.message || 'Failed to update projects.json', 'error');
       }
@@ -1950,6 +1884,7 @@
         title: `${nextId} / NEW EXPERIMENT`,
         category: 'AI',
         year: String(new Date().getFullYear()),
+        role: 'CREATIVE DEV',
         description: 'Fresh 16:9 showcase slot ready for video upload and custom case metadata',
         tags: ['NEW', 'WEBGL'],
         externalUrl: '',
@@ -1981,6 +1916,7 @@
         ? project.category
         : 'MOTION';
       document.getElementById('edit-year').value = project.year || '2026';
+      document.getElementById('edit-role').value = project.role || 'CREATIVE DEV';
       document.getElementById('edit-description').value = project.description || '';
       document.getElementById('edit-tags').value = Array.isArray(project.tags) ? project.tags.join(', ') : '';
       document.getElementById('edit-external-url').value = project.externalUrl || '';
@@ -2009,7 +1945,7 @@
     }
 
     /* =========================================================================
-       8. KINETIC TEXT SCRAMBLE ON HOVER
+       8. KINETIC TEXT SCRAMBLE ON PROJECT TITLE HOVER
        ========================================================================= */
     const SCRAMBLE_CHARS = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789/_-';
 
@@ -2122,7 +2058,7 @@
         container.style.opacity = '1';
         container.innerHTML = '';
 
-        // Pre-allocate all 6 rows to guarantee zero layout shift
+        // Pre-allocate all 6 rows to guarantee zero vertical layout shift
         const lineNodes = TERMINAL_SNIPPET.map(() => {
           const row = document.createElement('div');
           row.className = 'whitespace-pre min-h-[1.65em]';
@@ -2314,18 +2250,16 @@
             <button
               type="button"
               class="admin-upload-btn flex-1 min-w-[122px] px-2.5 py-2 rounded-lg font-semibold tracking-wider transition-all hover:brightness-110"
-              style="background: linear-gradient(135deg, var(--accent), var(--accent-bright)); color: #05080F;"
+              style="background: linear-gradient(135deg, var(--accent-brand), var(--accent-bright)); color: #070B12;"
               data-admin-upload="${globalIndex}"
-              data-cursor="UPLOAD"
             >
               UPLOAD VIDEO (.MP4)
             </button>
             <button
               type="button"
-              class="admin-edit-btn px-2.5 py-2 rounded-lg border transition-all hover:border-sky-400"
+              class="admin-edit-btn px-2.5 py-2 rounded-lg border transition-all hover:border-[#7CB7E8]"
               style="border-color: var(--border-strong); background: var(--badge-bg); color: var(--text-primary);"
               data-admin-edit="${globalIndex}"
-              data-cursor="LINK"
             >
               EDIT CARD
             </button>
@@ -2334,7 +2268,6 @@
               class="admin-clear-btn px-2.5 py-2 rounded-lg border transition-all ${hasVideo ? 'hover:border-rose-400' : 'opacity-45'}"
               style="border-color: rgba(244, 63, 94, 0.45); color: #FB7185;"
               data-admin-clear="${globalIndex}"
-              data-cursor="LINK"
             >
               CLEAR VIDEO
             </button>
@@ -2380,9 +2313,8 @@
 
             return `
               <article
-                class="project-card panel-glass rounded-2xl p-4 flex flex-col justify-between gap-4 cursor-pointer group"
+                class="project-card panel-glass rounded-2xl p-4 flex flex-col justify-between gap-4 group"
                 data-project-index="${globalIndex}"
-                data-cursor="VIEW"
                 tabindex="0"
                 role="button"
                 aria-label="Open case ${escapeHtml(project.title)}"
@@ -2401,19 +2333,19 @@
                       hasVideo
                         ? `<video src="${escapeHtml(videoSrc)}" muted loop playsinline autoplay preload="metadata" class="slot-video-el absolute inset-0 w-full h-full object-cover z-10"></video>`
                         : `<div class="absolute inset-0 z-10 flex flex-col items-center justify-center text-center p-4 space-y-2.5">
-                            <div class="w-10 h-10 rounded-xl border flex items-center justify-center transition-transform duration-300 group-hover:scale-110" style="border-color: var(--border-strong); background: var(--badge-bg); color: var(--accent-bright);">
+                            <div class="w-10 h-10 rounded-xl border flex items-center justify-center transition-transform duration-300 group-hover:scale-110" style="border-color: var(--border-strong); background: var(--badge-bg); color: var(--accent-brand);">
                               <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
                                 <polygon points="6 4 20 12 6 20 6 4" />
                               </svg>
                             </div>
                             <div class="font-mono text-[10px] sm:text-[11px] font-semibold tracking-wider" style="color: var(--text-primary);">
-                              VIDEO SLOT // READY FOR .MP4
+                              VIDEO SLOT READY // 16:9
                             </div>
                           </div>`
                     }
 
                     <!-- Top-Left HUD Badge -->
-                    <div class="absolute top-2.5 left-3 z-20 px-2 py-0.5 rounded font-mono text-[9px] tracking-widest border" style="background: rgba(5, 8, 15, 0.78); color: ${hasVideo ? '#4ADE80' : '#7DD3FC'}; border-color: var(--border);">
+                    <div class="absolute top-2.5 left-3 z-20 px-2 py-0.5 rounded font-mono text-[9px] tracking-widest border" style="background: rgba(7, 11, 18, 0.78); color: ${hasVideo ? '#4ADE80' : '#7CB7E8'}; border-color: var(--border);">
                       ${hasVideo ? 'LIVE REEL' : `SLOT_${escapeHtml(project.id)} // 16:9`}
                     </div>
                   </div>
@@ -2430,7 +2362,7 @@
                       </div>
                       <span style="color: var(--text-muted);">${escapeHtml(project.year)}</span>
                     </div>
-                    <h3 class="scramble-title font-display text-lg sm:text-xl font-bold tracking-tight transition-colors group-hover:text-sky-400" style="color: var(--text-primary);">
+                    <h3 class="scramble-title font-display text-lg sm:text-xl font-bold tracking-tight transition-colors group-hover:text-[#7CB7E8]" style="color: var(--text-primary);">
                       ${escapeHtml(project.title)}
                     </h3>
                     <p class="text-xs sm:text-sm leading-relaxed line-clamp-2" style="color: var(--text-secondary);">
@@ -2440,15 +2372,15 @@
                 </div>
 
                 <div class="pt-3 px-1 border-t flex items-center justify-between font-mono text-[10px] tracking-wider" style="border-color: var(--border);">
-                  <span style="color: var(--text-muted);">${hasVideo ? 'VIDEO ATTACHED' : '16:9 PLACEHOLDER'}</span>
-                  <span class="transition-transform group-hover:translate-x-1" style="color: var(--accent-bright);">OPEN CASE &rarr;</span>
+                  <span style="color: var(--text-muted);">${escapeHtml(project.role || (hasVideo ? 'VIDEO ATTACHED' : '16:9 PLACEHOLDER'))}</span>
+                  <span class="transition-transform group-hover:translate-x-1" style="color: var(--accent-brand);">OPEN CASE &rarr;</span>
                 </div>
               </article>
             `;
           })
           .join('');
       } else {
-        // INDEX LIST VIEW WITH INTERACTIVE HOVER PREVIEW
+        // INDEX LIST VIEW WITH FLOATING HOVER PREVIEW
         container.className = 'flex flex-col gap-3';
         container.innerHTML = filtered
           .map((project) => {
@@ -2458,9 +2390,8 @@
 
             return `
               <article
-                class="project-card index-row panel-glass rounded-2xl p-4 sm:px-5 sm:py-4 space-y-3 cursor-pointer group"
+                class="project-card index-row panel-glass rounded-2xl p-4 sm:px-5 sm:py-4 space-y-3 group"
                 data-project-index="${globalIndex}"
-                data-cursor="VIEW"
                 tabindex="0"
                 role="button"
                 aria-label="Open case ${escapeHtml(project.title)}"
@@ -2471,7 +2402,7 @@
                       ${escapeHtml(project.id)}
                     </span>
                     <div>
-                      <h3 class="scramble-title font-display text-lg font-bold tracking-tight transition-colors group-hover:text-sky-400" style="color: var(--text-primary);">
+                      <h3 class="scramble-title font-display text-lg font-bold tracking-tight transition-colors group-hover:text-[#7CB7E8]" style="color: var(--text-primary);">
                         ${escapeHtml(project.title)}
                       </h3>
                       <p class="text-xs mt-0.5 line-clamp-1" style="color: var(--text-secondary);">
@@ -2481,12 +2412,13 @@
                   </div>
 
                   <div class="flex flex-wrap items-center gap-3 sm:gap-4 font-mono text-[11px] shrink-0">
-                    <span style="color: var(--accent-bright);">${escapeHtml(project.category)}</span>
+                    <span style="color: var(--accent-brand);">${escapeHtml(project.category)}</span>
+                    <span class="hidden lg:inline" style="color: var(--text-secondary);">${escapeHtml(project.role || '')}</span>
                     <span style="color: var(--text-muted);">${escapeHtml(project.year)}</span>
                     <span class="px-2 py-0.5 rounded border text-[10px]" style="border-color: var(--border); color: ${hasVideo ? '#4ADE80' : 'var(--text-muted)'};">
-                      ${hasVideo ? 'LIVE REEL' : 'READY FOR .MP4'}
+                      ${hasVideo ? 'LIVE REEL' : '16:9 READY'}
                     </span>
-                    <span class="transition-transform group-hover:translate-x-1" style="color: var(--accent-bright);">OPEN CASE &rarr;</span>
+                    <span class="transition-transform group-hover:translate-x-1" style="color: var(--accent-brand);">OPEN CASE &rarr;</span>
                   </div>
                 </div>
 
@@ -2571,12 +2503,10 @@
           });
         });
       }
-
-      refreshCursorTargets();
     }
 
     /* =========================================================================
-       11. CASE VIEWER MODAL (PLAYER CONTROLS + TAGS + OFFLINE PREVIEW)
+       11. CASE VIEWER MODAL (PLAYER + METADATA + LOCAL .MP4 PREVIEW)
        ========================================================================= */
     function openCaseModal(index) {
       if (index < 0 || index >= state.projects.length) return;
@@ -2590,8 +2520,6 @@
       const placeholderStage = document.getElementById('modal-placeholder-stage');
       const statusEl = document.getElementById('modal-video-status');
       const extLink = document.getElementById('modal-external-link');
-      const playBtn = document.getElementById('modal-play-toggle');
-      const muteBtn = document.getElementById('modal-mute-toggle');
       const tagsContainer = document.getElementById('modal-tags');
 
       document.getElementById('modal-slot-tag').textContent = videoSrc
@@ -2601,6 +2529,7 @@
       document.getElementById('modal-title').textContent = project.title;
       document.getElementById('modal-description').textContent = project.description;
       document.getElementById('modal-category').textContent = project.category;
+      document.getElementById('modal-role').textContent = project.role || 'CREATIVE DEV';
       document.getElementById('modal-year').textContent = project.year;
 
       if (tagsContainer) {
@@ -2626,8 +2555,6 @@
         videoPlayer.play().catch(() => {});
         videoStage.classList.remove('hidden');
         placeholderStage.classList.add('hidden');
-        if (playBtn) playBtn.textContent = 'PAUSE';
-        if (muteBtn) muteBtn.textContent = 'UNMUTE SOUND';
         statusEl.textContent = state.localPreviews[project.id]
           ? 'PLAYING LOCAL PREVIEW IN 16:9 VIEWPORT'
           : `PLAYING ${project.videoUrl}`;
@@ -2656,7 +2583,7 @@
     }
 
     /* =========================================================================
-       12. 3D TILT FOR IDENTITY_MODULE + MAGNETIC CURSOR + MOSCOW CLOCK
+       12. 3D TILT FOR IDENTITY_MODULE CARD
        ========================================================================= */
     function initIdentityCardTilt() {
       const card = document.getElementById('identity-card');
@@ -2679,98 +2606,11 @@
       });
     }
 
-    const cursorPos = { x: -100, y: -100, rx: -100, ry: -100, active: false };
-
-    function refreshCursorTargets() {
-      if (!window.matchMedia('(hover: hover) and (pointer: fine)').matches) return;
-      const ring = document.getElementById('custom-cursor-ring');
-      const label = document.getElementById('custom-cursor-label');
-      if (!ring || !label) return;
-
-      document.querySelectorAll('[data-cursor]').forEach((el) => {
-        if (el.dataset.cursorBound) return;
-        el.dataset.cursorBound = '1';
-
-        el.addEventListener('mouseenter', () => {
-          ring.classList.add('is-hover');
-          label.textContent = el.dataset.cursor || '';
-        });
-        el.addEventListener('mouseleave', () => {
-          ring.classList.remove('is-hover');
-          label.textContent = '';
-        });
-      });
-    }
-
-    function initCustomCursor() {
-      if (!window.matchMedia('(hover: hover) and (pointer: fine)').matches) return;
-      const ring = document.getElementById('custom-cursor-ring');
-      const dot = document.getElementById('custom-cursor-dot');
-      if (!ring || !dot) return;
-
-      window.addEventListener('mousemove', (e) => {
-        cursorPos.x = e.clientX;
-        cursorPos.y = e.clientY;
-        if (!cursorPos.active) {
-          cursorPos.rx = e.clientX;
-          cursorPos.ry = e.clientY;
-          cursorPos.active = true;
-          ring.style.opacity = '1';
-          dot.style.opacity = '1';
-        }
-      });
-
-      document.addEventListener('mouseleave', () => {
-        ring.style.opacity = '0';
-        dot.style.opacity = '0';
-      });
-
-      document.addEventListener('mouseenter', () => {
-        if (cursorPos.active) {
-          ring.style.opacity = '1';
-          dot.style.opacity = '1';
-        }
-      });
-
-      refreshCursorTargets();
-    }
-
-    function updateCursorLoop() {
-      const ring = document.getElementById('custom-cursor-ring');
-      const dot = document.getElementById('custom-cursor-dot');
-      if (cursorPos.active && ring && dot) {
-        cursorPos.rx += (cursorPos.x - cursorPos.rx) * 0.18;
-        cursorPos.ry += (cursorPos.y - cursorPos.ry) * 0.18;
-        dot.style.transform = `translate3d(${cursorPos.x}px, ${cursorPos.y}px, 0)`;
-        ring.style.transform = `translate3d(${cursorPos.rx}px, ${cursorPos.ry}px, 0)`;
-      }
-      requestAnimationFrame(updateCursorLoop);
-    }
-
-    function updateMoscowClock() {
-      try {
-        const now = new Date();
-        const fullTime = new Intl.DateTimeFormat('en-GB', {
-          timeZone: 'Europe/Moscow',
-          hour: '2-digit',
-          minute: '2-digit',
-          second: '2-digit',
-          hour12: false
-        }).format(now);
-        const desktop = document.getElementById('live-clock');
-        const mobile = document.getElementById('live-clock-mobile');
-        if (desktop) desktop.textContent = `MSK ${fullTime}`;
-        if (mobile) mobile.textContent = `MSK ${fullTime.slice(0, 5)}`;
-      } catch (err) {
-        // Ignore Intl fallback errors
-      }
-    }
-
     /* =========================================================================
        13. THREE.JS INTERACTIVE WEBGL BACKGROUND
-       - Segmented isometric wave grid with cursor & scroll velocity distortion
-       - Floating wireframe hexagons + glowing ambient particles
-       - Adaptive pixel ratio capped at 1.75 + live theme sync
+       - 3D isometric wireframe terrain grid reacting to mouse & scroll velocity
+       - Floating hexagonal wireframes + subtle ambient particles
+       - devicePixelRatio capped at 2 + live Dark/Light theme synchronization
        ========================================================================= */
     const WebGLStage = (() => {
       let renderer = null;
@@ -2788,24 +2628,24 @@
 
       const PALETTES = {
         dark: {
-          bg: 0x05080f,
-          fog: 0x05080f,
-          grid: 0x38bdf8,
+          bg: 0x070b12,
+          fog: 0x070b12,
+          grid: 0x7cb7e8,
           gridOpacity: 0.22,
-          hex: 0x7dd3fc,
+          hex: 0x93ceff,
           hexOpacity: 0.26,
-          particles: 0x7dd3fc,
-          particleOpacity: 0.56
+          particles: 0x93ceff,
+          particleOpacity: 0.55
         },
         light: {
-          bg: 0xf4f7fb,
-          fog: 0xf4f7fb,
-          grid: 0x3b82f6,
+          bg: 0xf4f7fc,
+          fog: 0xf4f7fc,
+          grid: 0x5a9ed6,
           gridOpacity: 0.24,
-          hex: 0x2563eb,
-          hexOpacity: 0.2,
-          particles: 0x3b82f6,
-          particleOpacity: 0.38
+          hex: 0x5a9ed6,
+          hexOpacity: 0.22,
+          particles: 0x7cb7e8,
+          particleOpacity: 0.42
         }
       };
 
@@ -2842,7 +2682,7 @@
             alpha: false,
             powerPreference: 'high-performance'
           });
-          renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 1.75));
+          renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2));
           renderer.setSize(window.innerWidth, window.innerHeight);
 
           scene = new THREE.Scene();
@@ -2934,7 +2774,7 @@
         if (!initialized || !renderer || !camera) return;
         camera.aspect = window.innerWidth / window.innerHeight;
         camera.updateProjectionMatrix();
-        renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 1.75));
+        renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2));
         renderer.setSize(window.innerWidth, window.innerHeight);
       }
 
@@ -3026,7 +2866,7 @@
         showToast(state.sfxEnabled ? 'Audio SFX enabled' : 'Audio SFX muted');
       });
 
-      // 3) Secret Trigger #1: 5 rapid clicks (within 2.5s) on top-left `> skybo` brand mark
+      // 3) Secret Trigger #1: 5 rapid clicks (within 2.5s) on top-left `> SKYBO` logo
       let brandClickTimestamps = [];
       document.getElementById('brand-trigger').addEventListener('click', (e) => {
         const now = Date.now();
@@ -3121,26 +2961,6 @@
       document.getElementById('modal-next-btn').addEventListener('click', () => {
         SfxEngine.click();
         openCaseModal((state.activeModalIndex + 1) % state.projects.length);
-      });
-
-      // Video Player Play/Pause & Mute/Unmute
-      const modalVideo = document.getElementById('modal-video-player');
-      const playToggle = document.getElementById('modal-play-toggle');
-      const muteToggle = document.getElementById('modal-mute-toggle');
-
-      playToggle.addEventListener('click', () => {
-        if (modalVideo.paused) {
-          modalVideo.play().catch(() => {});
-          playToggle.textContent = 'PAUSE';
-        } else {
-          modalVideo.pause();
-          playToggle.textContent = 'PLAY';
-        }
-      });
-
-      muteToggle.addEventListener('click', () => {
-        modalVideo.muted = !modalVideo.muted;
-        muteToggle.textContent = modalVideo.muted ? 'UNMUTE SOUND' : 'MUTE SOUND';
       });
 
       // Local Offline Preview Picker inside Case Viewer
@@ -3247,7 +3067,7 @@
           setTimeout(() => closeAdminAuthModal(), 450);
         } catch (err) {
           statusBox.style.color = '#FB7185';
-          statusBox.textContent = String(err.message || 'Verification failed').replace(/\.+$/, '');
+          statusBox.textContent = stripTrailingPeriod(err.message || 'Verification failed');
           showToast(err.message || 'GitHub verification failed', 'error');
         } finally {
           verifyBtn.disabled = false;
@@ -3268,14 +3088,15 @@
         const statusBox = document.getElementById('edit-status-box');
         const saveBtn = document.getElementById('edit-save-btn');
 
-        project.title = document.getElementById('edit-title').value.trim();
+        project.title = stripTrailingPeriod(document.getElementById('edit-title').value);
         project.category = document.getElementById('edit-category').value;
         project.year = document.getElementById('edit-year').value.trim() || '2026';
-        project.description = document.getElementById('edit-description').value.trim().replace(/\.+$/, '');
+        project.role = stripTrailingPeriod(document.getElementById('edit-role').value || 'CREATIVE DEV');
+        project.description = stripTrailingPeriod(document.getElementById('edit-description').value);
         project.tags = document
           .getElementById('edit-tags')
           .value.split(',')
-          .map((t) => t.trim())
+          .map((t) => stripTrailingPeriod(t))
           .filter(Boolean);
         project.externalUrl = document.getElementById('edit-external-url').value.trim();
         project.videoUrl = document.getElementById('edit-video-url').value.trim();
@@ -3294,7 +3115,7 @@
           closeEditCardModal();
         } catch (err) {
           statusBox.style.color = '#FB7185';
-          statusBox.textContent = String(err.message || 'Commit failed').replace(/\.+$/, '');
+          statusBox.textContent = stripTrailingPeriod(err.message || 'Commit failed');
           showToast(err.message || 'Failed to save card changes', 'error');
         } finally {
           saveBtn.disabled = false;
@@ -3395,10 +3216,6 @@
       renderProjects();
       initIdentityCardTilt();
       initTerminalTypewriter();
-      initCustomCursor();
-      updateCursorLoop();
-      updateMoscowClock();
-      setInterval(updateMoscowClock, 1000);
       WebGLStage.init();
       runPreloader();
 
