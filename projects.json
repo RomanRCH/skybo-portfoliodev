@@ -76,17 +76,15 @@
   },
   {
     "id": "06",
-    "title": "06 / 3D TANK ENGINE",
-    "category": "GAMES",
+    "title": "06 / RED SEA TURTLE REEL",
+    "category": "MOTION",
     "year": "2026",
     "role": "WEBGL ARCHITECTURE",
-    "description": "Real-time WebGL combat arena built with THREE.JS featuring dynamic turret tracking, projectile physics and stylized lighting",
+    "description": "Crystal-clear underwater visuals, slow marine encounters and pure bliss narratives",
     "tags": [
-      "THREE.JS",
-      "WEBGL",
-      "PHYSICS"
+      "MOTION & NATURE"
     ],
     "externalUrl": "",
-    "videoUrl": "./videos/06-3d-tank-engine-1795540922684.mp4"
+    "videoUrl": ""
   }
 ]
