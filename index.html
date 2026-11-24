@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>&gt; skybo // BUILDING &amp; AI</title>
-  <meta name="description" content="> skybo — Building & AI — Web3, Tech, Travel — Interactive portfolio & digital business card" />
+  <meta name="description" content="> skybo — Building & AI — Web3, Tech, Travel — Interactive WebGL portfolio & digital business card" />
 
   <!-- Google Fonts: Space Grotesk (Display), JetBrains Mono (HUD/Code), Silkscreen (Pixel Brand Mark) -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -32,61 +32,63 @@
 
   <style>
     /* =========================================================================
-       DESIGN TOKENS & DUAL THEME SYSTEM
-       - DARK // ACTIVE (Obsidian + Ice-Blue / Cyan Active Theory aesthetic)
-       - LIGHT // BLUEPRINT (Crisp Ice-White + Slate Ink matching X banner)
+       DESIGN TOKENS & DUAL LIVE THEME SYSTEM
+       - DARK // ACTIVE: Deep Obsidian #05080F + Ice-Blue #38BDF8 / #7DD3FC
+       - LIGHT // BLUEPRINT: Crisp Off-White #F4F7FB + Slate Ink #0F172A + #2563EB
        ========================================================================= */
     :root,
     html[data-theme="dark"] {
-      --bg: #05070B;
-      --bg-alt: #090D16;
-      --surface: rgba(11, 16, 28, 0.72);
-      --surface-strong: rgba(10, 14, 24, 0.92);
-      --slot-bg: #070B13;
+      --bg: #05080F;
+      --bg-alt: #0A101C;
+      --surface: rgba(10, 16, 28, 0.74);
+      --surface-strong: rgba(8, 12, 22, 0.95);
+      --slot-bg: #070C16;
       --border: rgba(148, 184, 224, 0.16);
-      --border-strong: rgba(56, 189, 248, 0.42);
+      --border-strong: rgba(56, 189, 248, 0.48);
       --text-primary: #F1F5FA;
-      --text-secondary: #9FB0C7;
-      --text-muted: #64758C;
-      --accent: #5FA8D3;
-      --accent-bright: #38BDF8;
-      --accent-glow: rgba(56, 189, 248, 0.34);
-      --badge-bg: rgba(56, 189, 248, 0.08);
-      --grid-fallback: rgba(56, 189, 248, 0.07);
-      --scanline: rgba(56, 189, 248, 0.28);
-      --shadow-card: 0 24px 70px -20px rgba(0, 0, 0, 0.8);
-      --code-key: #7D91AD;
+      --text-secondary: #A1B1C8;
+      --text-muted: #64748B;
+      --accent: #38BDF8;
+      --accent-bright: #7DD3FC;
+      --accent-glow: rgba(56, 189, 248, 0.32);
+      --badge-bg: rgba(56, 189, 248, 0.11);
+      --grid-fallback: rgba(56, 189, 248, 0.085);
+      --scanline: rgba(125, 211, 252, 0.38);
+      --shadow-card: 0 24px 70px -20px rgba(0, 0, 0, 0.85);
+      --code-key: #8DA2BF;
       --code-str: #7DD3FC;
       --code-kw: #38BDF8;
       --code-bool: #4ADE80;
       --code-punct: #94A3B8;
-      --code-comment: #586A82;
+      --code-comment: #5D708A;
+      --admin-bg: rgba(10, 18, 34, 0.95);
     }
 
     html[data-theme="light"] {
       --bg: #F4F7FB;
-      --bg-alt: #EAF0F8;
-      --surface: rgba(255, 255, 255, 0.78);
-      --surface-strong: rgba(255, 255, 255, 0.94);
-      --slot-bg: #EDF3FA;
-      --border: rgba(20, 26, 36, 0.12);
-      --border-strong: rgba(95, 168, 211, 0.58);
-      --text-primary: #141A24;
-      --text-secondary: #435066;
-      --text-muted: #6D7B91;
-      --accent: #3C88B8;
-      --accent-bright: #5FA8D3;
-      --accent-glow: rgba(95, 168, 211, 0.28);
-      --badge-bg: rgba(95, 168, 211, 0.12);
-      --grid-fallback: rgba(95, 168, 211, 0.14);
-      --scanline: rgba(60, 136, 184, 0.32);
-      --shadow-card: 0 24px 60px -24px rgba(20, 26, 36, 0.18);
-      --code-key: #52627A;
-      --code-str: #0E6BA8;
+      --bg-alt: #E8EFF8;
+      --surface: rgba(255, 255, 255, 0.84);
+      --surface-strong: rgba(255, 255, 255, 0.97);
+      --slot-bg: #ECF2FA;
+      --border: rgba(15, 23, 42, 0.12);
+      --border-strong: rgba(37, 99, 235, 0.5);
+      --text-primary: #0F172A;
+      --text-secondary: #3B4961;
+      --text-muted: #64748B;
+      --accent: #3B82F6;
+      --accent-bright: #2563EB;
+      --accent-glow: rgba(59, 130, 246, 0.22);
+      --badge-bg: rgba(59, 130, 246, 0.1);
+      --grid-fallback: rgba(59, 130, 246, 0.13);
+      --scanline: rgba(59, 130, 246, 0.35);
+      --shadow-card: 0 24px 60px -24px rgba(15, 23, 42, 0.16);
+      --code-key: #475569;
+      --code-str: #1D4ED8;
       --code-kw: #2563EB;
       --code-bool: #15803D;
-      --code-punct: #475569;
+      --code-punct: #64748B;
       --code-comment: #7A8BA3;
+      --admin-bg: rgba(241, 246, 255, 0.96);
     }
 
     *, *::before, *::after {
@@ -107,11 +109,11 @@
       color: var(--text-primary);
       font-family: 'Space Grotesk', system-ui, -apple-system, sans-serif;
       overflow-x: hidden;
-      transition: background-color 0.4s ease, color 0.35s ease;
+      transition: background-color 0.38s ease, color 0.32s ease;
       -webkit-font-smoothing: antialiased;
     }
 
-    /* Subtle CSS Isometric Fallback Grid if WebGL is unavailable */
+    /* Graceful CSS Isometric Blueprint Fallback when WebGL is unavailable */
     body.webgl-fallback {
       background-image:
         linear-gradient(30deg, var(--grid-fallback) 1px, transparent 1px),
@@ -119,7 +121,7 @@
       background-size: 52px 30px;
     }
 
-    /* Fixed WebGL 3D Canvas */
+    /* Fixed Three.js WebGL Stage */
     #webgl-canvas {
       position: fixed;
       inset: 0;
@@ -130,44 +132,44 @@
       display: block;
     }
 
-    /* Lightweight procedural film grain canvas */
-    #grain-canvas {
-      position: fixed;
-      inset: 0;
-      width: 100vw;
-      height: 100vh;
-      z-index: 2;
-      pointer-events: none;
-      opacity: 0.045;
-      mix-blend-mode: overlay;
-    }
-
-    html[data-theme="light"] #grain-canvas {
-      opacity: 0.03;
-      mix-blend-mode: multiply;
-    }
-
-    /* Vignette depth layer above WebGL */
+    /* Ambient Radial Depth Overlay */
     .ambient-vignette {
       position: fixed;
       inset: 0;
       z-index: 1;
       pointer-events: none;
       background:
-        radial-gradient(circle at 75% 20%, var(--accent-glow) 0%, transparent 45%),
-        radial-gradient(circle at 18% 78%, rgba(95, 168, 211, 0.12) 0%, transparent 46%),
-        radial-gradient(ellipse at center, transparent 48%, rgba(0, 0, 0, 0.42) 100%);
-      transition: opacity 0.4s ease;
+        radial-gradient(circle at 76% 18%, var(--accent-glow) 0%, transparent 44%),
+        radial-gradient(circle at 16% 80%, rgba(56, 189, 248, 0.12) 0%, transparent 46%),
+        radial-gradient(ellipse at center, transparent 48%, rgba(0, 0, 0, 0.46) 100%);
+      transition: opacity 0.38s ease;
     }
 
     html[data-theme="light"] .ambient-vignette {
       background:
-        radial-gradient(circle at 78% 18%, rgba(95, 168, 211, 0.18) 0%, transparent 45%),
-        radial-gradient(circle at 14% 82%, rgba(95, 168, 211, 0.14) 0%, transparent 48%),
-        radial-gradient(ellipse at center, transparent 58%, rgba(20, 26, 36, 0.06) 100%);
+        radial-gradient(circle at 76% 18%, rgba(59, 130, 246, 0.14) 0%, transparent 44%),
+        radial-gradient(circle at 14% 82%, rgba(59, 130, 246, 0.1) 0%, transparent 46%),
+        radial-gradient(ellipse at center, transparent 58%, rgba(15, 23, 42, 0.05) 100%);
     }
 
-    /* Glass Panels & HUD Surfaces */
+    /* Lightweight Inline SVG Film Grain Overlay (No Base64 Images) */
+    #film-grain-overlay {
+      position: fixed;
+      inset: 0;
+      width: 100vw;
+      height: 100vh;
+      z-index: 2;
+      pointer-events: none;
+      opacity: 0.055;
+      mix-blend-mode: overlay;
+    }
+
+    html[data-theme="light"] #film-grain-overlay {
+      opacity: 0.035;
+      mix-blend-mode: multiply;
+    }
+
+    /* Glass Surfaces & HUD Containers */
     .panel-glass {
       background: var(--surface);
       border: 1px solid var(--border);
@@ -219,11 +221,11 @@
       opacity: 0.65;
     }
 
-    /* Blinking Pixel Cursor in Logo */
+    /* Blinking Pixel Cursor in Brand Mark */
     .cursor-blink {
       display: inline-block;
-      width: 0.56em;
-      height: 0.88em;
+      width: 0.54em;
+      height: 0.86em;
       background-color: var(--accent-bright);
       vertical-align: -0.08em;
       margin-left: 3px;
@@ -254,10 +256,10 @@
     }
 
     .terminal-code-fade {
-      transition: opacity 0.28s ease;
+      transition: opacity 0.26s ease;
     }
 
-    /* 16:9 Viewfinder Slot Styling */
+    /* 16:9 Active Theory Viewfinder Slot */
     .video-slot {
       position: relative;
       aspect-ratio: 16 / 9;
@@ -292,8 +294,8 @@
 
     @keyframes slotScan {
       0% { top: -8%; opacity: 0; }
-      12% { opacity: 0.9; }
-      88% { opacity: 0.9; }
+      12% { opacity: 0.95; }
+      88% { opacity: 0.95; }
       100% { top: 108%; opacity: 0; }
     }
 
@@ -305,6 +307,7 @@
       opacity: 0.65;
       transition: transform 0.25s ease, opacity 0.25s ease;
       pointer-events: none;
+      z-index: 15;
     }
 
     .project-card:hover .vf-corner {
@@ -321,7 +324,31 @@
     .project-card:hover .vf-bl { transform: translate(-2px, 2px); }
     .project-card:hover .vf-br { transform: translate(2px, 2px); }
 
-    /* Custom Magnetic Reactive Cursor (Desktop fine pointer only) */
+    .slot-video-el {
+      transition: transform 0.55s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    .project-card:hover .slot-video-el {
+      transform: scale(1.035);
+    }
+
+    /* Floating Index Mode Hover Preview (Desktop) */
+    #index-hover-preview {
+      position: fixed;
+      z-index: 45;
+      width: 300px;
+      pointer-events: none;
+      opacity: 0;
+      transform: translate3d(0, 10px, 0) scale(0.95);
+      transition: opacity 0.22s ease, transform 0.22s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    #index-hover-preview.is-visible {
+      opacity: 1;
+      transform: translate3d(0, 0, 0) scale(1);
+    }
+
+    /* Custom Magnetic Reactive Cursor (Desktop Fine Pointer Only) */
     #custom-cursor-ring,
     #custom-cursor-dot {
       position: fixed;
@@ -342,7 +369,7 @@
       border-radius: 9999px;
       background-color: var(--accent-bright);
       box-shadow: 0 0 10px var(--accent-bright);
-      transition: opacity 0.2s ease, transform 0.08s ease;
+      transition: opacity 0.2s ease;
     }
 
     #custom-cursor-ring {
@@ -360,10 +387,10 @@
     }
 
     #custom-cursor-ring.is-hover {
-      width: 78px;
-      height: 78px;
-      margin-left: -39px;
-      margin-top: -39px;
+      width: 82px;
+      height: 82px;
+      margin-left: -41px;
+      margin-top: -41px;
       background: var(--badge-bg);
       border-color: var(--accent-bright);
       backdrop-filter: blur(4px);
@@ -386,12 +413,13 @@
 
     @media (hover: none), (pointer: coarse) {
       #custom-cursor-ring,
-      #custom-cursor-dot {
+      #custom-cursor-dot,
+      #index-hover-preview {
         display: none !important;
       }
     }
 
-    /* Preloader Overlay */
+    /* Preloader Boot Overlay */
     #preloader {
       position: fixed;
       inset: 0;
@@ -414,11 +442,15 @@
       position: fixed;
       bottom: 24px;
       right: 24px;
-      z-index: 9000;
+      z-index: 9500;
       transform: translateY(20px);
       opacity: 0;
       pointer-events: none;
       transition: transform 0.28s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.28s ease;
+    }
+
+    body.admin-open #hud-toast {
+      bottom: 88px;
     }
 
     #hud-toast.is-visible {
@@ -426,30 +458,49 @@
       opacity: 1;
     }
 
-    /* Case Study Modal */
-    #case-modal {
+    /* Modal System */
+    .hud-modal {
       opacity: 0;
       visibility: hidden;
       pointer-events: none;
-      transition: opacity 0.28s ease, visibility 0.28s ease;
+      transition: opacity 0.26s ease, visibility 0.26s ease;
     }
 
-    #case-modal.is-open {
+    .hud-modal.is-open {
       opacity: 1;
       visibility: visible;
       pointer-events: auto;
     }
 
-    #case-modal-panel {
-      transform: translateY(18px) scale(0.985);
-      transition: transform 0.32s cubic-bezier(0.22, 1, 0.36, 1);
+    .hud-modal-panel {
+      transform: translateY(16px) scale(0.985);
+      transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1);
     }
 
-    #case-modal.is-open #case-modal-panel {
+    .hud-modal.is-open .hud-modal-panel {
       transform: translateY(0) scale(1);
     }
 
-    /* Scrollbar Styling */
+    /* Form Inputs inside Modals */
+    .hud-input {
+      width: 100%;
+      background: var(--slot-bg);
+      border: 1px solid var(--border);
+      color: var(--text-primary);
+      border-radius: 0.75rem;
+      padding: 0.65rem 0.9rem;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.8rem;
+      outline: none;
+      transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .hud-input:focus {
+      border-color: var(--accent-bright);
+      box-shadow: 0 0 0 3px var(--badge-bg);
+    }
+
+    /* Custom Scrollbar */
     ::-webkit-scrollbar {
       width: 8px;
     }
@@ -464,7 +515,7 @@
 </head>
 <body class="selection:bg-sky-400/30 selection:text-sky-200">
   <!-- =========================================================================
-       FAST NUMERIC PRELOADER (0 -> 100% IN ~0.7S)
+       FAST MINIMAL BOOT PRELOADER (~0.75S)
        ========================================================================= -->
   <div id="preloader" aria-live="polite" aria-label="Loading skybo interface">
     <div class="w-full max-w-sm px-6 space-y-4">
@@ -476,37 +527,66 @@
         <div id="preloader-bar" class="h-full rounded-full transition-all duration-75" style="width: 0%; background: linear-gradient(90deg, var(--accent), var(--accent-bright));"></div>
       </div>
       <div class="flex items-center justify-between font-mono text-[10px] tracking-widest uppercase" style="color: var(--text-muted);">
-        <span>INITIALIZING WEBGL STAGE</span>
+        <span>BOOTING WEBGL CANVAS</span>
         <span>V2.6</span>
       </div>
     </div>
   </div>
 
   <!-- =========================================================================
-       INTERACTIVE WEBGL 3D CANVAS + AMBIENT VIGNETTE + FILM GRAIN
+       FIXED WEBGL STAGE + AMBIENT VIGNETTE + INLINE SVG FILM GRAIN
        ========================================================================= -->
   <canvas id="webgl-canvas" aria-hidden="true"></canvas>
   <div class="ambient-vignette" aria-hidden="true"></div>
-  <canvas id="grain-canvas" aria-hidden="true"></canvas>
+  <svg id="film-grain-overlay" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+    <filter id="skybo-grain-filter">
+      <feTurbulence type="fractalNoise" baseFrequency="0.82" numOctaves="3" stitchTiles="stitch" />
+      <feColorMatrix type="saturate" values="0" />
+    </filter>
+    <rect width="100%" height="100%" filter="url(#skybo-grain-filter)" />
+  </svg>
 
-  <!-- Custom Magnetic Reactive Cursor -->
+  <!-- Floating Hover Preview for INDEX View -->
+  <div id="index-hover-preview" class="rounded-2xl overflow-hidden border shadow-2xl" style="border-color: var(--border-strong); background: var(--surface-strong);" aria-hidden="true">
+    <div class="video-slot">
+      <div class="video-slot-grid"></div>
+      <div class="video-slot-scanline"></div>
+      <span class="vf-corner vf-tl"></span>
+      <span class="vf-corner vf-tr"></span>
+      <span class="vf-corner vf-bl"></span>
+      <span class="vf-corner vf-br"></span>
+      <video id="index-preview-video" class="hidden absolute inset-0 w-full h-full object-cover z-10" muted loop playsinline autoplay></video>
+      <div id="index-preview-placeholder" class="absolute inset-0 z-10 flex flex-col items-center justify-center p-4 text-center space-y-1.5">
+        <span id="index-preview-slot" class="font-mono text-[10px] tracking-widest" style="color: var(--accent-bright);">SLOT_01 // 16:9</span>
+        <span class="font-mono text-[10px]" style="color: var(--text-primary);">VIDEO SLOT // READY FOR .MP4</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Custom Magnetic Reactive Cursor (Desktop Only) -->
   <div id="custom-cursor-ring" aria-hidden="true">
     <span id="custom-cursor-label"></span>
   </div>
   <div id="custom-cursor-dot" aria-hidden="true"></div>
 
-  <!-- Hidden Local Video Input for Live Slot Testing -->
-  <input id="local-video-input" type="file" accept="video/*" class="hidden" aria-hidden="true" />
+  <!-- Hidden File Inputs: Local Offline Preview & Admin GitHub Upload -->
+  <input id="local-preview-input" type="file" accept="video/mp4,video/webm,video/*" class="hidden" aria-hidden="true" />
+  <input id="admin-upload-input" type="file" accept="video/mp4,video/webm" class="hidden" aria-hidden="true" />
 
   <!-- =========================================================================
        MAIN INTERFACE LAYER
        ========================================================================= -->
-  <div class="relative z-10 min-h-screen flex flex-col">
-    <!-- STICKY GLASS HUD NAVBAR -->
+  <div id="app-shell" class="relative z-10 min-h-screen flex flex-col">
+    <!-- STICKY HUD HEADER -->
     <header class="sticky top-0 z-40 nav-glass">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 sm:h-[72px] flex items-center justify-between gap-3">
-        <!-- Brand Mark -->
-        <a href="#top" class="flex items-center gap-2.5 group shrink-0" data-cursor="HOME">
+        <!-- Brand Mark (Secret 5-click trigger with zero visible hints) -->
+        <a
+          id="brand-trigger"
+          href="#identity"
+          class="flex items-center gap-2 shrink-0 select-none"
+          data-cursor="IDENTITY"
+        >
           <span class="font-pixel text-base sm:text-lg tracking-tight flex items-center" style="color: var(--accent-bright);">
             <span style="color: var(--text-muted); margin-right: 6px;">&gt;</span>skybo<span class="cursor-blink" aria-hidden="true"></span>
           </span>
@@ -514,40 +594,37 @@
 
         <!-- Center Navigation Links -->
         <nav class="hidden md:flex items-center gap-7 font-mono text-xs tracking-[0.18em]" aria-label="Primary navigation">
-          <a href="#work" class="transition-colors hover:text-sky-400" style="color: var(--text-secondary);" data-cursor="WORK">WORK</a>
-          <a href="#about" class="transition-colors hover:text-sky-400" style="color: var(--text-secondary);" data-cursor="ABOUT">ABOUT</a>
-          <a href="#contact" class="transition-colors hover:text-sky-400" style="color: var(--text-secondary);" data-cursor="CONTACT">CONTACT</a>
+          <a href="#work" class="transition-colors hover:text-sky-400" style="color: var(--text-secondary);" data-cursor="EXPLORE">WORK</a>
+          <a href="#identity" class="transition-colors hover:text-sky-400" style="color: var(--text-secondary);" data-cursor="IDENTITY">IDENTITY</a>
+          <a href="#contact" class="transition-colors hover:text-sky-400" style="color: var(--text-secondary);" data-cursor="LINK">CONTACT</a>
         </nav>
 
-        <!-- Right HUD Controls: Live Moscow Time, SFX Toggle, Theme Toggle -->
+        <!-- Right HUD Controls: Moscow Clock, Web Audio SFX Toggle, Theme Switcher -->
         <div class="flex items-center gap-2 sm:gap-2.5">
-          <!-- Live Moscow Time / Status -->
           <div class="hidden xl:flex items-center gap-2 px-3 py-1.5 rounded-lg border font-mono text-[11px]" style="border-color: var(--border); background: var(--badge-bg); color: var(--text-secondary);">
             <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
             <span id="live-clock">MSK --:--:--</span>
           </div>
 
-          <!-- Web Audio SFX Toggle -->
           <button
             id="sfx-toggle"
             type="button"
             class="px-2.5 sm:px-3 py-1.5 sm:py-2 rounded-lg border font-mono text-[10px] sm:text-[11px] tracking-wider transition-all flex items-center gap-1.5"
             style="border-color: var(--border); background: var(--surface); color: var(--text-secondary);"
             aria-pressed="false"
-            data-cursor="AUDIO"
+            data-cursor="LINK"
           >
             <span id="sfx-dot" class="w-1.5 h-1.5 rounded-full" style="background: var(--text-muted);"></span>
             <span id="sfx-label">SFX: OFF</span>
           </button>
 
-          <!-- Dual Theme Switcher -->
           <button
             id="theme-toggle"
             type="button"
             class="px-2.5 sm:px-3.5 py-1.5 sm:py-2 rounded-lg border font-mono text-[10px] sm:text-[11px] tracking-wider transition-all flex items-center gap-2"
             style="border-color: var(--border-strong); background: var(--badge-bg); color: var(--text-primary);"
-            aria-label="Toggle color theme"
-            data-cursor="THEME"
+            aria-label="Switch color theme"
+            data-cursor="LINK"
           >
             <span class="w-2 h-2 rounded-full" style="background: var(--accent-bright);"></span>
             <span id="theme-label">DARK // ACTIVE</span>
@@ -555,35 +632,33 @@
         </div>
       </div>
 
-      <!-- Compact Mobile Quick Navigation Bar -->
+      <!-- Mobile Quick Navigation Bar -->
       <div class="md:hidden border-t px-4 py-2 flex items-center justify-between font-mono text-[11px] tracking-[0.16em]" style="border-color: var(--border);">
         <div class="flex items-center gap-5">
           <a href="#work" style="color: var(--text-secondary);">WORK</a>
-          <a href="#about" style="color: var(--text-secondary);">ABOUT</a>
+          <a href="#identity" style="color: var(--text-secondary);">IDENTITY</a>
           <a href="#contact" style="color: var(--text-secondary);">CONTACT</a>
         </div>
         <span id="live-clock-mobile" class="text-[10px]" style="color: var(--text-muted);">MSK --:--</span>
       </div>
     </header>
 
-    <!-- =======================================================================
-         HERO SECTION: BUSINESS CARD + 3D IDENTITY_MODULE
-         ======================================================================= -->
-    <main id="top" class="flex-1">
-      <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-12 sm:pt-16 lg:pt-24 pb-16 sm:pb-24">
+    <main class="flex-1">
+      <!-- =====================================================================
+           HERO / DIGITAL BUSINESS CARD SECTION (#identity)
+           ===================================================================== -->
+      <section id="identity" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-12 sm:pt-16 lg:pt-24 pb-16 sm:pb-24">
         <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
-          <!-- Left Column: Identity, Headline & Direct CTAs -->
+          <!-- Left Column: Identity, Headline & ONLY X + Telegram DM Buttons -->
           <div class="lg:col-span-7 space-y-6 sm:space-y-7">
-            <!-- Banner Category Pill -->
-            <div class="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full border font-mono text-[11px] sm:text-xs tracking-[0.22em]" style="border-color: var(--border-strong); background: var(--badge-bg); color: var(--accent-bright);">
-              <span class="w-2 h-2 rounded-full animate-pulse" style="background: var(--accent-bright);"></span>
-              <span>WEB3 &bull; TECH &bull; TRAVEL</span>
+            <div class="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full border font-mono text-[11px] sm:text-xs tracking-[0.18em]" style="border-color: var(--border-strong); background: var(--badge-bg); color: var(--accent-bright);">
+              <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+              <span>AVAILABLE FOR COLLABS // WEB3 &amp; AI</span>
             </div>
 
-            <!-- Kinetic Headline -->
             <div class="space-y-3">
               <div class="font-pixel text-sm sm:text-base tracking-wide" style="color: var(--accent);">
-                &gt; skybo // PERSONAL ARCHIVE
+                &gt; skybo
               </div>
               <h1
                 class="font-display font-bold tracking-tight leading-[0.95]"
@@ -591,23 +666,25 @@
               >
                 BUILDING <span style="color: var(--accent-bright);">&amp;</span> AI
               </h1>
+              <div class="font-mono text-xs sm:text-sm tracking-[0.24em] uppercase pt-1" style="color: var(--accent-bright);">
+                Web3 &bull; Tech &bull; Travel
+              </div>
             </div>
 
-            <!-- Concise Intro Copy (Zero trailing periods) -->
             <p class="max-w-xl text-base sm:text-lg leading-relaxed" style="color: var(--text-secondary);">
-              Builder, AI tinkerer &amp; Web3 creator crafting motion visuals, custom browser tools, interactive web apps &amp; digital experiences
+              Interactive web experiments, Web3 motion narratives, AI automations and browser games crafted from scratch
             </p>
 
-            <!-- Social & Primary Action Buttons -->
+            <!-- Social Action Row: ONLY X (@Skybornfx) & Telegram DM (@SkybornFX) -->
             <div class="flex flex-wrap items-center gap-3 pt-1">
-              <!-- X / Twitter -->
               <a
                 href="https://x.com/Skybornfx"
                 target="_blank"
                 rel="noopener noreferrer"
-                class="panel-glass px-4 py-2.5 rounded-xl font-mono text-xs sm:text-sm flex items-center gap-2.5"
+                title="Follow @Skybornfx on X"
+                class="panel-glass px-5 py-3 rounded-xl font-mono text-xs sm:text-sm flex items-center gap-2.5"
                 style="color: var(--text-primary);"
-                data-cursor="OPEN X"
+                data-cursor="LINK"
               >
                 <svg class="w-4 h-4 shrink-0" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
                   <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
@@ -615,72 +692,31 @@
                 <span>@Skybornfx</span>
               </a>
 
-              <!-- Telegram -->
               <a
-                href="https://t.me/cryptogaizer"
+                href="https://t.me/SkybornFX"
                 target="_blank"
                 rel="noopener noreferrer"
-                class="panel-glass px-4 py-2.5 rounded-xl font-mono text-xs sm:text-sm flex items-center gap-2.5"
+                title="Message @SkybornFX on Telegram"
+                class="panel-glass px-5 py-3 rounded-xl font-mono text-xs sm:text-sm flex items-center gap-2.5"
                 style="color: var(--text-primary);"
-                data-cursor="TELEGRAM"
+                data-cursor="LINK"
               >
                 <svg class="w-4 h-4 shrink-0" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
                   <path d="M21.944 4.212a1.1 1.1 0 0 0-1.16-.17L2.63 11.49a1.05 1.05 0 0 0 .06 1.96l4.46 1.54 1.72 5.45a1 1 0 0 0 1.66.41l2.58-2.55 4.44 3.26a1.1 1.1 0 0 0 1.72-.66l3.01-15.46a1.1 1.1 0 0 0-.336-1.228ZM9.65 14.31l7.97-6.48-6.37 7.64-.25 3.11-1.35-4.27Z" />
                 </svg>
-                <span>@cryptogaizer</span>
-              </a>
-
-              <!-- GitHub -->
-              <a
-                href="https://github.com/RomanRCH"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="panel-glass px-4 py-2.5 rounded-xl font-mono text-xs sm:text-sm flex items-center gap-2.5"
-                style="color: var(--text-primary);"
-                data-cursor="GITHUB"
-              >
-                <svg class="w-4 h-4 shrink-0" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-                  <path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0 1 12 6.844a9.59 9.59 0 0 1 2.504.337c1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.02 10.02 0 0 0 22 12.017C22 6.484 17.522 2 12 2Z" />
-                </svg>
-                <span>RomanRCH</span>
-              </a>
-
-              <!-- Copy @Skybornfx Pill -->
-              <button
-                id="copy-handle-hero-btn"
-                type="button"
-                class="panel-glass px-4 py-2.5 rounded-xl font-mono text-xs sm:text-sm flex items-center gap-2"
-                style="color: var(--accent-bright);"
-                data-cursor="COPY"
-              >
-                <svg class="w-4 h-4 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-                  <rect x="9" y="9" width="13" height="13" rx="2" />
-                  <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" />
-                </svg>
-                <span>COPY @SKYBORNFX</span>
-              </button>
-
-              <!-- Explore Work Primary CTA -->
-              <a
-                href="#work"
-                class="px-5 py-2.5 rounded-xl font-mono text-xs sm:text-sm font-semibold tracking-wider transition-all flex items-center gap-2 hover:brightness-110"
-                style="background: linear-gradient(135deg, var(--accent), var(--accent-bright)); color: #05070B; box-shadow: 0 12px 32px -12px var(--accent-bright);"
-                data-cursor="EXPLORE"
-              >
-                <span>EXPLORE WORK</span>
-                <span aria-hidden="true">&darr;</span>
+                <span>@SkybornFX</span>
               </a>
             </div>
           </div>
 
-          <!-- Right Column: Interactive 3D-Tilt IDENTITY_MODULE // V2.6 -->
+          <!-- Right Column: 3D Hover-Tilting IDENTITY_MODULE // V2.6 -->
           <div class="lg:col-span-5 identity-stage">
             <div
               id="identity-card"
               class="panel-glass rounded-2xl p-5 sm:p-6 relative overflow-hidden"
               data-cursor="IDENTITY"
             >
-              <!-- Decorative Blueprint Hexagon Watermark -->
+              <!-- Decorative Wireframe Hexagon Watermark -->
               <svg class="absolute -right-6 -top-6 w-36 h-36 opacity-[0.09] pointer-events-none" viewBox="0 0 120 120" fill="none" stroke="currentColor" stroke-width="1.2" style="color: var(--accent-bright);" aria-hidden="true">
                 <polygon points="60,8 104,34 104,86 60,112 16,86 16,34" />
                 <polygon points="60,24 90,42 90,78 60,96 30,78 30,42" />
@@ -689,7 +725,7 @@
                 <line x1="104" y1="34" x2="16" y2="86" />
               </svg>
 
-              <!-- Top Module Header Bar -->
+              <!-- Top Module Bar -->
               <div class="flex items-center justify-between gap-2 mb-4 relative z-10">
                 <div class="flex items-center gap-2 font-mono text-[11px] sm:text-xs tracking-wider" style="color: var(--text-primary);">
                   <span class="w-2 h-2 rounded-full bg-emerald-400 shadow-[0_0_8px_#4ADE80]"></span>
@@ -700,39 +736,39 @@
                 </span>
               </div>
 
-              <!-- Inner Code Terminal Window: skybo.config.ts (Character-by-Character Typewriter) -->
+              <!-- Inner Terminal Window: skybo.config.ts (Character-by-Character Typewriter) -->
               <div
                 id="skybo-terminal"
                 class="rounded-xl border p-4 mb-4 font-mono relative overflow-hidden cursor-pointer select-none z-10"
                 style="background: var(--slot-bg); border-color: var(--border);"
                 role="button"
                 tabindex="0"
+                aria-label="skybo.config.ts live code terminal"
                 title="Click to replay typing animation"
-                aria-label="skybo.config.ts live typing window — click to replay"
-                data-cursor="REPLAY"
+                data-cursor="IDENTITY"
               >
                 <div class="flex items-center justify-between mb-3 pb-2 border-b" style="border-color: var(--border);">
                   <div class="flex items-center gap-1.5">
-                    <span class="w-2.5 h-2.5 rounded-full opacity-80" style="background: var(--accent-bright);"></span>
-                    <span class="w-2.5 h-2.5 rounded-full opacity-50" style="background: var(--accent);"></span>
+                    <span class="w-2.5 h-2.5 rounded-full opacity-85" style="background: var(--accent-bright);"></span>
+                    <span class="w-2.5 h-2.5 rounded-full opacity-55" style="background: var(--accent);"></span>
                     <span class="w-2.5 h-2.5 rounded-full opacity-30" style="background: var(--text-muted);"></span>
                   </div>
                   <span class="text-[10px] tracking-wider" style="color: var(--text-muted);">skybo.config.ts</span>
                 </div>
 
-                <!-- Fixed-height 6-line container prevents layout shift while typing -->
+                <!-- Fixed 6-line height container so card never shifts height -->
                 <div
                   id="terminal-code-body"
-                  class="terminal-code-fade text-[11px] sm:text-xs leading-[1.65] min-h-[126px] sm:min-h-[136px]"
+                  class="terminal-code-fade text-[11px] sm:text-xs leading-[1.65] min-h-[128px] sm:min-h-[138px]"
                   aria-live="off"
                 ></div>
               </div>
 
-              <!-- 3 Bottom Metric Boxes -->
+              <!-- Bottom 3 Telemetry Boxes -->
               <div class="grid grid-cols-3 gap-2.5 relative z-10">
                 <div class="rounded-xl border px-3 py-2.5" style="background: var(--slot-bg); border-color: var(--border);">
                   <div class="font-mono text-[9px] sm:text-[10px] tracking-widest uppercase" style="color: var(--text-muted);">SLOTS</div>
-                  <div class="font-mono text-xs sm:text-sm font-semibold mt-0.5" style="color: var(--text-primary);">06 READY</div>
+                  <div id="telemetry-slots" class="font-mono text-xs sm:text-sm font-semibold mt-0.5 truncate" style="color: var(--text-primary);">06 READY</div>
                 </div>
                 <div class="rounded-xl border px-3 py-2.5" style="background: var(--slot-bg); border-color: var(--border);">
                   <div class="font-mono text-[9px] sm:text-[10px] tracking-widest uppercase" style="color: var(--text-muted);">ENGINE</div>
@@ -752,15 +788,14 @@
       </section>
 
       <!-- =====================================================================
-           SELECTED WORK SECTION (6 VIDEO PLACEHOLDER SLOTS)
+           SELECTED WORK SECTION (#work) WITH 16:9 VIDEO SLOTS
            ===================================================================== -->
       <section id="work" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14 sm:py-20 border-t" style="border-color: var(--border);">
-        <!-- Header + Filter Pills + View Switcher -->
-        <div class="flex flex-col lg:flex-row lg:items-end justify-between gap-6 mb-8">
+        <div class="flex flex-col lg:flex-row lg:items-end justify-between gap-6 mb-10">
           <div class="space-y-2">
             <div class="font-mono text-xs tracking-[0.25em] uppercase flex items-center gap-2.5" style="color: var(--accent-bright);">
               <span class="w-6 h-[1px]" style="background: var(--accent-bright);"></span>
-              <span>SELECTED WORK // VIDEO SLOTS</span>
+              <span>SELECTED ARCHIVE // 16:9 VIEWPORTS</span>
             </div>
             <h2 class="font-display text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight" style="color: var(--text-primary);">
               WORK &amp; EXPERIMENTS
@@ -770,135 +805,41 @@
           <div class="flex flex-wrap items-center justify-between lg:justify-end gap-3">
             <!-- Category Filter Pills -->
             <div id="filter-tabs" class="flex flex-wrap items-center gap-1.5 font-mono text-[11px]" role="tablist" aria-label="Filter projects by category">
-              <button type="button" data-filter="ALL" class="filter-btn px-3 py-2 rounded-lg border transition-all" data-cursor="FILTER">ALL [06]</button>
-              <button type="button" data-filter="WEB3" class="filter-btn px-3 py-2 rounded-lg border transition-all" data-cursor="FILTER">WEB3</button>
-              <button type="button" data-filter="AI" class="filter-btn px-3 py-2 rounded-lg border transition-all" data-cursor="FILTER">AI</button>
-              <button type="button" data-filter="MOTION" class="filter-btn px-3 py-2 rounded-lg border transition-all" data-cursor="FILTER">MOTION</button>
-              <button type="button" data-filter="GAMES" class="filter-btn px-3 py-2 rounded-lg border transition-all" data-cursor="FILTER">GAMES</button>
+              <button type="button" data-filter="ALL" class="filter-btn px-3 py-2 rounded-lg border transition-all" data-cursor="EXPLORE">ALL</button>
+              <button type="button" data-filter="WEB3" class="filter-btn px-3 py-2 rounded-lg border transition-all" data-cursor="EXPLORE">WEB3</button>
+              <button type="button" data-filter="AI" class="filter-btn px-3 py-2 rounded-lg border transition-all" data-cursor="EXPLORE">AI</button>
+              <button type="button" data-filter="MOTION" class="filter-btn px-3 py-2 rounded-lg border transition-all" data-cursor="EXPLORE">MOTION</button>
+              <button type="button" data-filter="GAMES" class="filter-btn px-3 py-2 rounded-lg border transition-all" data-cursor="EXPLORE">GAMES</button>
             </div>
 
             <!-- GRID / INDEX Switcher -->
             <div class="inline-flex rounded-lg border p-0.5 font-mono text-[11px]" style="border-color: var(--border); background: var(--surface);">
-              <button id="view-grid-btn" type="button" class="px-3 py-1.5 rounded-md transition-all" data-cursor="GRID">GRID</button>
-              <button id="view-index-btn" type="button" class="px-3 py-1.5 rounded-md transition-all" data-cursor="INDEX">INDEX</button>
+              <button id="view-grid-btn" type="button" class="px-3 py-1.5 rounded-md transition-all" data-cursor="EXPLORE">GRID</button>
+              <button id="view-index-btn" type="button" class="px-3 py-1.5 rounded-md transition-all" data-cursor="EXPLORE">INDEX</button>
             </div>
           </div>
-        </div>
-
-        <!-- Subtle Helper Banner (Zero trailing periods) -->
-        <div class="mb-8 px-4 py-3 rounded-xl border flex flex-col sm:flex-row sm:items-center justify-between gap-2 font-mono text-xs" style="border-color: var(--border); background: var(--badge-bg); color: var(--text-secondary);">
-          <div class="flex items-center gap-2.5">
-            <span class="w-2 h-2 rounded-full shrink-0" style="background: var(--accent-bright);"></span>
-            <span>All 6 slots hold clean 16:9 video windows ready for <span style="color: var(--text-primary);">.mp4 / .webm</span> loops — click any card to open case details &amp; preview a local file</span>
-          </div>
-          <span class="text-[10px] tracking-widest uppercase shrink-0" style="color: var(--accent-bright);">STANDBY MODE</span>
         </div>
 
         <!-- Dynamic Projects Grid / Index Container -->
         <div id="projects-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"></div>
       </section>
-
-      <!-- =====================================================================
-           ABOUT / CAPABILITIES SECTION
-           ===================================================================== -->
-      <section id="about" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14 sm:py-20 border-t" style="border-color: var(--border);">
-        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 mb-10">
-          <div class="lg:col-span-5 space-y-2">
-            <div class="font-mono text-xs tracking-[0.25em] uppercase flex items-center gap-2.5" style="color: var(--accent-bright);">
-              <span class="w-6 h-[1px]" style="background: var(--accent-bright);"></span>
-              <span>PROFILE // DISCIPLINES</span>
-            </div>
-            <h2 class="font-display text-3xl sm:text-4xl font-bold tracking-tight" style="color: var(--text-primary);">
-              SHIPPING AT THE EDGE OF CODE &amp; MOTION
-            </h2>
-          </div>
-          <div class="lg:col-span-7 flex items-end">
-            <p class="text-base sm:text-lg leading-relaxed" style="color: var(--text-secondary);">
-              Focused on shipping crisp digital artifacts — from rapid AI browser workflows and Web3 motion campaigns to playful interactive web prototypes, always experimenting while moving across time zones
-            </p>
-          </div>
-        </div>
-
-        <!-- 3-Column Swiss Grid -->
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-          <article class="panel-glass rounded-2xl p-6 sm:p-7 flex flex-col justify-between space-y-6">
-            <div class="space-y-4">
-              <div class="flex items-center justify-between font-mono text-xs" style="color: var(--accent-bright);">
-                <span>01 // SYSTEMS</span>
-                <span style="color: var(--text-muted);">[AI]</span>
-              </div>
-              <h3 class="font-display text-xl font-semibold" style="color: var(--text-primary);">
-                AI &amp; Automation
-              </h3>
-              <p class="text-sm leading-relaxed" style="color: var(--text-secondary);">
-                Designing custom LLM browser extensions, agent pipelines, and lightweight productivity tools that cut through daily noise and accelerate research
-              </p>
-            </div>
-            <div class="pt-4 border-t flex flex-wrap gap-2 font-mono text-[10px]" style="border-color: var(--border); color: var(--text-muted);">
-              <span class="px-2 py-1 rounded" style="background: var(--badge-bg);">LLM WORKFLOWS</span>
-              <span class="px-2 py-1 rounded" style="background: var(--badge-bg);">CHROME EXT</span>
-              <span class="px-2 py-1 rounded" style="background: var(--badge-bg);">AGENTS</span>
-            </div>
-          </article>
-
-          <article class="panel-glass rounded-2xl p-6 sm:p-7 flex flex-col justify-between space-y-6">
-            <div class="space-y-4">
-              <div class="flex items-center justify-between font-mono text-xs" style="color: var(--accent-bright);">
-                <span>02 // VISUALS</span>
-                <span style="color: var(--text-muted);">[WEB3]</span>
-              </div>
-              <h3 class="font-display text-xl font-semibold" style="color: var(--text-primary);">
-                Web3 &amp; Motion
-              </h3>
-              <p class="text-sm leading-relaxed" style="color: var(--text-secondary);">
-                Crafting launch trailers, 3D promo loops, kinetic typography, and narrative campaign visuals built to stand out on crypto-native timelines
-              </p>
-            </div>
-            <div class="pt-4 border-t flex flex-wrap gap-2 font-mono text-[10px]" style="border-color: var(--border); color: var(--text-muted);">
-              <span class="px-2 py-1 rounded" style="background: var(--badge-bg);">3D MOTION</span>
-              <span class="px-2 py-1 rounded" style="background: var(--badge-bg);">BRAND REELS</span>
-              <span class="px-2 py-1 rounded" style="background: var(--badge-bg);">CAMPAIGNS</span>
-            </div>
-          </article>
-
-          <article class="panel-glass rounded-2xl p-6 sm:p-7 flex flex-col justify-between space-y-6">
-            <div class="space-y-4">
-              <div class="flex items-center justify-between font-mono text-xs" style="color: var(--accent-bright);">
-                <span>03 // PLAYABLE</span>
-                <span style="color: var(--text-muted);">[WEBGL]</span>
-              </div>
-              <h3 class="font-display text-xl font-semibold" style="color: var(--text-primary);">
-                Interactive Web &amp; Games
-              </h3>
-              <p class="text-sm leading-relaxed" style="color: var(--text-secondary);">
-                Building responsive WebGL experiences, Telegram Mini-Apps, and browser game prototypes with crisp physics, custom shaders, and tactile UI
-              </p>
-            </div>
-            <div class="pt-4 border-t flex flex-wrap gap-2 font-mono text-[10px]" style="border-color: var(--border); color: var(--text-muted);">
-              <span class="px-2 py-1 rounded" style="background: var(--badge-bg);">THREE.JS</span>
-              <span class="px-2 py-1 rounded" style="background: var(--badge-bg);">TG MINI-APPS</span>
-              <span class="px-2 py-1 rounded" style="background: var(--badge-bg);">CANVAS</span>
-            </div>
-          </article>
-        </div>
-      </section>
     </main>
 
     <!-- =======================================================================
-         MINIMALIST CONTACT FOOTER ("LET'S BUILD")
+         MINIMALIST CLOSING FOOTER (#contact) — ONLY X & TELEGRAM DM LINKS
          ======================================================================= -->
-    <footer id="contact" class="max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 pt-12 pb-12 border-t" style="border-color: var(--border);">
+    <footer id="contact" class="max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 pt-12 pb-16 border-t" style="border-color: var(--border);">
       <div class="panel-glass rounded-3xl p-7 sm:p-11 relative overflow-hidden">
         <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-8">
           <div class="space-y-3">
             <div class="font-mono text-xs tracking-[0.25em] uppercase" style="color: var(--accent-bright);">
-              OPEN FOR COLLABORATIONS &amp; EXPERIMENTS
+              DIRECT SIGNAL // OPEN FOR NEW PROJECTS
             </div>
             <h2 class="font-display text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight" style="color: var(--text-primary);">
               LET&rsquo;S BUILD
             </h2>
             <p class="max-w-lg text-sm sm:text-base" style="color: var(--text-secondary);">
-              Need motion visuals, an AI tool, or an interactive web prototype? Reach out directly on X or Telegram
+              Available for Web3 motion visuals, custom AI tooling, creative coding and interactive web launches
             </p>
           </div>
 
@@ -907,54 +848,43 @@
               href="https://x.com/Skybornfx"
               target="_blank"
               rel="noopener noreferrer"
-              class="px-5 py-3 rounded-xl font-mono text-xs sm:text-sm font-semibold tracking-wider transition-all hover:brightness-110"
-              style="background: linear-gradient(135deg, var(--accent), var(--accent-bright)); color: #05070B;"
-              data-cursor="DM ON X"
+              title="Follow @Skybornfx on X"
+              class="px-5 py-3 rounded-xl font-mono text-xs sm:text-sm font-semibold tracking-wider transition-all hover:brightness-110 inline-flex items-center gap-2.5"
+              style="background: linear-gradient(135deg, var(--accent), var(--accent-bright)); color: #05080F;"
+              data-cursor="LINK"
             >
-              X // @SKYBORNFX
+              <svg class="w-4 h-4 shrink-0" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+              </svg>
+              <span>@Skybornfx</span>
             </a>
+
             <a
-              href="https://t.me/cryptogaizer"
+              href="https://t.me/SkybornFX"
               target="_blank"
               rel="noopener noreferrer"
-              class="panel-glass px-5 py-3 rounded-xl font-mono text-xs sm:text-sm"
+              title="Message @SkybornFX on Telegram"
+              class="panel-glass px-5 py-3 rounded-xl font-mono text-xs sm:text-sm inline-flex items-center gap-2.5"
               style="color: var(--text-primary);"
-              data-cursor="TELEGRAM"
+              data-cursor="LINK"
             >
-              TG // @CRYPTOGAIZER
+              <svg class="w-4 h-4 shrink-0" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                <path d="M21.944 4.212a1.1 1.1 0 0 0-1.16-.17L2.63 11.49a1.05 1.05 0 0 0 .06 1.96l4.46 1.54 1.72 5.45a1 1 0 0 0 1.66.41l2.58-2.55 4.44 3.26a1.1 1.1 0 0 0 1.72-.66l3.01-15.46a1.1 1.1 0 0 0-.336-1.228ZM9.65 14.31l7.97-6.48-6.37 7.64-.25 3.11-1.35-4.27Z" />
+              </svg>
+              <span>@SkybornFX</span>
             </a>
-            <a
-              href="https://github.com/RomanRCH"
-              target="_blank"
-              rel="noopener noreferrer"
-              class="panel-glass px-5 py-3 rounded-xl font-mono text-xs sm:text-sm"
-              style="color: var(--text-primary);"
-              data-cursor="GITHUB"
-            >
-              GH // ROMANRCH
-            </a>
-            <button
-              id="copy-handle-footer-btn"
-              type="button"
-              class="panel-glass px-4 py-3 rounded-xl font-mono text-xs sm:text-sm"
-              style="color: var(--accent-bright);"
-              data-cursor="COPY"
-            >
-              COPY @SKYBORNFX
-            </button>
           </div>
         </div>
       </div>
 
-      <!-- Bottom Legal / Status Strip (Zero trailing periods) -->
       <div class="mt-8 flex flex-col sm:flex-row items-center justify-between gap-4 font-mono text-[11px]" style="color: var(--text-muted);">
         <div class="flex items-center gap-2">
           <span class="font-pixel text-xs" style="color: var(--accent-bright);">&gt; skybo</span>
           <span>// BUILDING &amp; AI // WEB3 &bull; TECH &bull; TRAVEL</span>
         </div>
         <div class="flex items-center gap-5">
-          <span>BUILT WITH THREE.JS &amp; GLSL</span>
-          <a href="#top" class="transition-colors hover:text-sky-400" style="color: var(--text-secondary);" data-cursor="TOP">
+          <span>POWERED BY THREE.JS &amp; WEBGL</span>
+          <a href="#identity" class="transition-colors hover:text-sky-400" style="color: var(--text-secondary);" data-cursor="LINK">
             BACK TO TOP &uarr;
           </a>
         </div>
@@ -963,26 +893,87 @@
   </div>
 
   <!-- =========================================================================
-       FULL-SCREEN CASE STUDY MODAL WITH 16:9 VIDEO SLOT + LOCAL .MP4 TESTER
+       FLOATING ADMIN DOCK BAR (100% HIDDEN UNTIL ADMIN MODE IS UNLOCKED)
+       ========================================================================= -->
+  <div
+    id="admin-dock"
+    class="hidden fixed bottom-4 left-1/2 -translate-x-1/2 z-50 w-[calc(100%-1.5rem)] max-w-4xl rounded-2xl border px-4 py-3 shadow-2xl"
+    style="background: var(--admin-bg); border-color: var(--border-strong); backdrop-filter: blur(20px);"
+    role="region"
+    aria-label="Admin control bar"
+  >
+    <div class="flex flex-wrap items-center justify-between gap-2.5">
+      <div class="flex items-center gap-2.5 font-mono text-xs">
+        <span class="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-pulse"></span>
+        <span id="admin-repo-badge" class="font-semibold tracking-wider" style="color: var(--accent-bright);">
+          ADMIN // RomanRCH/skybo-portfoliodev
+        </span>
+        <span id="admin-queue-badge" class="hidden px-2 py-0.5 rounded text-[10px]" style="background: var(--badge-bg); color: var(--text-primary);">
+          SYNCING
+        </span>
+      </div>
+
+      <div class="flex flex-wrap items-center gap-2 font-mono text-[11px]">
+        <button
+          id="admin-add-slot-btn"
+          type="button"
+          class="px-3 py-1.5 rounded-lg font-semibold transition-all hover:brightness-110"
+          style="background: linear-gradient(135deg, var(--accent), var(--accent-bright)); color: #05080F;"
+          data-cursor="UPLOAD"
+        >
+          + ADD SLOT
+        </button>
+        <button
+          id="admin-sync-btn"
+          type="button"
+          class="px-3 py-1.5 rounded-lg border transition-all hover:border-sky-400"
+          style="border-color: var(--border-strong); background: var(--badge-bg); color: var(--text-primary);"
+          data-cursor="LINK"
+        >
+          SYNC FROM GITHUB
+        </button>
+        <button
+          id="admin-config-btn"
+          type="button"
+          class="px-3 py-1.5 rounded-lg border transition-all hover:border-sky-400"
+          style="border-color: var(--border); color: var(--text-secondary);"
+          data-cursor="LINK"
+        >
+          CONFIG
+        </button>
+        <button
+          id="admin-exit-btn"
+          type="button"
+          class="px-3 py-1.5 rounded-lg border transition-all hover:border-rose-400/70"
+          style="border-color: var(--border); color: var(--text-secondary);"
+          data-cursor="LINK"
+        >
+          EXIT ADMIN
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- =========================================================================
+       CASE VIEWER MODAL (LARGE 16:9 PLAYER / PLACEHOLDER + OFFLINE TESTER)
        ========================================================================= -->
   <div
     id="case-modal"
-    class="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-6 overflow-y-auto"
-    style="background: rgba(3, 5, 10, 0.82); backdrop-filter: blur(14px);"
+    class="hud-modal fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-6 overflow-y-auto"
+    style="background: rgba(4, 6, 12, 0.84); backdrop-filter: blur(14px);"
     role="dialog"
     aria-modal="true"
     aria-labelledby="modal-title"
   >
     <div
-      id="case-modal-panel"
-      class="w-full max-w-5xl rounded-3xl border overflow-hidden my-auto max-h-[94vh] flex flex-col"
+      class="hud-modal-panel w-full max-w-5xl rounded-3xl border overflow-hidden my-auto max-h-[94vh] flex flex-col"
       style="background: var(--surface-strong); border-color: var(--border-strong); box-shadow: 0 32px 100px -20px rgba(0, 0, 0, 0.85);"
     >
-      <!-- Modal Top HUD Bar -->
+      <!-- Modal Top HUD -->
       <div class="px-5 sm:px-7 py-4 border-b flex items-center justify-between gap-4 shrink-0" style="border-color: var(--border);">
         <div class="flex items-center gap-3 font-mono text-xs">
           <span id="modal-slot-tag" class="px-2.5 py-1 rounded-md border" style="border-color: var(--border-strong); background: var(--badge-bg); color: var(--accent-bright);">
-            SLOT 01 // STANDBY
+            SLOT_01 // 16:9
           </span>
           <span id="modal-counter" style="color: var(--text-muted);">01 / 06</span>
         </div>
@@ -993,7 +984,7 @@
             type="button"
             class="px-3 py-1.5 rounded-lg border font-mono text-xs transition-all hover:border-sky-400"
             style="border-color: var(--border); color: var(--text-secondary);"
-            data-cursor="PREV"
+            data-cursor="VIEW"
           >
             &larr; PREV
           </button>
@@ -1002,7 +993,7 @@
             type="button"
             class="px-3 py-1.5 rounded-lg border font-mono text-xs transition-all hover:border-sky-400"
             style="border-color: var(--border); color: var(--text-secondary);"
-            data-cursor="NEXT"
+            data-cursor="VIEW"
           >
             NEXT &rarr;
           </button>
@@ -1011,16 +1002,16 @@
             type="button"
             class="px-3.5 py-1.5 rounded-lg border font-mono text-xs font-semibold transition-all hover:border-sky-400"
             style="border-color: var(--border-strong); background: var(--badge-bg); color: var(--text-primary);"
-            data-cursor="CLOSE"
+            data-cursor="LINK"
           >
             ESC &times;
           </button>
         </div>
       </div>
 
-      <!-- Modal Scrollable Content -->
+      <!-- Modal Body -->
       <div class="p-5 sm:p-7 overflow-y-auto space-y-6">
-        <!-- Large 16:9 Video Frame Placeholder / Live Local Preview -->
+        <!-- Large 16:9 Stage -->
         <div class="video-slot rounded-2xl">
           <div class="video-slot-grid"></div>
           <div class="video-slot-scanline"></div>
@@ -1029,12 +1020,36 @@
           <span class="vf-corner vf-bl"></span>
           <span class="vf-corner vf-br"></span>
 
-          <!-- Live Video Container (shown only when videoUrl or local preview is attached) -->
+          <!-- Live Video Stage -->
           <div id="modal-video-stage" class="hidden absolute inset-0 z-20 bg-black">
-            <video id="modal-video-player" class="w-full h-full object-cover" autoplay muted loop playsinline controls></video>
+            <video id="modal-video-player" class="w-full h-full object-cover" autoplay muted loop playsinline></video>
+            <!-- Custom Minimal Playback HUD -->
+            <div class="absolute bottom-3 left-3 right-3 z-30 flex items-center justify-between gap-2 pointer-events-auto">
+              <div class="flex items-center gap-2">
+                <button
+                  id="modal-play-toggle"
+                  type="button"
+                  class="px-3 py-1.5 rounded-lg font-mono text-[11px] font-semibold border backdrop-blur-md"
+                  style="background: rgba(5, 8, 15, 0.78); border-color: var(--border-strong); color: #F1F5FA;"
+                >
+                  PAUSE
+                </button>
+                <button
+                  id="modal-mute-toggle"
+                  type="button"
+                  class="px-3 py-1.5 rounded-lg font-mono text-[11px] font-semibold border backdrop-blur-md"
+                  style="background: rgba(5, 8, 15, 0.78); border-color: var(--border-strong); color: #7DD3FC;"
+                >
+                  UNMUTE SOUND
+                </button>
+              </div>
+              <span class="px-2.5 py-1 rounded-md font-mono text-[10px] tracking-widest border backdrop-blur-md" style="background: rgba(5, 8, 15, 0.78); border-color: var(--border); color: #4ADE80;">
+                LIVE REEL
+              </span>
+            </div>
           </div>
 
-          <!-- Placeholder Overlay (Default State — No Embedded Video) -->
+          <!-- Clean 16:9 Placeholder Stage -->
           <div id="modal-placeholder-stage" class="absolute inset-0 z-10 flex flex-col items-center justify-center text-center p-6 space-y-4">
             <div class="w-14 h-14 rounded-2xl border flex items-center justify-center" style="border-color: var(--border-strong); background: var(--badge-bg); color: var(--accent-bright);">
               <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
@@ -1043,74 +1058,68 @@
             </div>
             <div class="space-y-1.5 max-w-md">
               <div id="modal-placeholder-label" class="font-mono text-xs sm:text-sm font-semibold tracking-wider" style="color: var(--text-primary);">
-                SLOT 01 // 16:9 VIDEO READY
+                VIDEO SLOT // READY FOR .MP4
               </div>
               <p class="font-mono text-[11px] leading-relaxed" style="color: var(--text-muted);">
-                Set videoUrl in PROJECTS inside index.html or load a local .mp4 right now to preview it live in this slot and on the main grid
+                Load a local .mp4 file for quick offline preview inside this 16:9 viewport
               </p>
             </div>
           </div>
         </div>
 
-        <!-- Local Video Controls Bar -->
+        <!-- Action Strip for Local Preview & External Link -->
         <div class="flex flex-wrap items-center justify-between gap-3 px-4 py-3 rounded-xl border" style="border-color: var(--border); background: var(--slot-bg);">
           <div id="modal-video-status" class="font-mono text-xs" style="color: var(--text-secondary);">
-            NO VIDEO ATTACHED — VIEWFINDER PLACEHOLDER ACTIVE
+            VIEWFINDER PLACEHOLDER ACTIVE
           </div>
           <div class="flex flex-wrap items-center gap-2.5">
+            <a
+              id="modal-external-link"
+              href="#"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="hidden px-4 py-2 rounded-lg border font-mono text-xs font-semibold tracking-wider transition-all hover:border-sky-400"
+              style="border-color: var(--border-strong); background: var(--badge-bg); color: var(--accent-bright);"
+              data-cursor="LINK"
+            >
+              OPEN PROJECT &rarr;
+            </a>
             <button
-              id="modal-upload-btn"
+              id="modal-local-preview-btn"
               type="button"
               class="px-4 py-2 rounded-lg font-mono text-xs font-semibold tracking-wider transition-all hover:brightness-110"
-              style="background: linear-gradient(135deg, var(--accent), var(--accent-bright)); color: #05070B;"
-              data-cursor="LOAD MP4"
+              style="background: linear-gradient(135deg, var(--accent), var(--accent-bright)); color: #05080F;"
+              data-cursor="VIEW"
             >
               PREVIEW LOCAL .MP4
-            </button>
-            <button
-              id="modal-clear-video-btn"
-              type="button"
-              class="hidden px-3.5 py-2 rounded-lg border font-mono text-xs transition-all hover:border-sky-400"
-              style="border-color: var(--border); color: var(--text-secondary);"
-              data-cursor="CLEAR"
-            >
-              RESET SLOT
             </button>
           </div>
         </div>
 
-        <!-- Case Metadata & Description -->
+        <!-- Case Metadata -->
         <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 pt-1">
-          <div class="lg:col-span-8 space-y-3">
+          <div class="lg:col-span-8 space-y-4">
             <h2 id="modal-title" class="font-display text-2xl sm:text-3xl font-bold tracking-tight" style="color: var(--text-primary);">
-              01 // WEB3 MOTION REEL
+              01 / PORTALDOT MOTION REEL
             </h2>
-            <p id="modal-subtitle" class="font-mono text-xs sm:text-sm" style="color: var(--accent-bright);">
-              3D Promo &amp; Kinetic Visuals
+            <p id="modal-description" class="text-sm sm:text-base leading-relaxed" style="color: var(--text-secondary);">
+              Project overview loads dynamically
             </p>
-            <p id="modal-overview" class="text-sm sm:text-base leading-relaxed" style="color: var(--text-secondary);">
-              Overview text loads dynamically
-            </p>
+            <div id="modal-tags" class="flex flex-wrap items-center gap-2 pt-1"></div>
           </div>
 
-          <div class="lg:col-span-4 space-y-4 rounded-2xl border p-4 sm:p-5" style="border-color: var(--border); background: var(--slot-bg);">
-            <div class="grid grid-cols-2 gap-3 font-mono text-xs">
-              <div>
-                <div class="text-[10px] tracking-widest uppercase" style="color: var(--text-muted);">YEAR</div>
-                <div id="modal-year" class="mt-0.5 font-semibold" style="color: var(--text-primary);">2026</div>
-              </div>
-              <div>
-                <div class="text-[10px] tracking-widest uppercase" style="color: var(--text-muted);">CATEGORY</div>
-                <div id="modal-category" class="mt-0.5 font-semibold" style="color: var(--accent-bright);">WEB3</div>
-              </div>
+          <div class="lg:col-span-4 space-y-3 rounded-2xl border p-4 sm:p-5 font-mono text-xs" style="border-color: var(--border); background: var(--slot-bg);">
+            <div class="flex items-center justify-between">
+              <span style="color: var(--text-muted);">CATEGORY</span>
+              <span id="modal-category" class="font-semibold" style="color: var(--accent-bright);">MOTION</span>
             </div>
-            <div class="font-mono text-xs">
-              <div class="text-[10px] tracking-widest uppercase" style="color: var(--text-muted);">ROLE</div>
-              <div id="modal-role" class="mt-0.5" style="color: var(--text-primary);">Creative Direction &amp; Motion</div>
+            <div class="flex items-center justify-between">
+              <span style="color: var(--text-muted);">YEAR</span>
+              <span id="modal-year" class="font-semibold" style="color: var(--text-primary);">2026</span>
             </div>
-            <div class="font-mono text-xs">
-              <div class="text-[10px] tracking-widest uppercase mb-2" style="color: var(--text-muted);">STACK</div>
-              <div id="modal-stack" class="flex flex-wrap gap-1.5"></div>
+            <div class="flex items-center justify-between">
+              <span style="color: var(--text-muted);">FORMAT</span>
+              <span style="color: var(--text-primary);">16:9 // HD LOOP</span>
             </div>
           </div>
         </div>
@@ -1118,11 +1127,198 @@
     </div>
   </div>
 
+  <!-- =========================================================================
+       GITHUB AUTH & REPO CONFIG MODAL (100% HIDDEN UNTIL SECRET TRIGGER)
+       ========================================================================= -->
+  <div
+    id="admin-auth-modal"
+    class="hud-modal fixed inset-0 z-[60] flex items-center justify-center p-4 overflow-y-auto"
+    style="background: rgba(4, 6, 12, 0.86); backdrop-filter: blur(16px);"
+    role="dialog"
+    aria-modal="true"
+    aria-labelledby="auth-modal-title"
+  >
+    <div
+      class="hud-modal-panel w-full max-w-lg rounded-3xl border p-6 sm:p-7 space-y-5 my-auto"
+      style="background: var(--surface-strong); border-color: var(--border-strong); box-shadow: 0 32px 100px -20px rgba(0, 0, 0, 0.9);"
+    >
+      <div class="flex items-center justify-between gap-3 pb-3 border-b" style="border-color: var(--border);">
+        <div>
+          <div class="font-mono text-[10px] tracking-[0.2em] uppercase" style="color: var(--accent-bright);">
+            GITHUB REST API // DIRECT PUBLISHER
+          </div>
+          <h3 id="auth-modal-title" class="font-display text-xl font-bold mt-0.5" style="color: var(--text-primary);">
+            ADMIN AUTH &amp; REPOSITORY
+          </h3>
+        </div>
+        <button
+          id="auth-modal-close"
+          type="button"
+          class="px-3 py-1.5 rounded-lg border font-mono text-xs"
+          style="border-color: var(--border); color: var(--text-secondary);"
+        >
+          ESC &times;
+        </button>
+      </div>
+
+      <p class="font-mono text-[11px] leading-relaxed" style="color: var(--text-secondary);">
+        Token is stored only inside your local browser storage and never saved in site code — grant Contents Read &amp; Write for this repository only
+      </p>
+
+      <form id="admin-auth-form" class="space-y-4">
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+          <label class="block space-y-1.5">
+            <span class="font-mono text-[10px] tracking-widest uppercase" style="color: var(--text-muted);">GITHUB OWNER</span>
+            <input id="cfg-owner" type="text" class="hud-input" value="RomanRCH" required autocomplete="off" />
+          </label>
+          <label class="block space-y-1.5">
+            <span class="font-mono text-[10px] tracking-widest uppercase" style="color: var(--text-muted);">REPOSITORY</span>
+            <input id="cfg-repo" type="text" class="hud-input" value="skybo-portfoliodev" required autocomplete="off" />
+          </label>
+        </div>
+
+        <label class="block space-y-1.5">
+          <span class="font-mono text-[10px] tracking-widest uppercase" style="color: var(--text-muted);">BRANCH</span>
+          <input id="cfg-branch" type="text" class="hud-input" value="main" required autocomplete="off" />
+        </label>
+
+        <label class="block space-y-1.5">
+          <span class="font-mono text-[10px] tracking-widest uppercase" style="color: var(--text-muted);">FINE-GRAINED PERSONAL ACCESS TOKEN</span>
+          <input id="cfg-token" type="password" class="hud-input" placeholder="github_pat_..." required autocomplete="off" />
+        </label>
+
+        <div id="auth-status-box" class="hidden rounded-xl border px-3.5 py-2.5 font-mono text-[11px]" style="border-color: var(--border); background: var(--slot-bg); color: var(--text-secondary);"></div>
+
+        <div class="flex flex-wrap items-center justify-between gap-2.5 pt-2">
+          <button
+            id="auth-clear-btn"
+            type="button"
+            class="px-3.5 py-2.5 rounded-xl border font-mono text-[11px] transition-all hover:border-rose-400/70"
+            style="border-color: var(--border); color: var(--text-secondary);"
+          >
+            CLEAR TOKEN &amp; LOGOUT
+          </button>
+
+          <button
+            id="auth-verify-btn"
+            type="submit"
+            class="px-5 py-2.5 rounded-xl font-mono text-xs font-semibold tracking-wider transition-all hover:brightness-110"
+            style="background: linear-gradient(135deg, var(--accent), var(--accent-bright)); color: #05080F;"
+          >
+            VERIFY &amp; ENABLE ADMIN
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- =========================================================================
+       ADMIN EDIT CARD MODAL (EDIT METADATA / TAGS / URLS / DELETE SLOT)
+       ========================================================================= -->
+  <div
+    id="admin-edit-modal"
+    class="hud-modal fixed inset-0 z-[60] flex items-center justify-center p-4 overflow-y-auto"
+    style="background: rgba(4, 6, 12, 0.86); backdrop-filter: blur(16px);"
+    role="dialog"
+    aria-modal="true"
+    aria-labelledby="edit-modal-title"
+  >
+    <div
+      class="hud-modal-panel w-full max-w-xl rounded-3xl border p-6 sm:p-7 space-y-5 my-auto"
+      style="background: var(--surface-strong); border-color: var(--border-strong); box-shadow: 0 32px 100px -20px rgba(0, 0, 0, 0.9);"
+    >
+      <div class="flex items-center justify-between gap-3 pb-3 border-b" style="border-color: var(--border);">
+        <div>
+          <div id="edit-modal-slot-id" class="font-mono text-[10px] tracking-[0.2em] uppercase" style="color: var(--accent-bright);">
+            EDIT SLOT // 01
+          </div>
+          <h3 id="edit-modal-title" class="font-display text-xl font-bold mt-0.5" style="color: var(--text-primary);">
+            EDIT CARD &amp; COMMIT
+          </h3>
+        </div>
+        <button
+          id="edit-modal-close"
+          type="button"
+          class="px-3 py-1.5 rounded-lg border font-mono text-xs"
+          style="border-color: var(--border); color: var(--text-secondary);"
+        >
+          ESC &times;
+        </button>
+      </div>
+
+      <form id="admin-edit-form" class="space-y-3.5">
+        <label class="block space-y-1.5">
+          <span class="font-mono text-[10px] tracking-widest uppercase" style="color: var(--text-muted);">PROJECT TITLE</span>
+          <input id="edit-title" type="text" class="hud-input" required />
+        </label>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+          <label class="block space-y-1.5">
+            <span class="font-mono text-[10px] tracking-widest uppercase" style="color: var(--text-muted);">CATEGORY</span>
+            <select id="edit-category" class="hud-input">
+              <option value="WEB3">WEB3</option>
+              <option value="AI">AI</option>
+              <option value="MOTION">MOTION</option>
+              <option value="GAMES">GAMES</option>
+            </select>
+          </label>
+          <label class="block space-y-1.5">
+            <span class="font-mono text-[10px] tracking-widest uppercase" style="color: var(--text-muted);">YEAR</span>
+            <input id="edit-year" type="text" class="hud-input" required />
+          </label>
+        </div>
+
+        <label class="block space-y-1.5">
+          <span class="font-mono text-[10px] tracking-widest uppercase" style="color: var(--text-muted);">DESCRIPTION</span>
+          <textarea id="edit-description" rows="3" class="hud-input resize-y" required></textarea>
+        </label>
+
+        <label class="block space-y-1.5">
+          <span class="font-mono text-[10px] tracking-widest uppercase" style="color: var(--text-muted);">TAGS (COMMA SEPARATED)</span>
+          <input id="edit-tags" type="text" class="hud-input" placeholder="3D, WEBGL, MOTION" />
+        </label>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+          <label class="block space-y-1.5">
+            <span class="font-mono text-[10px] tracking-widest uppercase" style="color: var(--text-muted);">EXTERNAL PROJECT URL</span>
+            <input id="edit-external-url" type="url" class="hud-input" placeholder="https://example.com" />
+          </label>
+          <label class="block space-y-1.5">
+            <span class="font-mono text-[10px] tracking-widest uppercase" style="color: var(--text-muted);">VIDEO URL OR ./videos/ PATH</span>
+            <input id="edit-video-url" type="text" class="hud-input" placeholder="./videos/01-reel.mp4" />
+          </label>
+        </div>
+
+        <div id="edit-status-box" class="hidden rounded-xl border px-3.5 py-2.5 font-mono text-[11px]" style="border-color: var(--border); background: var(--slot-bg); color: var(--accent-bright);"></div>
+
+        <div class="flex flex-wrap items-center justify-between gap-2.5 pt-2">
+          <button
+            id="edit-delete-slot-btn"
+            type="button"
+            class="px-3.5 py-2.5 rounded-xl border font-mono text-[11px] transition-all hover:border-rose-400"
+            style="border-color: rgba(244, 63, 94, 0.45); color: #FB7185;"
+          >
+            DELETE SLOT
+          </button>
+
+          <button
+            id="edit-save-btn"
+            type="submit"
+            class="px-5 py-2.5 rounded-xl font-mono text-xs font-semibold tracking-wider transition-all hover:brightness-110"
+            style="background: linear-gradient(135deg, var(--accent), var(--accent-bright)); color: #05080F;"
+          >
+            SAVE &amp; COMMIT TO GITHUB
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+
   <!-- HUD Toast Notification -->
   <div id="hud-toast" role="status" aria-live="polite">
     <div class="panel-glass px-4 py-3 rounded-xl flex items-center gap-3 font-mono text-xs" style="border-color: var(--border-strong); color: var(--text-primary);">
-      <span class="w-2 h-2 rounded-full bg-emerald-400"></span>
-      <span id="hud-toast-text">COPIED @SKYBORNFX TO CLIPBOARD</span>
+      <span id="hud-toast-dot" class="w-2 h-2 rounded-full bg-emerald-400"></span>
+      <span id="hud-toast-text">Signal ready</span>
     </div>
   </div>
 
@@ -1131,106 +1327,99 @@
        ========================================================================= -->
   <script>
     /* =========================================================================
-       1. CURATED PROJECTS ARRAY (6 VIDEO PLACEHOLDER SLOTS — NO EMBEDDED VIDEOS)
-       To attach permanent videos later, paste a URL into videoUrl (e.g. "assets/01.mp4")
+       1. DEFAULT PROJECTS (6 CLEAN 16:9 PLACEHOLDER SLOTS — ZERO EMBEDDED VIDEOS)
+       Automatically overridden if ./projects.json exists on GitHub Pages
        ========================================================================= */
-    const PROJECTS = [
+    const DEFAULT_PROJECTS = [
       {
         id: '01',
-        title: '01 // WEB3 MOTION REEL',
-        subtitle: '3D Promo & Kinetic Visuals',
-        category: 'WEB3 & MOTION',
-        tags: ['WEB3', 'MOTION'],
+        title: '01 / PORTALDOT MOTION REEL',
+        category: 'MOTION',
         year: '2026',
-        role: 'Creative Direction & 3D Motion',
-        overview:
-          'Curated showcase of high-impact Web3 product teasers, kinetic typographic loops, and tactile 3D renders engineered for crypto-native social timelines and protocol launches',
-        stack: ['Blender', 'After Effects', 'WebGL', 'Sound Design'],
-        videoUrl: null,
-        videoFileName: null
+        description: 'High-contrast 3D promo visuals, kinetic typography loops and launch motion narratives engineered for Web3 feeds',
+        tags: ['3D MOTION', 'KINETIC TYPE', 'LAUNCH FILM'],
+        externalUrl: '',
+        videoUrl: ''
       },
       {
         id: '02',
-        title: '02 // AI BROWSER SUITE',
-        subtitle: 'Custom LLM Extensions & Automation',
-        category: 'AI & TOOLS',
-        tags: ['AI'],
+        title: '02 / AI AGENT EXTENSION',
+        category: 'AI',
         year: '2026',
-        role: 'Product Design & Engineering',
-        overview:
-          'Lightweight Chrome extensions and AI-powered browser utilities that summarize threads, extract structured insights, and automate repetitive research workflows with minimal latency',
-        stack: ['TypeScript', 'Chrome API', 'LLM Agents', 'Tailwind'],
-        videoUrl: null,
-        videoFileName: null
+        description: 'Custom browser automation suite combining LLM summarization, thread extraction and instant workflow triggers',
+        tags: ['LLM', 'CHROME EXT', 'AUTOMATION'],
+        externalUrl: '',
+        videoUrl: ''
       },
       {
         id: '03',
-        title: '03 // PIXEL RUMBLE',
-        subtitle: 'Telegram Web App Mini-Game',
-        category: 'GAMES',
-        tags: ['GAMES', 'WEB3'],
+        title: '03 / WEB3 ECOSYSTEM FILM',
+        category: 'WEB3',
         year: '2026',
-        role: 'Game Design & Full-Stack Dev',
-        overview:
-          'Fast-paced retro arcade mini-game running natively inside Telegram Web Apps — built with responsive touch physics, crisp pixel sprites, instant leaderboards, and zero-friction onboarding',
-        stack: ['HTML5 Canvas', 'Telegram SDK', 'Web Audio', 'JavaScript'],
-        videoUrl: null,
-        videoFileName: null
+        description: 'End-to-end visual storytelling kit with isometric product explainers and protocol launch teasers',
+        tags: ['WEB3', 'STORYTELLING', 'ISOMETRIC'],
+        externalUrl: '',
+        videoUrl: ''
       },
       {
         id: '04',
-        title: '04 // 3D TANK ARENA',
-        subtitle: 'WebGL Browser Game Prototype',
+        title: '04 / PIXEL RUMBLE ARENA',
         category: 'GAMES',
-        tags: ['GAMES', 'MOTION'],
         year: '2026',
-        role: '3D Programming & Gameplay',
-        overview:
-          'Real-time 3D arena combat prototype in the browser featuring procedural arenas, responsive turret tracking, projectile physics, and stylized low-poly visual shaders',
-        stack: ['Three.js', 'GLSL', 'Physics', 'WebGL'],
-        videoUrl: null,
-        videoFileName: null
+        description: 'Fast-paced retro arcade browser experience with tactile touch physics, custom pixel shaders and instant rounds',
+        tags: ['ARCADE', 'CANVAS', 'SHADERS'],
+        externalUrl: '',
+        videoUrl: ''
       },
       {
         id: '05',
-        title: '05 // PROTOCOL CAMPAIGNS',
-        subtitle: 'Threads, Launch Visuals & Brand Motion',
-        category: 'WEB3 & MOTION',
-        tags: ['WEB3', 'MOTION'],
+        title: '05 / KINETIC BRAND SYSTEM',
+        category: 'MOTION',
         year: '2026',
-        role: 'Visual Storytelling & Motion',
-        overview:
-          'End-to-end visual campaign kits for emerging Web3 ecosystems — blending clean technical diagrams, isometric product animations, and punchy launch motion graphics',
-        stack: ['Motion Systems', 'Figma', '3D Stills', 'Direction'],
-        videoUrl: null,
-        videoFileName: null
+        description: 'Modular motion identity language uniting blueprint geometry, glowing HUD micro-interactions and responsive loops',
+        tags: ['BRANDING', 'HUD UI', 'SYSTEM'],
+        externalUrl: '',
+        videoUrl: ''
       },
       {
         id: '06',
-        title: '06 // TECH & TRAVEL LOG',
-        subtitle: 'Field Notes, Experiments & Systems',
-        category: 'AI & TOOLS',
-        tags: ['AI'],
+        title: '06 / 3D TANK ENGINE',
+        category: 'GAMES',
         year: '2026',
-        role: 'Builder & Digital Nomad',
-        overview:
-          'Evolving visual journal documenting remote setups, AI tooling benchmarks, experimental web interfaces, and creative dispatches built on the road',
-        stack: ['AI Lab', 'Field Notes', 'Minimalist UI', 'Web Apps'],
-        videoUrl: null,
-        videoFileName: null
+        description: 'Real-time WebGL combat arena built with THREE.JS featuring dynamic turret tracking, projectile physics and stylized lighting',
+        tags: ['THREE.JS', 'WEBGL', 'PHYSICS'],
+        externalUrl: '',
+        videoUrl: ''
       }
     ];
 
+    const STORAGE_KEY = 'skybo_gh_admin_cfg';
+
     /* =========================================================================
-       2. APPLICATION STATE
+       2. GLOBAL APPLICATION STATE
        ========================================================================= */
     const state = {
       theme: 'dark',
       activeFilter: 'ALL',
       viewMode: 'grid',
       sfxEnabled: false,
+      projects: DEFAULT_PROJECTS.map((item) => ({ ...item, tags: [...item.tags] })),
+      localPreviews: {},
+      cardUploadStatus: {},
       activeModalIndex: -1,
-      mouse: { x: 0, y: 0, nx: 0, ny: 0, targetNx: 0, targetNy: 0 },
+      activeEditIndex: -1,
+      deleteArmed: false,
+      adminActive: false,
+      ghConfig: {
+        owner: 'RomanRCH',
+        repo: 'skybo-portfoliodev',
+        branch: 'main',
+        token: ''
+      },
+      uploadTargetIndex: -1,
+      commitQueue: Promise.resolve(),
+      pendingCommits: 0,
+      mouse: { nx: 0, ny: 0, targetNx: 0, targetNy: 0 },
       scrollY: 0,
       scrollVelocity: 0,
       lastScrollY: 0,
@@ -1238,7 +1427,7 @@
     };
 
     /* =========================================================================
-       3. SUBTLE WEB AUDIO API SFX ENGINE (OPT-IN VIA NAVBAR TOGGLE)
+       3. WEB AUDIO API SYNTHESIZER (SUBTLE HOVER TICKS & CLICK BLIPS)
        ========================================================================= */
     const SfxEngine = (() => {
       let ctx = null;
@@ -1263,10 +1452,10 @@
           const gain = audio.createGain();
           osc.type = type || 'sine';
           osc.frequency.setValueAtTime(freq, audio.currentTime);
-          osc.frequency.exponentialRampToValueAtTime(freq * 1.16, audio.currentTime + duration);
+          osc.frequency.exponentialRampToValueAtTime(freq * 1.15, audio.currentTime + duration);
 
           gain.gain.setValueAtTime(0.0001, audio.currentTime);
-          gain.gain.exponentialRampToValueAtTime(volume, audio.currentTime + 0.008);
+          gain.gain.exponentialRampToValueAtTime(volume, audio.currentTime + 0.007);
           gain.gain.exponentialRampToValueAtTime(0.0001, audio.currentTime + duration);
 
           osc.connect(gain);
@@ -1274,69 +1463,553 @@
           osc.start();
           osc.stop(audio.currentTime + duration + 0.01);
         } catch (err) {
-          // Silently ignore audio errors
+          // Ignore browser audio restriction errors
         }
       }
 
       return {
         hover() {
-          playTone(540, 0.045, 0.018, 'triangle');
+          playTone(580, 0.04, 0.016, 'triangle');
         },
         click() {
-          playTone(320, 0.065, 0.032, 'sine');
+          playTone(340, 0.06, 0.028, 'sine');
         },
         toggle(on) {
-          playTone(on ? 480 : 260, 0.08, 0.035, 'triangle');
+          playTone(on ? 500 : 270, 0.075, 0.03, 'triangle');
         }
       };
     })();
 
     /* =========================================================================
-       4. HUD TOAST & SAFE CLIPBOARD COPY (IFRAME-SAFE)
+       4. HUD TOAST NOTIFICATION (ZERO TRAILING PERIODS)
        ========================================================================= */
-    function showToast(message) {
+    function showToast(message, tone) {
       const toast = document.getElementById('hud-toast');
       const label = document.getElementById('hud-toast-text');
+      const dot = document.getElementById('hud-toast-dot');
       if (!toast || !label) return;
-      label.textContent = message;
+      label.textContent = String(message || '').replace(/\.+$/, '');
+      if (dot) {
+        dot.style.backgroundColor =
+          tone === 'error' ? '#FB7185' : tone === 'warn' ? '#FBBF24' : '#4ADE80';
+      }
       toast.classList.add('is-visible');
       clearTimeout(state.toastTimer);
       state.toastTimer = setTimeout(() => {
         toast.classList.remove('is-visible');
-      }, 2500);
+      }, 3000);
     }
 
-    function copyTextSafely(text) {
-      try {
-        const tempInput = document.createElement('textarea');
-        tempInput.value = text;
-        tempInput.setAttribute('readonly', '');
-        tempInput.style.position = 'fixed';
-        tempInput.style.top = '-9999px';
-        tempInput.style.opacity = '0';
-        document.body.appendChild(tempInput);
-        tempInput.select();
-        tempInput.setSelectionRange(0, text.length);
-        const copied = document.execCommand('copy');
-        document.body.removeChild(tempInput);
+    /* =========================================================================
+       5. SAFE UTF-8 BASE64 HELPERS & SERIALIZED GITHUB REST API CLIENT
+       Handles UTF-8/Cyrillic cleanly and prevents 409 SHA conflicts via queue
+       ========================================================================= */
+    function utf8ToBase64(str) {
+      const bytes = new TextEncoder().encode(str);
+      const chunkSize = 0x8000;
+      let binary = '';
+      for (let i = 0; i < bytes.length; i += chunkSize) {
+        binary += String.fromCharCode.apply(null, bytes.subarray(i, i + chunkSize));
+      }
+      return btoa(binary);
+    }
 
-        if (copied) {
-          showToast(`COPIED ${text.toUpperCase()} TO CLIPBOARD`);
-        } else if (navigator.clipboard && navigator.clipboard.writeText) {
-          navigator.clipboard.writeText(text).then(
-            () => showToast(`COPIED ${text.toUpperCase()} TO CLIPBOARD`),
-            () => showToast(`HANDLE READY: ${text.toUpperCase()}`)
-          );
-        } else {
-          showToast(`HANDLE READY: ${text.toUpperCase()}`);
+    function base64ToUtf8(base64) {
+      const cleaned = base64.replace(/\s+/g, '');
+      const binary = atob(cleaned);
+      const bytes = new Uint8Array(binary.length);
+      for (let i = 0; i < binary.length; i += 1) {
+        bytes[i] = binary.charCodeAt(i);
+      }
+      return new TextDecoder('utf-8').decode(bytes);
+    }
+
+    function fileToBase64(file, onProgress) {
+      return new Promise((resolve, reject) => {
+        const reader = new FileReader();
+        reader.onprogress = (ev) => {
+          if (ev.lengthComputable && typeof onProgress === 'function') {
+            const pct = Math.min(99, Math.round((ev.loaded / ev.total) * 100));
+            onProgress(pct);
+          }
+        };
+        reader.onload = () => {
+          const result = String(reader.result || '');
+          const commaIdx = result.indexOf(',');
+          resolve(commaIdx >= 0 ? result.slice(commaIdx + 1) : result);
+        };
+        reader.onerror = () => reject(new Error('Failed to read local file'));
+        reader.readAsDataURL(file);
+      });
+    }
+
+    function updateQueueBadge() {
+      const badge = document.getElementById('admin-queue-badge');
+      if (!badge) return;
+      if (state.pendingCommits > 0) {
+        badge.classList.remove('hidden');
+        badge.textContent = `SYNCING (${state.pendingCommits})`;
+      } else {
+        badge.classList.add('hidden');
+      }
+    }
+
+    function enqueueGitHubTask(taskFn) {
+      state.pendingCommits += 1;
+      updateQueueBadge();
+      const next = state.commitQueue.then(taskFn, taskFn);
+      state.commitQueue = next.finally(() => {
+        state.pendingCommits = Math.max(0, state.pendingCommits - 1);
+        updateQueueBadge();
+      });
+      return next;
+    }
+
+    function getGitHubHeaders(tokenOverride) {
+      const token = tokenOverride || state.ghConfig.token;
+      return {
+        Authorization: `Bearer ${token}`,
+        Accept: 'application/vnd.github+json',
+        'X-GitHub-Api-Version': '2022-11-28',
+        'Content-Type': 'application/json'
+      };
+    }
+
+    async function verifyGitHubAccess(cfg) {
+      const url = `https://api.github.com/repos/${encodeURIComponent(cfg.owner)}/${encodeURIComponent(cfg.repo)}`;
+      const res = await fetch(url, {
+        method: 'GET',
+        headers: getGitHubHeaders(cfg.token)
+      });
+
+      if (!res.ok) {
+        if (res.status === 401) throw new Error('Invalid or expired GitHub token (401)');
+        if (res.status === 403) throw new Error('Token lacks repository permissions (403)');
+        if (res.status === 404) throw new Error('Repository not found or token has no access (404)');
+        throw new Error(`GitHub verification failed (${res.status})`);
+      }
+
+      const data = await res.json();
+      if (data.permissions && data.permissions.push === false) {
+        throw new Error('Token has read-only access — enable Contents Read & Write');
+      }
+      return data;
+    }
+
+    async function getGitHubFileMeta(path) {
+      const { owner, repo, branch } = state.ghConfig;
+      const encodedPath = path.split('/').map(encodeURIComponent).join('/');
+      const url = `https://api.github.com/repos/${encodeURIComponent(owner)}/${encodeURIComponent(repo)}/contents/${encodedPath}?ref=${encodeURIComponent(branch)}&_t=${Date.now()}`;
+      const res = await fetch(url, {
+        method: 'GET',
+        headers: getGitHubHeaders()
+      });
+      if (res.status === 404) return null;
+      if (!res.ok) {
+        const errData = await res.json().catch(() => ({}));
+        throw new Error(errData.message || `GitHub GET failed (${res.status})`);
+      }
+      return res.json();
+    }
+
+    async function putGitHubFile(path, base64Content, commitMessage) {
+      const { owner, repo, branch } = state.ghConfig;
+      const existing = await getGitHubFileMeta(path);
+      const encodedPath = path.split('/').map(encodeURIComponent).join('/');
+      const url = `https://api.github.com/repos/${encodeURIComponent(owner)}/${encodeURIComponent(repo)}/contents/${encodedPath}`;
+
+      const payload = {
+        message: commitMessage,
+        content: base64Content,
+        branch
+      };
+      if (existing && existing.sha) {
+        payload.sha = existing.sha;
+      }
+
+      const res = await fetch(url, {
+        method: 'PUT',
+        headers: getGitHubHeaders(),
+        body: JSON.stringify(payload)
+      });
+
+      if (!res.ok) {
+        const errData = await res.json().catch(() => ({}));
+        throw new Error(errData.message || `GitHub PUT failed (${res.status})`);
+      }
+      return res.json();
+    }
+
+    async function deleteGitHubFileIfExists(path, commitMessage) {
+      try {
+        const { owner, repo, branch } = state.ghConfig;
+        const existing = await getGitHubFileMeta(path);
+        if (!existing || !existing.sha) return false;
+
+        const encodedPath = path.split('/').map(encodeURIComponent).join('/');
+        const url = `https://api.github.com/repos/${encodeURIComponent(owner)}/${encodeURIComponent(repo)}/contents/${encodedPath}`;
+
+        const res = await fetch(url, {
+          method: 'DELETE',
+          headers: getGitHubHeaders(),
+          body: JSON.stringify({
+            message: commitMessage,
+            sha: existing.sha,
+            branch
+          })
+        });
+        return res.ok;
+      } catch (err) {
+        return false;
+      }
+    }
+
+    function normalizeProjectRecord(item, index) {
+      const rawTags = Array.isArray(item.tags)
+        ? item.tags
+        : typeof item.tags === 'string'
+        ? item.tags.split(',')
+        : [];
+      return {
+        id: String(item.id || String(index + 1).padStart(2, '0')),
+        title: String(item.title || 'UNTITLED SLOT').trim(),
+        category: String(item.category || 'MOTION').toUpperCase(),
+        year: String(item.year || '2026').trim(),
+        description: String(item.description || '').trim(),
+        tags: rawTags.map((t) => String(t).trim()).filter(Boolean),
+        externalUrl: String(item.externalUrl || '').trim(),
+        videoUrl: String(item.videoUrl || '').trim()
+      };
+    }
+
+    function serializeProjectsForCommit() {
+      return state.projects.map((p, i) => normalizeProjectRecord(p, i));
+    }
+
+    function commitProjectsJson(commitMessage) {
+      return enqueueGitHubTask(async () => {
+        const cleanList = serializeProjectsForCommit();
+        const jsonString = JSON.stringify(cleanList, null, 2) + '\n';
+        const base64 = utf8ToBase64(jsonString);
+        await putGitHubFile('projects.json', base64, commitMessage || 'Update projects.json via Admin Mode');
+      });
+    }
+
+    async function syncProjectsFromGitHubAPI() {
+      const meta = await getGitHubFileMeta('projects.json');
+      if (!meta || !meta.content) {
+        showToast('No projects.json in repository yet — showing local slots', 'warn');
+        return;
+      }
+      const parsed = JSON.parse(base64ToUtf8(meta.content));
+      if (Array.isArray(parsed) && parsed.length > 0) {
+        state.projects = parsed.map((item, i) => normalizeProjectRecord(item, i));
+        updateTelemetrySlots();
+        renderProjects();
+        showToast('Synced latest projects.json directly from GitHub');
+      }
+    }
+
+    async function loadPublicProjectsJson() {
+      try {
+        const res = await fetch(`./projects.json?t=${Date.now()}`, { cache: 'no-store' });
+        if (!res.ok) return;
+        const parsed = await res.json();
+        if (Array.isArray(parsed) && parsed.length > 0) {
+          state.projects = parsed.map((item, i) => normalizeProjectRecord(item, i));
+          updateTelemetrySlots();
+          renderProjects();
         }
       } catch (err) {
-        showToast(`HANDLE READY: ${text.toUpperCase()}`);
+        // Silently retain DEFAULT_PROJECTS when projects.json does not exist yet
       }
     }
 
     /* =========================================================================
-       5. TEXT SCRAMBLE HOVER EFFECT (ACTIVE THEORY KINETIC TYPOGRAPHY)
+       6. ADMIN AUTH STORAGE & ACTIVATION TRIGGERS
+       ========================================================================= */
+    function loadStoredAdminConfig() {
+      try {
+        const raw = localStorage.getItem(STORAGE_KEY);
+        if (!raw) return false;
+        const parsed = JSON.parse(raw);
+        if (parsed && parsed.owner && parsed.repo && parsed.token) {
+          state.ghConfig = {
+            owner: String(parsed.owner),
+            repo: String(parsed.repo),
+            branch: String(parsed.branch || 'main'),
+            token: String(parsed.token)
+          };
+          return true;
+        }
+      } catch (err) {
+        // Ignore storage errors
+      }
+      return false;
+    }
+
+    function saveAdminConfig(cfg) {
+      state.ghConfig = { ...cfg };
+      try {
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(state.ghConfig));
+      } catch (err) {
+        // Ignore quota errors
+      }
+    }
+
+    function clearAdminConfig() {
+      state.ghConfig.token = '';
+      try {
+        localStorage.removeItem(STORAGE_KEY);
+      } catch (err) {
+        // Ignore storage errors
+      }
+    }
+
+    function setAdminMode(active) {
+      state.adminActive = Boolean(active);
+      const dock = document.getElementById('admin-dock');
+      const repoBadge = document.getElementById('admin-repo-badge');
+      if (dock) {
+        dock.classList.toggle('hidden', !state.adminActive);
+      }
+      document.body.classList.toggle('admin-open', state.adminActive);
+      if (repoBadge) {
+        repoBadge.textContent = `ADMIN // ${state.ghConfig.owner}/${state.ghConfig.repo}`;
+      }
+      renderProjects();
+    }
+
+    function openAdminAuthModal() {
+      const modal = document.getElementById('admin-auth-modal');
+      const statusBox = document.getElementById('auth-status-box');
+      document.getElementById('cfg-owner').value = state.ghConfig.owner || 'RomanRCH';
+      document.getElementById('cfg-repo').value = state.ghConfig.repo || 'skybo-portfoliodev';
+      document.getElementById('cfg-branch').value = state.ghConfig.branch || 'main';
+      document.getElementById('cfg-token').value = state.ghConfig.token || '';
+      if (statusBox) {
+        statusBox.classList.add('hidden');
+        statusBox.textContent = '';
+      }
+      modal.classList.add('is-open');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeAdminAuthModal() {
+      const modal = document.getElementById('admin-auth-modal');
+      modal.classList.remove('is-open');
+      if (state.activeModalIndex === -1 && state.activeEditIndex === -1) {
+        document.body.style.overflow = '';
+      }
+    }
+
+    function triggerAdminEntry() {
+      if (state.adminActive) {
+        openAdminAuthModal();
+        return;
+      }
+      const hasSaved = loadStoredAdminConfig();
+      if (hasSaved && state.ghConfig.token) {
+        setAdminMode(true);
+        showToast(`Admin Mode enabled for ${state.ghConfig.owner}/${state.ghConfig.repo}`);
+        syncProjectsFromGitHubAPI().catch(() => {});
+      } else {
+        openAdminAuthModal();
+      }
+    }
+
+    /* =========================================================================
+       7. DIRECT VIDEO UPLOAD & CARD EDIT / DELETE WORKFLOWS
+       ========================================================================= */
+    function getEffectiveVideoSrc(project) {
+      return state.localPreviews[project.id] || project.videoUrl || '';
+    }
+
+    function buildVideoSlug(project, file) {
+      const ext = String(file.name || '').toLowerCase().endsWith('.webm') ? 'webm' : 'mp4';
+      const baseSlug = String(project.title || `slot-${project.id}`)
+        .toLowerCase()
+        .replace(/[^a-z0-9]+/g, '-')
+        .replace(/^-+|-+$/g, '')
+        .slice(0, 32) || `slot-${project.id}`;
+      return `${project.id}-${baseSlug}.${ext}`;
+    }
+
+    async function handleAdminVideoUpload(index, file) {
+      const project = state.projects[index];
+      if (!project || !file) return;
+
+      const sizeMB = file.size / (1024 * 1024);
+      if (sizeMB > 95) {
+        showToast('File exceeds 95 MB GitHub API limit — compress before upload', 'error');
+        state.cardUploadStatus[project.id] = 'BLOCKED // EXCEEDS 95 MB LIMIT';
+        renderProjects();
+        return;
+      }
+
+      if (sizeMB > 25) {
+        showToast('File is over 25 MB — compressing to 1080p is recommended for fast loading', 'warn');
+      }
+
+      // Immediately mount local blob URL so owner sees the video playing instantly
+      if (state.localPreviews[project.id]) {
+        URL.revokeObjectURL(state.localPreviews[project.id]);
+      }
+      state.localPreviews[project.id] = URL.createObjectURL(file);
+      state.cardUploadStatus[project.id] = 'READING FILE // 0%';
+      updateTelemetrySlots();
+      renderProjects();
+
+      try {
+        const base64 = await fileToBase64(file, (pct) => {
+          state.cardUploadStatus[project.id] = `READING FILE // ${pct}%`;
+          const statusEl = document.querySelector(`[data-upload-status="${project.id}"]`);
+          if (statusEl) statusEl.textContent = state.cardUploadStatus[project.id];
+        });
+
+        const filename = buildVideoSlug(project, file);
+        const repoPath = `videos/${filename}`;
+        const previousVideoUrl = project.videoUrl;
+
+        state.cardUploadStatus[project.id] = 'UPLOADING TO GITHUB //';
+        renderProjects();
+
+        await enqueueGitHubTask(async () => {
+          await putGitHubFile(repoPath, base64, `Upload video for slot ${project.id}`);
+        });
+
+        project.videoUrl = `./${repoPath}`;
+        state.cardUploadStatus[project.id] = 'SAVING PROJECTS.JSON //';
+        renderProjects();
+
+        await commitProjectsJson(`Link ${repoPath} to slot ${project.id}`);
+
+        // Clean up old repo-hosted video file if replacing a differently named one
+        if (previousVideoUrl && previousVideoUrl.startsWith('./videos/') && previousVideoUrl !== project.videoUrl) {
+          const oldPath = previousVideoUrl.replace(/^\.\//, '');
+          enqueueGitHubTask(() => deleteGitHubFileIfExists(oldPath, `Remove replaced video ${oldPath}`));
+        }
+
+        state.cardUploadStatus[project.id] = 'DEPLOYING (~1-2 MIN)';
+        updateTelemetrySlots();
+        renderProjects();
+        showToast(`Uploaded ${filename} — GitHub Pages deploying (~1-2 min)`);
+      } catch (err) {
+        state.cardUploadStatus[project.id] = `ERROR // ${String(err.message || 'UPLOAD FAILED').replace(/\.+$/, '')}`;
+        renderProjects();
+        showToast(err.message || 'Video upload failed', 'error');
+      }
+    }
+
+    async function handleClearCardVideo(index) {
+      const project = state.projects[index];
+      if (!project) return;
+      if (!getEffectiveVideoSrc(project)) {
+        showToast(`Slot ${project.id} is already empty`, 'warn');
+        return;
+      }
+
+      const oldUrl = project.videoUrl;
+      if (state.localPreviews[project.id]) {
+        URL.revokeObjectURL(state.localPreviews[project.id]);
+        delete state.localPreviews[project.id];
+      }
+
+      project.videoUrl = '';
+      state.cardUploadStatus[project.id] = 'SAVING PROJECTS.JSON //';
+      updateTelemetrySlots();
+      renderProjects();
+
+      try {
+        await commitProjectsJson(`Clear video from slot ${project.id}`);
+
+        if (oldUrl && oldUrl.startsWith('./videos/')) {
+          const cleanPath = oldUrl.replace(/^\.\//, '');
+          enqueueGitHubTask(() => deleteGitHubFileIfExists(cleanPath, `Delete video ${cleanPath}`));
+        }
+
+        state.cardUploadStatus[project.id] = 'SLOT CLEARED // DEPLOYING (~1-2 MIN)';
+        renderProjects();
+        showToast(`Slot ${project.id} video cleared and committed`);
+      } catch (err) {
+        state.cardUploadStatus[project.id] = `ERROR // ${String(err.message || 'CLEAR FAILED').replace(/\.+$/, '')}`;
+        renderProjects();
+        showToast(err.message || 'Failed to update projects.json', 'error');
+      }
+    }
+
+    async function handleAddSlot() {
+      const maxNum = state.projects.reduce((acc, item) => {
+        const n = parseInt(item.id, 10);
+        return Number.isNaN(n) ? acc : Math.max(acc, n);
+      }, 0);
+      const nextId = String(maxNum + 1).padStart(2, '0');
+
+      const newSlot = {
+        id: nextId,
+        title: `${nextId} / NEW EXPERIMENT`,
+        category: 'AI',
+        year: String(new Date().getFullYear()),
+        description: 'Fresh 16:9 showcase slot ready for video upload and custom case metadata',
+        tags: ['NEW', 'WEBGL'],
+        externalUrl: '',
+        videoUrl: ''
+      };
+
+      state.projects.push(newSlot);
+      updateTelemetrySlots();
+      renderProjects();
+      showToast(`Adding slot ${nextId} to GitHub`);
+
+      try {
+        await commitProjectsJson(`Add project slot ${nextId}`);
+        showToast(`Slot ${nextId} saved to projects.json`);
+      } catch (err) {
+        showToast(err.message || 'Failed to commit new slot', 'error');
+      }
+    }
+
+    function openEditCardModal(index) {
+      const project = state.projects[index];
+      if (!project) return;
+      state.activeEditIndex = index;
+      state.deleteArmed = false;
+
+      document.getElementById('edit-modal-slot-id').textContent = `EDIT SLOT // ${project.id}`;
+      document.getElementById('edit-title').value = project.title;
+      document.getElementById('edit-category').value = ['WEB3', 'AI', 'MOTION', 'GAMES'].includes(project.category)
+        ? project.category
+        : 'MOTION';
+      document.getElementById('edit-year').value = project.year || '2026';
+      document.getElementById('edit-description').value = project.description || '';
+      document.getElementById('edit-tags').value = Array.isArray(project.tags) ? project.tags.join(', ') : '';
+      document.getElementById('edit-external-url').value = project.externalUrl || '';
+      document.getElementById('edit-video-url').value = project.videoUrl || '';
+
+      const delBtn = document.getElementById('edit-delete-slot-btn');
+      if (delBtn) delBtn.textContent = 'DELETE SLOT';
+
+      const statusBox = document.getElementById('edit-status-box');
+      if (statusBox) {
+        statusBox.classList.add('hidden');
+        statusBox.textContent = '';
+      }
+
+      document.getElementById('admin-edit-modal').classList.add('is-open');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeEditCardModal() {
+      document.getElementById('admin-edit-modal').classList.remove('is-open');
+      state.activeEditIndex = -1;
+      state.deleteArmed = false;
+      if (state.activeModalIndex === -1) {
+        document.body.style.overflow = '';
+      }
+    }
+
+    /* =========================================================================
+       8. KINETIC TEXT SCRAMBLE ON HOVER
        ========================================================================= */
     const SCRAMBLE_CHARS = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789/_-';
 
@@ -1350,43 +2023,39 @@
       let frame = 0;
       const totalFrames = Math.max(16, Math.floor(original.length * 1.15));
 
-      function update() {
+      function step() {
         const progress = frame / totalFrames;
-        const revealedCount = Math.floor(progress * original.length);
-        let output = '';
+        const revealed = Math.floor(progress * original.length);
+        let out = '';
 
         for (let i = 0; i < original.length; i += 1) {
           const ch = original[i];
           if (ch === ' ') {
-            output += ' ';
-          } else if (i < revealedCount) {
-            output += ch;
+            out += ' ';
+          } else if (i < revealed) {
+            out += ch;
           } else {
-            output += SCRAMBLE_CHARS[Math.floor(Math.random() * SCRAMBLE_CHARS.length)];
+            out += SCRAMBLE_CHARS[Math.floor(Math.random() * SCRAMBLE_CHARS.length)];
           }
         }
 
-        el.textContent = output;
+        el.textContent = out;
         frame += 1;
 
         if (frame <= totalFrames) {
-          el._scrambleRaf = requestAnimationFrame(update);
+          el._scrambleRaf = requestAnimationFrame(step);
         } else {
           el.textContent = original;
           el._scrambleRaf = null;
         }
       }
 
-      el._scrambleRaf = requestAnimationFrame(update);
+      el._scrambleRaf = requestAnimationFrame(step);
     }
 
     /* =========================================================================
-       6. CHARACTER-BY-CHARACTER TYPEWRITER FOR skybo.config.ts
-       - Exact 6 lines with preserved syntax highlighting colors
-       - Glowing blinking caret follows each character
-       - Fixed 6-line height prevents layout jump
-       - 5-second blink pause on finish, smooth fade & automatic loop
-       - Clicking terminal window restarts immediately
+       9. CHARACTER-BY-CHARACTER TYPEWRITER FOR skybo.config.ts
+       Exact 6 lines, syntax highlighting, glowing blinking caret, 5s hold & loop
        ========================================================================= */
     const TERMINAL_SNIPPET = [
       [
@@ -1453,7 +2122,7 @@
         container.style.opacity = '1';
         container.innerHTML = '';
 
-        // Pre-allocate all 6 line rows so card height never shifts
+        // Pre-allocate all 6 rows to guarantee zero layout shift
         const lineNodes = TERMINAL_SNIPPET.map(() => {
           const row = document.createElement('div');
           row.className = 'whitespace-pre min-h-[1.65em]';
@@ -1461,16 +2130,11 @@
           return row;
         });
 
-        // Build character step queue with syntax color metadata
         const steps = [];
         TERMINAL_SNIPPET.forEach((tokens, lineIdx) => {
           tokens.forEach((token) => {
             for (let i = 0; i < token.text.length; i += 1) {
-              steps.push({
-                lineIdx,
-                ch: token.text[i],
-                color: token.color
-              });
+              steps.push({ lineIdx, ch: token.text[i], color: token.color });
             }
           });
           if (lineIdx < TERMINAL_SNIPPET.length - 1) {
@@ -1489,14 +2153,14 @@
           if (currentGen !== runGeneration) return;
 
           if (stepIdx >= steps.length) {
-            // Keep blinking cursor visible for 5 seconds, then fade and loop
+            // Keep blinking caret for 5 seconds, smoothly fade out and loop
             timerId = setTimeout(() => {
               if (currentGen !== runGeneration) return;
               container.style.opacity = '0';
               timerId = setTimeout(() => {
                 if (currentGen !== runGeneration) return;
                 startTyping();
-              }, 280);
+              }, 260);
             }, 5000);
             return;
           }
@@ -1525,9 +2189,8 @@
           activeSpan.textContent += step.ch;
           rowEl.appendChild(caret);
 
-          // Crisp 35-45ms per-character cadence
-          const delay = 35 + Math.floor(Math.random() * 11);
-          timerId = setTimeout(tick, delay);
+          const charDelay = 35 + Math.floor(Math.random() * 11);
+          timerId = setTimeout(tick, charDelay);
         }
 
         timerId = setTimeout(tick, 90);
@@ -1550,8 +2213,26 @@
     }
 
     /* =========================================================================
-       7. PROJECTS RENDERING (GRID VIEW & INDEX VIEW) + CASE MODAL
+       10. TELEMETRY, INDEX HOVER PREVIEW & PROJECTS RENDERING
        ========================================================================= */
+    function escapeHtml(str) {
+      return String(str || '')
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;');
+    }
+
+    function updateTelemetrySlots() {
+      const el = document.getElementById('telemetry-slots');
+      if (!el) return;
+      const total = state.projects.length;
+      const liveCount = state.projects.filter((p) => Boolean(getEffectiveVideoSrc(p))).length;
+      const paddedTotal = String(total).padStart(2, '0');
+      const paddedLive = String(liveCount).padStart(2, '0');
+      el.textContent = liveCount > 0 ? `${paddedLive} LIVE / ${paddedTotal}` : `${paddedTotal} READY`;
+    }
+
     function updateFilterAndViewUI() {
       document.querySelectorAll('.filter-btn').forEach((btn) => {
         const isActive = btn.dataset.filter === state.activeFilter;
@@ -1572,33 +2253,142 @@
       }
     }
 
+    function showIndexHoverPreview(project, clientX, clientY) {
+      if (!window.matchMedia('(hover: hover) and (pointer: fine)').matches) return;
+      const preview = document.getElementById('index-hover-preview');
+      const videoEl = document.getElementById('index-preview-video');
+      const placeholderEl = document.getElementById('index-preview-placeholder');
+      const slotEl = document.getElementById('index-preview-slot');
+      if (!preview || !videoEl || !placeholderEl) return;
+
+      const src = getEffectiveVideoSrc(project);
+      if (slotEl) slotEl.textContent = `SLOT_${project.id} // 16:9`;
+
+      if (src) {
+        if (videoEl.getAttribute('src') !== src) {
+          videoEl.src = src;
+        }
+        videoEl.classList.remove('hidden');
+        placeholderEl.classList.add('hidden');
+        videoEl.play().catch(() => {});
+      } else {
+        videoEl.pause();
+        videoEl.classList.add('hidden');
+        placeholderEl.classList.remove('hidden');
+      }
+
+      positionIndexHoverPreview(clientX, clientY);
+      preview.classList.add('is-visible');
+    }
+
+    function positionIndexHoverPreview(clientX, clientY) {
+      const preview = document.getElementById('index-hover-preview');
+      if (!preview) return;
+      const offsetX = 26;
+      const offsetY = -90;
+      const maxX = window.innerWidth - 320;
+      const maxY = window.innerHeight - 190;
+      const x = Math.max(16, Math.min(clientX + offsetX, maxX));
+      const y = Math.max(80, Math.min(clientY + offsetY, maxY));
+      preview.style.left = `${x}px`;
+      preview.style.top = `${y}px`;
+    }
+
+    function hideIndexHoverPreview() {
+      const preview = document.getElementById('index-hover-preview');
+      const videoEl = document.getElementById('index-preview-video');
+      if (preview) preview.classList.remove('is-visible');
+      if (videoEl) videoEl.pause();
+    }
+
+    function buildAdminCardStrip(project, globalIndex, hasVideo) {
+      if (!state.adminActive) return '';
+      const statusText = state.cardUploadStatus[project.id] || '';
+      return `
+        <div
+          class="admin-card-strip rounded-xl border p-2.5 space-y-2"
+          style="border-color: var(--border-strong); background: var(--slot-bg);"
+          onclick="event.stopPropagation()"
+        >
+          <div class="flex flex-wrap items-center gap-1.5 font-mono text-[10px]">
+            <button
+              type="button"
+              class="admin-upload-btn flex-1 min-w-[122px] px-2.5 py-2 rounded-lg font-semibold tracking-wider transition-all hover:brightness-110"
+              style="background: linear-gradient(135deg, var(--accent), var(--accent-bright)); color: #05080F;"
+              data-admin-upload="${globalIndex}"
+              data-cursor="UPLOAD"
+            >
+              UPLOAD VIDEO (.MP4)
+            </button>
+            <button
+              type="button"
+              class="admin-edit-btn px-2.5 py-2 rounded-lg border transition-all hover:border-sky-400"
+              style="border-color: var(--border-strong); background: var(--badge-bg); color: var(--text-primary);"
+              data-admin-edit="${globalIndex}"
+              data-cursor="LINK"
+            >
+              EDIT CARD
+            </button>
+            <button
+              type="button"
+              class="admin-clear-btn px-2.5 py-2 rounded-lg border transition-all ${hasVideo ? 'hover:border-rose-400' : 'opacity-45'}"
+              style="border-color: rgba(244, 63, 94, 0.45); color: #FB7185;"
+              data-admin-clear="${globalIndex}"
+              data-cursor="LINK"
+            >
+              CLEAR VIDEO
+            </button>
+          </div>
+          ${
+            statusText
+              ? `<div data-upload-status="${escapeHtml(project.id)}" class="font-mono text-[10px] tracking-wider truncate px-1" style="color: var(--accent-bright);">
+                  ${escapeHtml(statusText)}
+                </div>`
+              : ''
+          }
+        </div>
+      `;
+    }
+
     function renderProjects() {
       const container = document.getElementById('projects-container');
       if (!container) return;
 
-      const filtered = PROJECTS.filter((p) =>
-        state.activeFilter === 'ALL' ? true : p.tags.includes(state.activeFilter)
+      hideIndexHoverPreview();
+
+      const filtered = state.projects.filter((p) =>
+        state.activeFilter === 'ALL' ? true : p.category === state.activeFilter
       );
+
+      if (filtered.length === 0) {
+        container.className = 'w-full';
+        container.innerHTML = `
+          <div class="panel-glass rounded-2xl p-10 text-center font-mono text-xs" style="color: var(--text-muted);">
+            NO SLOTS IN CATEGORY ${escapeHtml(state.activeFilter)}
+          </div>
+        `;
+        return;
+      }
 
       if (state.viewMode === 'grid') {
         container.className = 'grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6';
         container.innerHTML = filtered
           .map((project) => {
-            const globalIndex = PROJECTS.findIndex((item) => item.id === project.id);
-            const hasVideo = Boolean(project.videoUrl);
-            const slotBadge = hasVideo ? `SLOT ${project.id} // LIVE PREVIEW` : `SLOT ${project.id} // 16:9 VIDEO READY`;
+            const globalIndex = state.projects.findIndex((item) => item.id === project.id);
+            const videoSrc = getEffectiveVideoSrc(project);
+            const hasVideo = Boolean(videoSrc);
 
             return `
               <article
                 class="project-card panel-glass rounded-2xl p-4 flex flex-col justify-between gap-4 cursor-pointer group"
                 data-project-index="${globalIndex}"
-                data-cursor="OPEN CASE"
+                data-cursor="VIEW"
                 tabindex="0"
                 role="button"
-                aria-label="Open case ${project.title}"
+                aria-label="Open case ${escapeHtml(project.title)}"
               >
-                <div class="space-y-4">
-                  <!-- 16:9 Video Placeholder / Live Preview Window -->
+                <div class="space-y-3.5">
+                  <!-- 16:9 Media Viewport Window -->
                   <div class="video-slot rounded-xl">
                     <div class="video-slot-grid"></div>
                     <div class="video-slot-scanline"></div>
@@ -1609,7 +2399,7 @@
 
                     ${
                       hasVideo
-                        ? `<video src="${project.videoUrl}" class="absolute inset-0 w-full h-full object-cover z-10" autoplay muted loop playsinline></video>`
+                        ? `<video src="${escapeHtml(videoSrc)}" muted loop playsinline autoplay preload="metadata" class="slot-video-el absolute inset-0 w-full h-full object-cover z-10"></video>`
                         : `<div class="absolute inset-0 z-10 flex flex-col items-center justify-center text-center p-4 space-y-2.5">
                             <div class="w-10 h-10 rounded-xl border flex items-center justify-center transition-transform duration-300 group-hover:scale-110" style="border-color: var(--border-strong); background: var(--badge-bg); color: var(--accent-bright);">
                               <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
@@ -1617,112 +2407,131 @@
                               </svg>
                             </div>
                             <div class="font-mono text-[10px] sm:text-[11px] font-semibold tracking-wider" style="color: var(--text-primary);">
-                              ${slotBadge}
-                            </div>
-                            <div class="font-mono text-[9px] tracking-widest uppercase" style="color: var(--text-muted);">
-                              CLICK TO OPEN &amp; TEST LOCAL .MP4
+                              VIDEO SLOT // READY FOR .MP4
                             </div>
                           </div>`
                     }
 
-                    <!-- Top-Left Frame Indicator -->
-                    <div class="absolute top-2.5 left-3 z-20 px-2 py-0.5 rounded font-mono text-[9px] tracking-widest" style="background: rgba(5, 7, 11, 0.72); color: var(--accent-bright); border: 1px solid var(--border);">
-                      ${hasVideo ? 'REC // LIVE' : '16:9 // STANDBY'}
+                    <!-- Top-Left HUD Badge -->
+                    <div class="absolute top-2.5 left-3 z-20 px-2 py-0.5 rounded font-mono text-[9px] tracking-widest border" style="background: rgba(5, 8, 15, 0.78); color: ${hasVideo ? '#4ADE80' : '#7DD3FC'}; border-color: var(--border);">
+                      ${hasVideo ? 'LIVE REEL' : `SLOT_${escapeHtml(project.id)} // 16:9`}
                     </div>
                   </div>
 
-                  <!-- Project Header & Copy -->
+                  <!-- Hidden Admin Action Strip Directly Under 16:9 Window -->
+                  ${buildAdminCardStrip(project, globalIndex, hasVideo)}
+
+                  <!-- Card Metadata -->
                   <div class="space-y-2 px-1">
                     <div class="flex items-center justify-between gap-2 font-mono text-[10px] tracking-widest uppercase">
-                      <span style="color: var(--accent-bright);">${project.category}</span>
-                      <span style="color: var(--text-muted);">${project.year}</span>
+                      <div class="flex items-center gap-2">
+                        <span style="color: var(--text-muted);">${escapeHtml(project.id)}</span>
+                        <span class="px-2 py-0.5 rounded" style="background: var(--badge-bg); color: var(--accent-bright);">${escapeHtml(project.category)}</span>
+                      </div>
+                      <span style="color: var(--text-muted);">${escapeHtml(project.year)}</span>
                     </div>
                     <h3 class="scramble-title font-display text-lg sm:text-xl font-bold tracking-tight transition-colors group-hover:text-sky-400" style="color: var(--text-primary);">
-                      ${project.title}
+                      ${escapeHtml(project.title)}
                     </h3>
                     <p class="text-xs sm:text-sm leading-relaxed line-clamp-2" style="color: var(--text-secondary);">
-                      ${project.overview}
+                      ${escapeHtml(project.description)}
                     </p>
                   </div>
                 </div>
 
-                <!-- Tech Stack Tags -->
-                <div class="pt-3 px-1 border-t flex flex-wrap items-center justify-between gap-2" style="border-color: var(--border);">
-                  <div class="flex flex-wrap gap-1.5 font-mono text-[10px]" style="color: var(--text-muted);">
-                    ${project.stack
-                      .slice(0, 3)
-                      .map((tech) => `<span class="px-2 py-0.5 rounded" style="background: var(--badge-bg);">${tech}</span>`)
-                      .join('')}
-                  </div>
-                  <span class="font-mono text-[10px] tracking-wider transition-transform group-hover:translate-x-1" style="color: var(--accent-bright);">
-                    VIEW &rarr;
-                  </span>
+                <div class="pt-3 px-1 border-t flex items-center justify-between font-mono text-[10px] tracking-wider" style="border-color: var(--border);">
+                  <span style="color: var(--text-muted);">${hasVideo ? 'VIDEO ATTACHED' : '16:9 PLACEHOLDER'}</span>
+                  <span class="transition-transform group-hover:translate-x-1" style="color: var(--accent-bright);">OPEN CASE &rarr;</span>
                 </div>
               </article>
             `;
           })
           .join('');
       } else {
-        // INDEX LIST VIEW
+        // INDEX LIST VIEW WITH INTERACTIVE HOVER PREVIEW
         container.className = 'flex flex-col gap-3';
         container.innerHTML = filtered
           .map((project) => {
-            const globalIndex = PROJECTS.findIndex((item) => item.id === project.id);
-            const hasVideo = Boolean(project.videoUrl);
+            const globalIndex = state.projects.findIndex((item) => item.id === project.id);
+            const videoSrc = getEffectiveVideoSrc(project);
+            const hasVideo = Boolean(videoSrc);
 
             return `
               <article
-                class="project-card panel-glass rounded-2xl px-5 py-4 flex flex-col sm:flex-row sm:items-center justify-between gap-4 cursor-pointer group"
+                class="project-card index-row panel-glass rounded-2xl p-4 sm:px-5 sm:py-4 space-y-3 cursor-pointer group"
                 data-project-index="${globalIndex}"
-                data-cursor="OPEN CASE"
+                data-cursor="VIEW"
                 tabindex="0"
                 role="button"
-                aria-label="Open case ${project.title}"
+                aria-label="Open case ${escapeHtml(project.title)}"
               >
-                <div class="flex flex-col sm:flex-row sm:items-center gap-3 sm:gap-6">
-                  <span class="font-mono text-xs px-2.5 py-1 rounded-md border w-fit" style="border-color: var(--border-strong); background: var(--badge-bg); color: var(--accent-bright);">
-                    SLOT ${project.id}
-                  </span>
-                  <div>
-                    <h3 class="scramble-title font-display text-lg font-bold tracking-tight transition-colors group-hover:text-sky-400" style="color: var(--text-primary);">
-                      ${project.title}
-                    </h3>
-                    <div class="font-mono text-xs mt-0.5" style="color: var(--text-secondary);">
-                      ${project.subtitle}
+                <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+                  <div class="flex flex-col sm:flex-row sm:items-center gap-3 sm:gap-5">
+                    <span class="font-mono text-xs px-2.5 py-1 rounded-md border w-fit" style="border-color: var(--border-strong); background: var(--badge-bg); color: var(--accent-bright);">
+                      ${escapeHtml(project.id)}
+                    </span>
+                    <div>
+                      <h3 class="scramble-title font-display text-lg font-bold tracking-tight transition-colors group-hover:text-sky-400" style="color: var(--text-primary);">
+                        ${escapeHtml(project.title)}
+                      </h3>
+                      <p class="text-xs mt-0.5 line-clamp-1" style="color: var(--text-secondary);">
+                        ${escapeHtml(project.description)}
+                      </p>
                     </div>
+                  </div>
+
+                  <div class="flex flex-wrap items-center gap-3 sm:gap-4 font-mono text-[11px] shrink-0">
+                    <span style="color: var(--accent-bright);">${escapeHtml(project.category)}</span>
+                    <span style="color: var(--text-muted);">${escapeHtml(project.year)}</span>
+                    <span class="px-2 py-0.5 rounded border text-[10px]" style="border-color: var(--border); color: ${hasVideo ? '#4ADE80' : 'var(--text-muted)'};">
+                      ${hasVideo ? 'LIVE REEL' : 'READY FOR .MP4'}
+                    </span>
+                    <span class="transition-transform group-hover:translate-x-1" style="color: var(--accent-bright);">OPEN CASE &rarr;</span>
                   </div>
                 </div>
 
-                <div class="flex flex-wrap items-center gap-3 sm:gap-5 font-mono text-[11px]">
-                  <span style="color: var(--accent-bright);">${project.category}</span>
-                  <span style="color: var(--text-muted);">${project.year}</span>
-                  <span class="px-2.5 py-1 rounded-md border text-[10px]" style="border-color: var(--border); color: ${hasVideo ? '#4ADE80' : 'var(--text-muted)'};">
-                    ${hasVideo ? 'LIVE PREVIEW' : '16:9 READY'}
-                  </span>
-                  <span class="transition-transform group-hover:translate-x-1" style="color: var(--accent-bright);">OPEN &rarr;</span>
-                </div>
+                ${buildAdminCardStrip(project, globalIndex, hasVideo)}
               </article>
             `;
           })
           .join('');
       }
 
-      // Attach click, keyboard & text-scramble hover handlers to rendered cards
+      // Wire card interactions
       container.querySelectorAll('.project-card').forEach((card) => {
         const idx = Number(card.dataset.projectIndex);
+        const project = state.projects[idx];
         const titleEl = card.querySelector('.scramble-title');
 
-        card.addEventListener('mouseenter', () => {
+        card.addEventListener('mouseenter', (e) => {
           SfxEngine.hover();
           runTextScramble(titleEl);
+          if (state.viewMode === 'index' && project) {
+            showIndexHoverPreview(project, e.clientX, e.clientY);
+          }
         });
 
-        card.addEventListener('click', () => {
+        card.addEventListener('mousemove', (e) => {
+          if (state.viewMode === 'index') {
+            positionIndexHoverPreview(e.clientX, e.clientY);
+          }
+        });
+
+        card.addEventListener('mouseleave', () => {
+          if (state.viewMode === 'index') {
+            hideIndexHoverPreview();
+          }
+        });
+
+        card.addEventListener('click', (e) => {
+          if (e.target.closest('.admin-card-strip')) return;
           SfxEngine.click();
+          hideIndexHoverPreview();
           openCaseModal(idx);
         });
 
         card.addEventListener('keydown', (e) => {
+          if (e.target.closest('.admin-card-strip')) return;
           if (e.key === 'Enter' || e.key === ' ') {
             e.preventDefault();
             SfxEngine.click();
@@ -1731,56 +2540,104 @@
         });
       });
 
+      // Wire hidden Admin buttons when active
+      if (state.adminActive) {
+        container.querySelectorAll('[data-admin-upload]').forEach((btn) => {
+          btn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            SfxEngine.click();
+            state.uploadTargetIndex = Number(btn.dataset.adminUpload);
+            const input = document.getElementById('admin-upload-input');
+            if (input) {
+              input.value = '';
+              input.click();
+            }
+          });
+        });
+
+        container.querySelectorAll('[data-admin-edit]').forEach((btn) => {
+          btn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            SfxEngine.click();
+            openEditCardModal(Number(btn.dataset.adminEdit));
+          });
+        });
+
+        container.querySelectorAll('[data-admin-clear]').forEach((btn) => {
+          btn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            SfxEngine.click();
+            handleClearCardVideo(Number(btn.dataset.adminClear));
+          });
+        });
+      }
+
       refreshCursorTargets();
     }
 
+    /* =========================================================================
+       11. CASE VIEWER MODAL (PLAYER CONTROLS + TAGS + OFFLINE PREVIEW)
+       ========================================================================= */
     function openCaseModal(index) {
-      if (index < 0 || index >= PROJECTS.length) return;
+      if (index < 0 || index >= state.projects.length) return;
       state.activeModalIndex = index;
-      const project = PROJECTS[index];
+      const project = state.projects[index];
+      const videoSrc = getEffectiveVideoSrc(project);
 
       const modal = document.getElementById('case-modal');
       const videoStage = document.getElementById('modal-video-stage');
       const videoPlayer = document.getElementById('modal-video-player');
       const placeholderStage = document.getElementById('modal-placeholder-stage');
-      const clearBtn = document.getElementById('modal-clear-video-btn');
       const statusEl = document.getElementById('modal-video-status');
+      const extLink = document.getElementById('modal-external-link');
+      const playBtn = document.getElementById('modal-play-toggle');
+      const muteBtn = document.getElementById('modal-mute-toggle');
+      const tagsContainer = document.getElementById('modal-tags');
 
-      document.getElementById('modal-slot-tag').textContent = project.videoUrl
-        ? `SLOT ${project.id} // LIVE PREVIEW`
-        : `SLOT ${project.id} // STANDBY`;
-      document.getElementById('modal-counter').textContent = `${project.id} / 0${PROJECTS.length}`;
-      document.getElementById('modal-placeholder-label').textContent = `SLOT ${project.id} // 16:9 VIDEO READY`;
+      document.getElementById('modal-slot-tag').textContent = videoSrc
+        ? `SLOT_${project.id} // LIVE REEL`
+        : `SLOT_${project.id} // 16:9`;
+      document.getElementById('modal-counter').textContent = `${String(index + 1).padStart(2, '0')} / ${String(state.projects.length).padStart(2, '0')}`;
       document.getElementById('modal-title').textContent = project.title;
-      document.getElementById('modal-subtitle').textContent = project.subtitle;
-      document.getElementById('modal-overview').textContent = project.overview;
-      document.getElementById('modal-year').textContent = project.year;
+      document.getElementById('modal-description').textContent = project.description;
       document.getElementById('modal-category').textContent = project.category;
-      document.getElementById('modal-role').textContent = project.role;
+      document.getElementById('modal-year').textContent = project.year;
 
-      const stackEl = document.getElementById('modal-stack');
-      stackEl.innerHTML = project.stack
-        .map(
-          (item) =>
-            `<span class="px-2.5 py-1 rounded-md border text-[10px]" style="border-color: var(--border); background: var(--badge-bg); color: var(--text-primary);">${item}</span>`
-        )
-        .join('');
+      if (tagsContainer) {
+        const tags = Array.isArray(project.tags) ? project.tags : [];
+        tagsContainer.innerHTML = tags
+          .map(
+            (tag) =>
+              `<span class="px-2.5 py-1 rounded-md border font-mono text-[10px] tracking-widest uppercase" style="border-color: var(--border); background: var(--badge-bg); color: var(--accent-bright);">${escapeHtml(tag)}</span>`
+          )
+          .join('');
+      }
 
-      if (project.videoUrl) {
-        videoPlayer.src = project.videoUrl;
+      if (project.externalUrl) {
+        extLink.href = project.externalUrl;
+        extLink.classList.remove('hidden');
+      } else {
+        extLink.classList.add('hidden');
+      }
+
+      if (videoSrc) {
+        videoPlayer.muted = true;
+        videoPlayer.src = videoSrc;
         videoPlayer.play().catch(() => {});
         videoStage.classList.remove('hidden');
         placeholderStage.classList.add('hidden');
-        clearBtn.classList.remove('hidden');
-        statusEl.textContent = `PLAYING LOCAL PREVIEW: ${project.videoFileName || 'VIDEO LOOP'}`;
+        if (playBtn) playBtn.textContent = 'PAUSE';
+        if (muteBtn) muteBtn.textContent = 'UNMUTE SOUND';
+        statusEl.textContent = state.localPreviews[project.id]
+          ? 'PLAYING LOCAL PREVIEW IN 16:9 VIEWPORT'
+          : `PLAYING ${project.videoUrl}`;
       } else {
         videoPlayer.pause();
         videoPlayer.removeAttribute('src');
         videoPlayer.load();
         videoStage.classList.add('hidden');
         placeholderStage.classList.remove('hidden');
-        clearBtn.classList.add('hidden');
-        statusEl.textContent = 'NO VIDEO ATTACHED — VIEWFINDER PLACEHOLDER ACTIVE';
+        statusEl.textContent = 'VIEWFINDER PLACEHOLDER ACTIVE';
       }
 
       modal.classList.add('is-open');
@@ -1792,12 +2649,14 @@
       const videoPlayer = document.getElementById('modal-video-player');
       if (videoPlayer) videoPlayer.pause();
       modal.classList.remove('is-open');
-      document.body.style.overflow = '';
       state.activeModalIndex = -1;
+      if (state.activeEditIndex === -1) {
+        document.body.style.overflow = '';
+      }
     }
 
     /* =========================================================================
-       8. INTERACTIVE 3D TILT FOR IDENTITY_MODULE CARD
+       12. 3D TILT FOR IDENTITY_MODULE + MAGNETIC CURSOR + MOSCOW CLOCK
        ========================================================================= */
     function initIdentityCardTilt() {
       const card = document.getElementById('identity-card');
@@ -1820,9 +2679,6 @@
       });
     }
 
-    /* =========================================================================
-       9. CUSTOM REACTIVE MAGNETIC CURSOR
-       ========================================================================= */
     const cursorPos = { x: -100, y: -100, rx: -100, ry: -100, active: false };
 
     function refreshCursorTargets() {
@@ -1891,38 +2747,6 @@
       requestAnimationFrame(updateCursorLoop);
     }
 
-    /* =========================================================================
-       10. PROCEDURAL FILM GRAIN OVERLAY (NO BASE64 IMAGES)
-       ========================================================================= */
-    function initFilmGrain() {
-      const canvas = document.getElementById('grain-canvas');
-      if (!canvas) return;
-      const ctx = canvas.getContext('2d');
-      if (!ctx) return;
-
-      function renderGrain() {
-        const w = 256;
-        const h = 256;
-        canvas.width = w;
-        canvas.height = h;
-        const img = ctx.createImageData(w, h);
-        const buf = img.data;
-        for (let i = 0; i < buf.length; i += 4) {
-          const v = Math.floor(Math.random() * 255);
-          buf[i] = v;
-          buf[i + 1] = v;
-          buf[i + 2] = v;
-          buf[i + 3] = 255;
-        }
-        ctx.putImageData(img, 0, 0);
-      }
-
-      renderGrain();
-    }
-
-    /* =========================================================================
-       11. LIVE MOSCOW TIME READOUT
-       ========================================================================= */
     function updateMoscowClock() {
       try {
         const now = new Date();
@@ -1933,23 +2757,20 @@
           second: '2-digit',
           hour12: false
         }).format(now);
-        const shortTime = fullTime.slice(0, 5);
-
-        const desktopClock = document.getElementById('live-clock');
-        const mobileClock = document.getElementById('live-clock-mobile');
-        if (desktopClock) desktopClock.textContent = `MSK ${fullTime}`;
-        if (mobileClock) mobileClock.textContent = `MSK ${shortTime}`;
+        const desktop = document.getElementById('live-clock');
+        const mobile = document.getElementById('live-clock-mobile');
+        if (desktop) desktop.textContent = `MSK ${fullTime}`;
+        if (mobile) mobile.textContent = `MSK ${fullTime.slice(0, 5)}`;
       } catch (err) {
-        // Fallback if Intl timezone is unavailable
+        // Ignore Intl fallback errors
       }
     }
 
     /* =========================================================================
-       12. THREE.JS INTERACTIVE 3D WEBGL BACKGROUND
-       - Isometric 3D wireframe terrain grid with vertex wave distortion
-       - Real-time cursor ripple & scroll velocity deformation
-       - Floating wireframe hexagons & ambient dust particles
-       - Smooth live theme color transitions
+       13. THREE.JS INTERACTIVE WEBGL BACKGROUND
+       - Segmented isometric wave grid with cursor & scroll velocity distortion
+       - Floating wireframe hexagons + glowing ambient particles
+       - Adaptive pixel ratio capped at 1.75 + live theme sync
        ========================================================================= */
     const WebGLStage = (() => {
       let renderer = null;
@@ -1967,24 +2788,24 @@
 
       const PALETTES = {
         dark: {
-          bg: 0x05070b,
-          fog: 0x05070b,
+          bg: 0x05080f,
+          fog: 0x05080f,
           grid: 0x38bdf8,
           gridOpacity: 0.22,
-          hex: 0x5fa8d3,
+          hex: 0x7dd3fc,
           hexOpacity: 0.26,
           particles: 0x7dd3fc,
-          particleOpacity: 0.55
+          particleOpacity: 0.56
         },
         light: {
           bg: 0xf4f7fb,
           fog: 0xf4f7fb,
-          grid: 0x5fa8d3,
-          gridOpacity: 0.28,
-          hex: 0x3c88b8,
-          hexOpacity: 0.22,
-          particles: 0x3c88b8,
-          particleOpacity: 0.42
+          grid: 0x3b82f6,
+          gridOpacity: 0.24,
+          hex: 0x2563eb,
+          hexOpacity: 0.2,
+          particles: 0x3b82f6,
+          particleOpacity: 0.38
         }
       };
 
@@ -1997,9 +2818,9 @@
           gridMat.color.setHex(p.grid);
           gridMat.opacity = p.gridOpacity;
         }
-        hexMaterials.forEach((m) => {
-          m.color.setHex(p.hex);
-          m.opacity = p.hexOpacity;
+        hexMaterials.forEach((mat) => {
+          mat.color.setHex(p.hex);
+          mat.opacity = p.hexOpacity;
         });
         if (particleMat) {
           particleMat.color.setHex(p.particles);
@@ -2033,8 +2854,8 @@
           camera.position.set(0, 7.2, 16.5);
           camera.lookAt(0, -1.2, 0);
 
-          // 1) Isometric Wave Grid Plane
-          const planeGeo = new THREE.PlaneGeometry(46, 46, 56, 56);
+          // 1) Isometric Wave Plane Grid
+          const planeGeo = new THREE.PlaneGeometry(46, 46, 52, 52);
           planeGeo.rotateX(-Math.PI / 2);
           gridBasePos = Float32Array.from(planeGeo.attributes.position.array);
 
@@ -2049,12 +2870,11 @@
           gridMesh.rotation.y = Math.PI / 4;
           scene.add(gridMesh);
 
-          // 2) Floating Wireframe Hexagons (echoing X banner geometry)
+          // 2) Floating Wireframe Hexagons
           hexGroup = new THREE.Group();
           hexMaterials = [];
-          const hexCount = 9;
-          for (let i = 0; i < hexCount; i += 1) {
-            const radius = 0.7 + Math.random() * 1.35;
+          for (let i = 0; i < 9; i += 1) {
+            const radius = 0.72 + Math.random() * 1.3;
             const ringGeo = new THREE.CylinderGeometry(radius, radius, 0.06, 6, 1, true);
             const edgesGeo = new THREE.EdgesGeometry(ringGeo);
             const lineMat = new THREE.LineBasicMaterial({
@@ -2081,10 +2901,10 @@
           }
           scene.add(hexGroup);
 
-          // 3) Ambient Spatial Particles
-          const particleCount = 190;
-          const positions = new Float32Array(particleCount * 3);
-          for (let i = 0; i < particleCount; i += 1) {
+          // 3) Glowing Ambient Particles
+          const count = 180;
+          const positions = new Float32Array(count * 3);
+          for (let i = 0; i < count; i += 1) {
             positions[i * 3] = (Math.random() - 0.5) * 34;
             positions[i * 3 + 1] = (Math.random() - 0.4) * 16;
             positions[i * 3 + 2] = (Math.random() - 0.5) * 26;
@@ -2124,14 +2944,12 @@
 
         const elapsed = clock.getElapsedTime();
 
-        // Smooth mouse interpolation & scroll velocity decay
         state.mouse.nx += (state.mouse.targetNx - state.mouse.nx) * 0.06;
         state.mouse.ny += (state.mouse.targetNy - state.mouse.ny) * 0.06;
         state.scrollVelocity *= 0.9;
 
         const scrollBoost = Math.min(Math.abs(state.scrollVelocity) * 0.025, 1.35);
 
-        // Real-time vertex wave distortion responding to cursor & scroll velocity
         const posAttr = gridMesh.geometry.attributes.position;
         const arr = posAttr.array;
         const cursorWorldX = state.mouse.nx * 13;
@@ -2154,12 +2972,10 @@
         }
         posAttr.needsUpdate = true;
 
-        // Subtle camera parallax
         camera.position.x = state.mouse.nx * 1.45;
         camera.position.y = 7.2 - state.mouse.ny * 0.85 - Math.min(state.scrollY * 0.0014, 1.8);
         camera.lookAt(0, -1.2, 0);
 
-        // Animate wireframe hexagons
         hexGroup.children.forEach((hex) => {
           const d = hex.userData;
           hex.position.y = d.baseY + Math.sin(elapsed * d.speed + d.phase) * 0.55;
@@ -2167,7 +2983,6 @@
           hex.rotation.y += d.rotSpeed * 1.25;
         });
 
-        // Slow drift on ambient particles
         particlePoints.rotation.y = elapsed * 0.022 + state.mouse.nx * 0.08;
         particlePoints.rotation.x = state.mouse.ny * 0.04;
 
@@ -2178,7 +2993,7 @@
     })();
 
     /* =========================================================================
-       13. DUAL THEME SWITCHER & UI EVENT BINDING
+       14. THEME SWITCHER & ALL UI / ADMIN EVENT WIRING
        ========================================================================= */
     function setTheme(themeName) {
       state.theme = themeName === 'light' ? 'light' : 'dark';
@@ -2191,44 +3006,82 @@
       updateFilterAndViewUI();
     }
 
-    function bindUIEvents() {
-      // Theme Switcher
-      const themeBtn = document.getElementById('theme-toggle');
-      if (themeBtn) {
-        themeBtn.addEventListener('click', () => {
-          const next = state.theme === 'dark' ? 'light' : 'dark';
-          setTheme(next);
-          SfxEngine.toggle(next === 'dark');
-          showToast(next === 'dark' ? 'THEME: DARK // ACTIVE' : 'THEME: LIGHT // BLUEPRINT');
-        });
-      }
+    function bindEvents() {
+      // 1) Theme Switcher
+      document.getElementById('theme-toggle').addEventListener('click', () => {
+        const next = state.theme === 'dark' ? 'light' : 'dark';
+        setTheme(next);
+        SfxEngine.toggle(next === 'dark');
+        showToast(next === 'dark' ? 'Theme switched to DARK // ACTIVE' : 'Theme switched to LIGHT // BLUEPRINT');
+      });
 
-      // SFX Toggle
+      // 2) Web Audio SFX Toggle
       const sfxBtn = document.getElementById('sfx-toggle');
-      if (sfxBtn) {
-        sfxBtn.addEventListener('click', () => {
-          state.sfxEnabled = !state.sfxEnabled;
-          sfxBtn.setAttribute('aria-pressed', String(state.sfxEnabled));
-          const sfxLabel = document.getElementById('sfx-label');
-          const sfxDot = document.getElementById('sfx-dot');
-          if (sfxLabel) sfxLabel.textContent = state.sfxEnabled ? 'SFX: ON' : 'SFX: OFF';
-          if (sfxDot) sfxDot.style.background = state.sfxEnabled ? '#4ADE80' : 'var(--text-muted)';
-          if (state.sfxEnabled) SfxEngine.toggle(true);
-          showToast(state.sfxEnabled ? 'AUDIO SFX ENABLED' : 'AUDIO SFX MUTED');
-        });
-      }
+      sfxBtn.addEventListener('click', () => {
+        state.sfxEnabled = !state.sfxEnabled;
+        sfxBtn.setAttribute('aria-pressed', String(state.sfxEnabled));
+        document.getElementById('sfx-label').textContent = state.sfxEnabled ? 'SFX: ON' : 'SFX: OFF';
+        document.getElementById('sfx-dot').style.background = state.sfxEnabled ? '#4ADE80' : 'var(--text-muted)';
+        if (state.sfxEnabled) SfxEngine.toggle(true);
+        showToast(state.sfxEnabled ? 'Audio SFX enabled' : 'Audio SFX muted');
+      });
 
-      // Copy @Skybornfx Buttons (Hero & Footer)
-      const onCopyHandle = () => {
-        SfxEngine.click();
-        copyTextSafely('@Skybornfx');
-      };
-      const heroCopyBtn = document.getElementById('copy-handle-hero-btn');
-      const footerCopyBtn = document.getElementById('copy-handle-footer-btn');
-      if (heroCopyBtn) heroCopyBtn.addEventListener('click', onCopyHandle);
-      if (footerCopyBtn) footerCopyBtn.addEventListener('click', onCopyHandle);
+      // 3) Secret Trigger #1: 5 rapid clicks (within 2.5s) on top-left `> skybo` brand mark
+      let brandClickTimestamps = [];
+      document.getElementById('brand-trigger').addEventListener('click', (e) => {
+        const now = Date.now();
+        brandClickTimestamps = brandClickTimestamps.filter((t) => now - t <= 2500);
+        brandClickTimestamps.push(now);
+        if (brandClickTimestamps.length >= 2) {
+          e.preventDefault();
+        }
+        if (brandClickTimestamps.length >= 5) {
+          brandClickTimestamps = [];
+          SfxEngine.click();
+          triggerAdminEntry();
+        }
+      });
 
-      // Category Filter Pills
+      // 4) Secret Trigger #2: Ctrl + Shift + E or Cmd + Shift + E + Modal Keyboard Navigation
+      window.addEventListener('keydown', (e) => {
+        if ((e.ctrlKey || e.metaKey) && e.shiftKey && e.key.toLowerCase() === 'e') {
+          e.preventDefault();
+          triggerAdminEntry();
+          return;
+        }
+
+        if (e.key === 'Escape') {
+          if (document.getElementById('admin-auth-modal').classList.contains('is-open')) {
+            closeAdminAuthModal();
+            return;
+          }
+          if (document.getElementById('admin-edit-modal').classList.contains('is-open')) {
+            closeEditCardModal();
+            return;
+          }
+          if (state.activeModalIndex !== -1) {
+            closeCaseModal();
+          }
+          return;
+        }
+
+        if (state.activeModalIndex !== -1) {
+          if (e.key === 'ArrowRight') {
+            openCaseModal((state.activeModalIndex + 1) % state.projects.length);
+          } else if (e.key === 'ArrowLeft') {
+            openCaseModal((state.activeModalIndex - 1 + state.projects.length) % state.projects.length);
+          }
+        }
+      });
+
+      // 5) Secret Trigger #3: URL #admin hash
+      window.addEventListener('hashchange', () => {
+        if (window.location.hash === '#admin') {
+          triggerAdminEntry();
+        }
+      });
+
+      // 6) Filter Pills & View Switcher
       document.querySelectorAll('.filter-btn').forEach((btn) => {
         btn.addEventListener('click', () => {
           SfxEngine.click();
@@ -2238,116 +3091,250 @@
         });
       });
 
-      // GRID / INDEX View Switcher
-      const gridBtn = document.getElementById('view-grid-btn');
-      const indexBtn = document.getElementById('view-index-btn');
-      if (gridBtn) {
-        gridBtn.addEventListener('click', () => {
-          SfxEngine.click();
-          state.viewMode = 'grid';
-          updateFilterAndViewUI();
-          renderProjects();
-        });
-      }
-      if (indexBtn) {
-        indexBtn.addEventListener('click', () => {
-          SfxEngine.click();
-          state.viewMode = 'index';
-          updateFilterAndViewUI();
-          renderProjects();
-        });
-      }
+      document.getElementById('view-grid-btn').addEventListener('click', () => {
+        SfxEngine.click();
+        state.viewMode = 'grid';
+        updateFilterAndViewUI();
+        renderProjects();
+      });
 
-      // Modal Navigation & Close Controls
-      const modal = document.getElementById('case-modal');
-      const closeBtn = document.getElementById('modal-close-btn');
-      const prevBtn = document.getElementById('modal-prev-btn');
-      const nextBtn = document.getElementById('modal-next-btn');
+      document.getElementById('view-index-btn').addEventListener('click', () => {
+        SfxEngine.click();
+        state.viewMode = 'index';
+        updateFilterAndViewUI();
+        renderProjects();
+      });
 
-      if (closeBtn) {
-        closeBtn.addEventListener('click', () => {
-          SfxEngine.click();
-          closeCaseModal();
-        });
-      }
-      if (modal) {
-        modal.addEventListener('click', (e) => {
-          if (e.target === modal) closeCaseModal();
-        });
-      }
-      if (prevBtn) {
-        prevBtn.addEventListener('click', () => {
-          SfxEngine.click();
-          const prevIdx = (state.activeModalIndex - 1 + PROJECTS.length) % PROJECTS.length;
-          openCaseModal(prevIdx);
-        });
-      }
-      if (nextBtn) {
-        nextBtn.addEventListener('click', () => {
-          SfxEngine.click();
-          const nextIdx = (state.activeModalIndex + 1) % PROJECTS.length;
-          openCaseModal(nextIdx);
-        });
-      }
+      // 7) Case Viewer Modal Controls
+      const caseModal = document.getElementById('case-modal');
+      document.getElementById('modal-close-btn').addEventListener('click', () => {
+        SfxEngine.click();
+        closeCaseModal();
+      });
+      caseModal.addEventListener('click', (e) => {
+        if (e.target === caseModal) closeCaseModal();
+      });
+      document.getElementById('modal-prev-btn').addEventListener('click', () => {
+        SfxEngine.click();
+        openCaseModal((state.activeModalIndex - 1 + state.projects.length) % state.projects.length);
+      });
+      document.getElementById('modal-next-btn').addEventListener('click', () => {
+        SfxEngine.click();
+        openCaseModal((state.activeModalIndex + 1) % state.projects.length);
+      });
 
-      // Keyboard ESC & Arrows for Modal
-      window.addEventListener('keydown', (e) => {
-        if (state.activeModalIndex === -1) return;
-        if (e.key === 'Escape') closeCaseModal();
-        if (e.key === 'ArrowRight') {
-          openCaseModal((state.activeModalIndex + 1) % PROJECTS.length);
-        }
-        if (e.key === 'ArrowLeft') {
-          openCaseModal((state.activeModalIndex - 1 + PROJECTS.length) % PROJECTS.length);
+      // Video Player Play/Pause & Mute/Unmute
+      const modalVideo = document.getElementById('modal-video-player');
+      const playToggle = document.getElementById('modal-play-toggle');
+      const muteToggle = document.getElementById('modal-mute-toggle');
+
+      playToggle.addEventListener('click', () => {
+        if (modalVideo.paused) {
+          modalVideo.play().catch(() => {});
+          playToggle.textContent = 'PAUSE';
+        } else {
+          modalVideo.pause();
+          playToggle.textContent = 'PLAY';
         }
       });
 
-      // Local .MP4 Preview Upload & Reset
-      const uploadBtn = document.getElementById('modal-upload-btn');
-      const clearBtn = document.getElementById('modal-clear-video-btn');
-      const fileInput = document.getElementById('local-video-input');
+      muteToggle.addEventListener('click', () => {
+        modalVideo.muted = !modalVideo.muted;
+        muteToggle.textContent = modalVideo.muted ? 'UNMUTE SOUND' : 'MUTE SOUND';
+      });
 
-      if (uploadBtn && fileInput) {
-        uploadBtn.addEventListener('click', () => {
-          SfxEngine.click();
-          fileInput.value = '';
-          fileInput.click();
-        });
+      // Local Offline Preview Picker inside Case Viewer
+      const localPreviewInput = document.getElementById('local-preview-input');
+      document.getElementById('modal-local-preview-btn').addEventListener('click', () => {
+        SfxEngine.click();
+        localPreviewInput.value = '';
+        localPreviewInput.click();
+      });
 
-        fileInput.addEventListener('change', (e) => {
-          const file = e.target.files && e.target.files[0];
-          if (!file || state.activeModalIndex === -1) return;
+      localPreviewInput.addEventListener('change', (e) => {
+        const file = e.target.files && e.target.files[0];
+        if (!file || state.activeModalIndex === -1) return;
+        const project = state.projects[state.activeModalIndex];
+        if (state.localPreviews[project.id]) {
+          URL.revokeObjectURL(state.localPreviews[project.id]);
+        }
+        state.localPreviews[project.id] = URL.createObjectURL(file);
+        updateTelemetrySlots();
+        openCaseModal(state.activeModalIndex);
+        renderProjects();
+        showToast(`Loaded local preview into slot ${project.id}`);
+      });
 
-          const project = PROJECTS[state.activeModalIndex];
-          if (project.videoUrl && project.videoUrl.startsWith('blob:')) {
-            URL.revokeObjectURL(project.videoUrl);
+      // 8) Admin Direct GitHub Upload Input
+      document.getElementById('admin-upload-input').addEventListener('change', (e) => {
+        const file = e.target.files && e.target.files[0];
+        if (!file || state.uploadTargetIndex === -1) return;
+        const targetIdx = state.uploadTargetIndex;
+        state.uploadTargetIndex = -1;
+        handleAdminVideoUpload(targetIdx, file);
+      });
+
+      // 9) Admin Floating Dock Buttons
+      document.getElementById('admin-add-slot-btn').addEventListener('click', () => {
+        SfxEngine.click();
+        handleAddSlot();
+      });
+
+      document.getElementById('admin-sync-btn').addEventListener('click', async () => {
+        SfxEngine.click();
+        showToast('Syncing projects.json from GitHub API');
+        try {
+          await syncProjectsFromGitHubAPI();
+        } catch (err) {
+          showToast(err.message || 'GitHub sync failed', 'error');
+        }
+      });
+
+      document.getElementById('admin-config-btn').addEventListener('click', () => {
+        SfxEngine.click();
+        openAdminAuthModal();
+      });
+
+      document.getElementById('admin-exit-btn').addEventListener('click', () => {
+        SfxEngine.click();
+        setAdminMode(false);
+        if (window.location.hash === '#admin') {
+          history.replaceState(null, '', window.location.pathname + window.location.search);
+        }
+        showToast('Admin Mode hidden — credentials kept in local browser');
+      });
+
+      // 10) GitHub Auth Modal Form
+      const authModal = document.getElementById('admin-auth-modal');
+      document.getElementById('auth-modal-close').addEventListener('click', closeAdminAuthModal);
+      authModal.addEventListener('click', (e) => {
+        if (e.target === authModal) closeAdminAuthModal();
+      });
+
+      document.getElementById('auth-clear-btn').addEventListener('click', () => {
+        SfxEngine.click();
+        clearAdminConfig();
+        setAdminMode(false);
+        closeAdminAuthModal();
+        if (window.location.hash === '#admin') {
+          history.replaceState(null, '', window.location.pathname + window.location.search);
+        }
+        showToast('Token cleared from browser and logged out of Admin Mode');
+      });
+
+      document.getElementById('admin-auth-form').addEventListener('submit', async (e) => {
+        e.preventDefault();
+        const owner = document.getElementById('cfg-owner').value.trim();
+        const repo = document.getElementById('cfg-repo').value.trim();
+        const branch = document.getElementById('cfg-branch').value.trim() || 'main';
+        const token = document.getElementById('cfg-token').value.trim();
+        const statusBox = document.getElementById('auth-status-box');
+        const verifyBtn = document.getElementById('auth-verify-btn');
+
+        statusBox.classList.remove('hidden');
+        statusBox.style.color = 'var(--accent-bright)';
+        statusBox.textContent = 'VERIFYING GITHUB ACCESS //';
+        verifyBtn.disabled = true;
+
+        try {
+          await verifyGitHubAccess({ owner, repo, branch, token });
+          saveAdminConfig({ owner, repo, branch, token });
+          statusBox.style.color = '#4ADE80';
+          statusBox.textContent = `VERIFIED // ${owner}/${repo} (${branch})`;
+          setAdminMode(true);
+          showToast(`Admin Mode active for ${owner}/${repo}`);
+          syncProjectsFromGitHubAPI().catch(() => {});
+          setTimeout(() => closeAdminAuthModal(), 450);
+        } catch (err) {
+          statusBox.style.color = '#FB7185';
+          statusBox.textContent = String(err.message || 'Verification failed').replace(/\.+$/, '');
+          showToast(err.message || 'GitHub verification failed', 'error');
+        } finally {
+          verifyBtn.disabled = false;
+        }
+      });
+
+      // 11) Admin Edit Card Modal Form
+      const editModal = document.getElementById('admin-edit-modal');
+      document.getElementById('edit-modal-close').addEventListener('click', closeEditCardModal);
+      editModal.addEventListener('click', (e) => {
+        if (e.target === editModal) closeEditCardModal();
+      });
+
+      document.getElementById('admin-edit-form').addEventListener('submit', async (e) => {
+        e.preventDefault();
+        if (state.activeEditIndex === -1) return;
+        const project = state.projects[state.activeEditIndex];
+        const statusBox = document.getElementById('edit-status-box');
+        const saveBtn = document.getElementById('edit-save-btn');
+
+        project.title = document.getElementById('edit-title').value.trim();
+        project.category = document.getElementById('edit-category').value;
+        project.year = document.getElementById('edit-year').value.trim() || '2026';
+        project.description = document.getElementById('edit-description').value.trim().replace(/\.+$/, '');
+        project.tags = document
+          .getElementById('edit-tags')
+          .value.split(',')
+          .map((t) => t.trim())
+          .filter(Boolean);
+        project.externalUrl = document.getElementById('edit-external-url').value.trim();
+        project.videoUrl = document.getElementById('edit-video-url').value.trim();
+
+        statusBox.classList.remove('hidden');
+        statusBox.style.color = 'var(--accent-bright)';
+        statusBox.textContent = 'SAVING PROJECTS.JSON TO GITHUB //';
+        saveBtn.disabled = true;
+
+        updateTelemetrySlots();
+        renderProjects();
+
+        try {
+          await commitProjectsJson(`Edit project slot ${project.id}`);
+          showToast(`Slot ${project.id} committed to GitHub (~1-2 min deploy)`);
+          closeEditCardModal();
+        } catch (err) {
+          statusBox.style.color = '#FB7185';
+          statusBox.textContent = String(err.message || 'Commit failed').replace(/\.+$/, '');
+          showToast(err.message || 'Failed to save card changes', 'error');
+        } finally {
+          saveBtn.disabled = false;
+        }
+      });
+
+      // Two-step inline Delete Slot confirmation (never uses confirm())
+      document.getElementById('edit-delete-slot-btn').addEventListener('click', async () => {
+        if (state.activeEditIndex === -1) return;
+        const delBtn = document.getElementById('edit-delete-slot-btn');
+        if (!state.deleteArmed) {
+          state.deleteArmed = true;
+          delBtn.textContent = 'CONFIRM DELETE';
+          showToast('Click CONFIRM DELETE again to remove this slot', 'warn');
+          return;
+        }
+
+        const removed = state.projects.splice(state.activeEditIndex, 1)[0];
+        if (removed && state.localPreviews[removed.id]) {
+          URL.revokeObjectURL(state.localPreviews[removed.id]);
+          delete state.localPreviews[removed.id];
+        }
+
+        updateTelemetrySlots();
+        renderProjects();
+        closeEditCardModal();
+
+        try {
+          await commitProjectsJson(`Delete project slot ${removed ? removed.id : ''}`);
+          if (removed && removed.videoUrl && removed.videoUrl.startsWith('./videos/')) {
+            const cleanPath = removed.videoUrl.replace(/^\.\//, '');
+            enqueueGitHubTask(() => deleteGitHubFileIfExists(cleanPath, `Delete video ${cleanPath}`));
           }
+          showToast(`Deleted slot ${removed ? removed.id : ''} and committed to GitHub`);
+        } catch (err) {
+          showToast(err.message || 'Failed to commit deletion', 'error');
+        }
+      });
 
-          project.videoUrl = URL.createObjectURL(file);
-          project.videoFileName = file.name.toUpperCase();
-          openCaseModal(state.activeModalIndex);
-          renderProjects();
-          showToast(`LOADED LOCAL VIDEO INTO SLOT ${project.id}`);
-        });
-      }
-
-      if (clearBtn) {
-        clearBtn.addEventListener('click', () => {
-          if (state.activeModalIndex === -1) return;
-          SfxEngine.click();
-          const project = PROJECTS[state.activeModalIndex];
-          if (project.videoUrl && project.videoUrl.startsWith('blob:')) {
-            URL.revokeObjectURL(project.videoUrl);
-          }
-          project.videoUrl = null;
-          project.videoFileName = null;
-          openCaseModal(state.activeModalIndex);
-          renderProjects();
-          showToast(`SLOT ${project.id} RESTORED TO PLACEHOLDER`);
-        });
-      }
-
-      // Global Mouse & Scroll Tracking for WebGL Stage
+      // 12) Global Mouse & Scroll Tracking for WebGL Stage
       window.addEventListener('mousemove', (e) => {
         state.mouse.targetNx = (e.clientX / window.innerWidth) * 2 - 1;
         state.mouse.targetNy = (e.clientY / window.innerHeight) * 2 - 1;
@@ -2356,17 +3343,17 @@
       window.addEventListener(
         'scroll',
         () => {
-          const currentY = window.scrollY || window.pageYOffset;
-          state.scrollVelocity = currentY - state.lastScrollY;
-          state.lastScrollY = currentY;
-          state.scrollY = currentY;
+          const y = window.scrollY || window.pageYOffset;
+          state.scrollVelocity = y - state.lastScrollY;
+          state.lastScrollY = y;
+          state.scrollY = y;
         },
         { passive: true }
       );
     }
 
     /* =========================================================================
-       14. FAST 0 -> 100% NUMERIC PRELOADER (~0.7S WITH FAILSAFE)
+       15. QUICK MINIMAL BOOT PRELOADER (~0.75S WITH FAILSAFE)
        ========================================================================= */
     function runPreloader() {
       const overlay = document.getElementById('preloader');
@@ -2374,10 +3361,10 @@
       const barEl = document.getElementById('preloader-bar');
       if (!overlay) return;
 
-      const duration = 680;
+      const duration = 740;
       const startTime = performance.now();
 
-      function step(now) {
+      function frame(now) {
         const elapsed = now - startTime;
         const progress = Math.min(elapsed / duration, 1);
         const eased = 1 - Math.pow(1 - progress, 3);
@@ -2387,34 +3374,41 @@
         if (barEl) barEl.style.width = `${value}%`;
 
         if (progress < 1) {
-          requestAnimationFrame(step);
+          requestAnimationFrame(frame);
         } else {
           setTimeout(() => overlay.classList.add('is-hidden'), 80);
         }
       }
 
-      requestAnimationFrame(step);
-
-      // Guaranteed failsafe reveal
-      setTimeout(() => overlay.classList.add('is-hidden'), 1400);
+      requestAnimationFrame(frame);
+      setTimeout(() => overlay.classList.add('is-hidden'), 1500);
     }
 
     /* =========================================================================
-       15. BOOTSTRAP ON LOAD
+       16. BOOTSTRAP ON WINDOW LOAD
        ========================================================================= */
     window.onload = function () {
-      bindUIEvents();
+      loadStoredAdminConfig();
+      bindEvents();
       updateFilterAndViewUI();
+      updateTelemetrySlots();
       renderProjects();
       initIdentityCardTilt();
       initTerminalTypewriter();
-      initFilmGrain();
       initCustomCursor();
       updateCursorLoop();
       updateMoscowClock();
       setInterval(updateMoscowClock, 1000);
       WebGLStage.init();
       runPreloader();
+
+      // Load published projects.json if present on GitHub Pages
+      loadPublicProjectsJson();
+
+      // Auto-trigger Admin Mode if opened with #admin hash
+      if (window.location.hash === '#admin') {
+        setTimeout(() => triggerAdminEntry(), 400);
+      }
     };
   </script>
 </body>
