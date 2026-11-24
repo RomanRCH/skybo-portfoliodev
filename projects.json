@@ -46,18 +46,16 @@
   },
   {
     "id": "04",
-    "title": "04 / PIXEL RUMBLE ARENA",
-    "category": "GAMES",
+    "title": "04 / AI CONTROL REEL",
+    "category": "AI",
     "year": "2026",
     "role": "GAME DEV",
-    "description": "Fast-paced retro arcade browser experience with tactile touch physics, custom pixel shaders and instant rounds",
+    "description": "High-stakes risk timelines, board-level warnings and control-pause narratives",
     "tags": [
-      "ARCADE",
-      "CANVAS",
-      "SHADERS"
+      "MOTION & RISK"
     ],
     "externalUrl": "",
-    "videoUrl": "./videos/04-pixel-rumble-arena-1795540893280.mp4"
+    "videoUrl": ""
   },
   {
     "id": "05",
