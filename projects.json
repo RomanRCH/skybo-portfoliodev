@@ -1,18 +1,16 @@
 [
   {
     "id": "01",
-    "title": "01 / PORTALDOT MOTION REEL",
-    "category": "MOTION",
+    "title": "01 / WALLET CONNECT REEL",
+    "category": "WEB3",
     "year": "2026",
-    "role": "MOTION & 3D",
-    "description": "High-contrast 3D promo visuals, kinetic typography loops and launch motion narratives engineered for Web3 feeds",
+    "role": "MOTION & WEB3",
+    "description": "Dark mode Web3 infrastructure promo, glowing network topology animations and zero-trust security visuals",
     "tags": [
-      "3D MOTION",
-      "KINETIC TYPE",
-      "LAUNCH FILM"
+      "OPEN CASE"
     ],
     "externalUrl": "",
-    "videoUrl": "./videos/01-portaldot-motion-reel-1795540749674.mp4"
+    "videoUrl": ""
   },
   {
     "id": "02",
