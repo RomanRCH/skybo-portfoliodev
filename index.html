@@ -481,7 +481,7 @@
 </head>
 <body class="selection:bg-sky-300/30 selection:text-sky-100">
   <!-- =========================================================================
-       FAST MINIMAL BOOT PRELOADER (~0.75S)
+       FAST MINIMAL BOOT PRELOADER (~0.74S)
        ========================================================================= -->
   <div id="preloader" aria-live="polite" aria-label="Loading skybo interface">
     <div class="w-full max-w-sm px-6 space-y-4">
@@ -529,8 +529,7 @@
     </div>
   </div>
 
-  <!-- Hidden File Inputs: Local Offline Preview & Admin GitHub Upload -->
-  <input id="local-preview-input" type="file" accept="video/mp4,video/webm,video/*" class="hidden" aria-hidden="true" />
+  <!-- Hidden File Input: Admin GitHub Upload Only -->
   <input id="admin-upload-input" type="file" accept="video/mp4,video/webm" class="hidden" aria-hidden="true" />
 
   <!-- =========================================================================
@@ -899,7 +898,7 @@
   </div>
 
   <!-- =========================================================================
-       CASE VIEWER MODAL (LARGE 16:9 PLAYER / PLACEHOLDER + OFFLINE TESTER)
+       CASE VIEWER MODAL (LARGE 16:9 PLAYER / CLEAN STANDBY PLACEHOLDER)
        ========================================================================= -->
   <div
     id="case-modal"
@@ -966,7 +965,7 @@
             <video id="modal-video-player" class="w-full h-full object-cover" autoplay loop muted playsinline controls></video>
           </div>
 
-          <!-- Clean 16:9 Placeholder Stage -->
+          <!-- Clean 16:9 Standby Placeholder Stage -->
           <div id="modal-placeholder-stage" class="absolute inset-0 z-10 flex flex-col items-center justify-center text-center p-6 space-y-4">
             <div class="w-14 h-14 rounded-2xl border flex items-center justify-center" style="border-color: var(--border-strong); background: var(--badge-bg); color: var(--accent-brand);">
               <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
@@ -977,38 +976,25 @@
               <div class="font-mono text-xs sm:text-sm font-semibold tracking-wider" style="color: var(--text-primary);">
                 VIDEO SLOT READY // 16:9
               </div>
-              <p class="font-mono text-[11px] leading-relaxed" style="color: var(--text-muted);">
-                Load a local .mp4 file for quick offline preview inside this 16:9 viewport
+              <p class="font-mono text-[11px] tracking-widest uppercase" style="color: var(--text-muted);">
+                16:9 VIEWPORT STANDBY
               </p>
             </div>
           </div>
         </div>
 
-        <!-- Action Strip for Local Preview & External Link -->
-        <div class="flex flex-wrap items-center justify-between gap-3 px-4 py-3 rounded-xl border" style="border-color: var(--border); background: var(--slot-bg);">
-          <div id="modal-video-status" class="font-mono text-xs" style="color: var(--text-secondary);">
-            VIEWFINDER PLACEHOLDER ACTIVE
-          </div>
-          <div class="flex flex-wrap items-center gap-2.5">
-            <a
-              id="modal-external-link"
-              href="#"
-              target="_blank"
-              rel="noopener noreferrer"
-              class="hidden px-4 py-2 rounded-lg border font-mono text-xs font-semibold tracking-wider transition-all hover:border-[#7CB7E8]"
-              style="border-color: var(--border-strong); background: var(--badge-bg); color: var(--accent-bright);"
-            >
-              OPEN PROJECT &rarr;
-            </a>
-            <button
-              id="modal-local-preview-btn"
-              type="button"
-              class="px-4 py-2 rounded-lg font-mono text-xs font-semibold tracking-wider transition-all hover:brightness-110"
-              style="background: linear-gradient(135deg, var(--accent-brand), var(--accent-bright)); color: #070B12;"
-            >
-              PREVIEW LOCAL .MP4
-            </button>
-          </div>
+        <!-- Conditional External Project Link Wrapper (Visible ONLY When project.externalUrl Exists) -->
+        <div id="modal-external-wrap" class="hidden flex items-center justify-end">
+          <a
+            id="modal-external-link"
+            href="#"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="px-4 py-2 rounded-lg border font-mono text-xs font-semibold tracking-wider transition-all hover:border-[#7CB7E8]"
+            style="border-color: var(--border-strong); background: var(--badge-bg); color: var(--accent-bright);"
+          >
+            OPEN PROJECT &rarr;
+          </a>
         </div>
 
         <!-- Case Metadata -->
@@ -1785,7 +1771,7 @@
         showToast('File is over 25 MB — compressing to 1080p is recommended for fast loading', 'warn');
       }
 
-      // Immediately preview the chosen local video in the card viewport
+      // Instant client-side preview inside Admin Mode while uploading to GitHub
       if (state.localPreviews[project.id]) {
         URL.revokeObjectURL(state.localPreviews[project.id]);
       }
@@ -2506,7 +2492,7 @@
     }
 
     /* =========================================================================
-       11. CASE VIEWER MODAL (PLAYER + METADATA + LOCAL .MP4 PREVIEW)
+       11. CASE VIEWER MODAL (CLEAN 16:9 PLAYER + CONDITIONAL EXTERNAL LINK)
        ========================================================================= */
     function openCaseModal(index) {
       if (index < 0 || index >= state.projects.length) return;
@@ -2518,7 +2504,7 @@
       const videoStage = document.getElementById('modal-video-stage');
       const videoPlayer = document.getElementById('modal-video-player');
       const placeholderStage = document.getElementById('modal-placeholder-stage');
-      const statusEl = document.getElementById('modal-video-status');
+      const extWrap = document.getElementById('modal-external-wrap');
       const extLink = document.getElementById('modal-external-link');
       const tagsContainer = document.getElementById('modal-tags');
 
@@ -2544,9 +2530,10 @@
 
       if (project.externalUrl) {
         extLink.href = project.externalUrl;
-        extLink.classList.remove('hidden');
+        extWrap.classList.remove('hidden');
       } else {
-        extLink.classList.add('hidden');
+        extLink.href = '#';
+        extWrap.classList.add('hidden');
       }
 
       if (videoSrc) {
@@ -2555,16 +2542,12 @@
         videoPlayer.play().catch(() => {});
         videoStage.classList.remove('hidden');
         placeholderStage.classList.add('hidden');
-        statusEl.textContent = state.localPreviews[project.id]
-          ? 'PLAYING LOCAL PREVIEW IN 16:9 VIEWPORT'
-          : `PLAYING ${project.videoUrl}`;
       } else {
         videoPlayer.pause();
         videoPlayer.removeAttribute('src');
         videoPlayer.load();
         videoStage.classList.add('hidden');
         placeholderStage.classList.remove('hidden');
-        statusEl.textContent = 'VIEWFINDER PLACEHOLDER ACTIVE';
       }
 
       modal.classList.add('is-open');
@@ -2963,28 +2946,6 @@
         openCaseModal((state.activeModalIndex + 1) % state.projects.length);
       });
 
-      // Local Offline Preview Picker inside Case Viewer
-      const localPreviewInput = document.getElementById('local-preview-input');
-      document.getElementById('modal-local-preview-btn').addEventListener('click', () => {
-        SfxEngine.click();
-        localPreviewInput.value = '';
-        localPreviewInput.click();
-      });
-
-      localPreviewInput.addEventListener('change', (e) => {
-        const file = e.target.files && e.target.files[0];
-        if (!file || state.activeModalIndex === -1) return;
-        const project = state.projects[state.activeModalIndex];
-        if (state.localPreviews[project.id]) {
-          URL.revokeObjectURL(state.localPreviews[project.id]);
-        }
-        state.localPreviews[project.id] = URL.createObjectURL(file);
-        updateTelemetrySlots();
-        openCaseModal(state.activeModalIndex);
-        renderProjects();
-        showToast(`Loaded local preview into slot ${project.id}`);
-      });
-
       // 8) Admin Direct GitHub Upload Input
       document.getElementById('admin-upload-input').addEventListener('change', (e) => {
         const file = e.target.files && e.target.files[0];
@@ -3174,7 +3135,7 @@
     }
 
     /* =========================================================================
-       15. QUICK MINIMAL BOOT PRELOADER (~0.75S WITH FAILSAFE)
+       15. QUICK MINIMAL BOOT PRELOADER (~0.74S WITH FAILSAFE)
        ========================================================================= */
     function runPreloader() {
       const overlay = document.getElementById('preloader');
