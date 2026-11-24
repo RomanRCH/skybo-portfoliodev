@@ -16,18 +16,16 @@
   },
   {
     "id": "02",
-    "title": "02 / AI AGENT EXTENSION",
-    "category": "AI",
+    "title": "02 / CUBE CLASH REEL",
+    "category": "GAMES",
     "year": "2026",
-    "role": "AI ENGINEERING",
-    "description": "Custom browser automation suite combining LLM summarization, thread extraction and instant workflow triggers",
+    "role": "MOTION & GAMEDEV",
+    "description": "Rapid 30-minute indie 3D arena brawls, voxel robot clashes and addictive first-game energy",
     "tags": [
-      "LLM",
-      "CHROME EXT",
-      "AUTOMATION"
+      "OPEN CASE"
     ],
-    "externalUrl": "",
-    "videoUrl": "./videos/02-ai-agent-extension-1795540795778.mp4"
+    "externalUrl": "https://sites.google.com/view/cube-clash-3d-arena-brawler/full-page-embed",
+    "videoUrl": ""
   },
   {
     "id": "03",
