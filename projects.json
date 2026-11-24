@@ -27,18 +27,16 @@
   },
   {
     "id": "03",
-    "title": "03 / WEB3 ECOSYSTEM FILM",
+    "title": "03 / PORTALDOT REEL",
     "category": "WEB3",
     "year": "2026",
-    "role": "CREATIVE DIRECTION",
-    "description": "End-to-end visual storytelling kit with isometric product explainers and protocol launch teasers",
+    "role": "MOTION & WEB3",
+    "description": "High-contrast 3D V3 architecture visuals, EVM WASM compatibility animations and modular multi-chain narratives",
     "tags": [
-      "WEB3",
-      "STORYTELLING",
-      "ISOMETRIC"
+      "OPEN CASE"
     ],
     "externalUrl": "",
-    "videoUrl": "./videos/03-web3-ecosystem-film-1795540861370.mp4"
+    "videoUrl": ""
   },
   {
     "id": "04",
